@@ -1,0 +1,29 @@
+# os generated files
+# --------------------------------
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# sass
+# --------------------------------
+
+.sass-cache
+
+
+# npm
+# --------------------------------
+
+npm-debug.log
+node_modules/
+
+
+# compiled files
+# --------------------------------
+
+dist/
