@@ -1,9 +1,17 @@
 {
-  "name": "am-sass",
+  "name": "am-strap",
   "version": "1.0.0",
   "author": "Rich Cooper",
-  "description": "A modular framework built in SCSS using attribute modules and DRY principles",  
-  "private": true,
+  "main": "all.scss",
+  "description": "Modular styles built with SCSS using attribute modules and DRY principles",
+  "homepage": "https://github.com/Rich-SHD/AM-Strap#readme",
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/Rich-SHD/AM-Strap.git"
+  },
+  "bugs": { 
+    "url" : "https://github.com/Rich-SHD/AM-Strap/issues"
+  },
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",
