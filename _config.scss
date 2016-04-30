@@ -18,25 +18,3 @@ $column-spacing: (
   "lg": 2rem,
   "xl": 2rem
 );
-
-
-// color
-// --------------------------------
-
-$color: (
-  "black": #111111,
-  "white": #ffffff,
-  "bg": #ffffff,
-  "font": #111111,
-  "link": #2F6893,
-  "link-hover": lighten(#2F6893, 20)
-);
-
-
-// typography
-// --------------------------------
-
-$font: (
-  "size": 16px,
-  "line-height": 1.5
-);
