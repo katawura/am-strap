@@ -1,9 +1,11 @@
 // import
 // --------------------------------
 
-@import "config";
-
-@import "core/normalize";
-@import "core/screens";
-@import "core/helpers";
-@import "core/grid";
+@import "base/normalize",
+        "base/helpers";
+        
+@import "modules/screens",
+        "modules/grid",
+        "modules/forms",
+        "modules/system",
+        "modules/buttons";
