@@ -1,0 +1,126 @@
+// config
+// --------------------------------
+
+@import "../config/breakpoints.config";
+
+
+// base
+// --------------------------------
+
+[data-container],
+[data-row] {
+  &::before,
+  &::after {
+    display: table;
+    content: " ";
+  }
+  
+  &::after {
+    clear: both;
+  }
+}
+
+[data-container] {
+  margin: 0 auto;
+}
+
+[data-col] {
+  position: relative;
+  width: 100%;
+  float: left;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+
+// grid rules
+// --------------------------------
+
+@mixin grid-rules($breakpoint-key, $breakpoint-map) {
+  
+  // grid rules: column width
+  $col-width: (100% / $columns);
+  
+  // grid rules: container, row, col
+  [data-container] {    
+    padding: 0 map-get($breakpoint-map, "padding");
+  }
+  
+  [data-row] {
+    margin: 0 (-#{map-get($breakpoint-map, "padding")});
+  }
+  
+  [data-col] {
+    padding: 0 map-get($breakpoint-map, "padding");
+  }
+  
+  // grid rules: column width
+  @for $i from 1 through $columns {
+    [data-col~="#{$breakpoint-key}-#{$i}"] {
+      width: ($col-width * $i);
+    }
+  }
+  
+  // grid rules: push, pull, offset
+  @for $i from 0 through ($columns - 1) {
+    [data-push~="#{$breakpoint-key}-#{$i}"] {
+      left: ($col-width * $i);
+    }
+  
+    [data-pull~="#{$breakpoint-key}-#{$i}"] {
+      right: ($col-width * $i);
+    }
+  
+    [data-offset~="#{$breakpoint-key}-#{$i}"] {
+      margin-left: ($col-width * $i);
+    }
+  }
+}
+
+
+// apply grid
+// --------------------------------
+
+@each $breakpoint-key, $breakpoint-map in $breakpoints {
+  
+  // apply grid: mobile first
+  @if ($breakpoint-key == xs) {
+    @include grid-rules($breakpoint-key, $breakpoint-map);
+  }
+  
+  // apply grid: other breakpoints
+  @else {
+    @media only screen and (min-width: #{map-get($breakpoint-map, "width")}) {
+      @if ($breakpoint-key != sm) {
+        [data-container] {
+          max-width: map-get($breakpoint-map, "width");
+        }
+      }
+      
+      @include grid-rules($breakpoint-key, $breakpoint-map);
+    }
+  }  
+}
+
+
+// hidden/visible
+// --------------------------------
+
+// hidden/visible: media query map
+$target-breakpoint: (
+  "xs": "only screen and (max-width: #{map-get(map-get($breakpoints, sm), width) - 1px})",
+  "sm": "only screen and (min-width: #{map-get(map-get($breakpoints, sm), width)}) and (max-width: #{map-get(map-get($breakpoints, md), width) - 1px})",
+  "md": "only screen and (min-width: #{map-get(map-get($breakpoints, md), width)}) and (max-width: #{map-get(map-get($breakpoints, lg), width) - 1px})",
+  "lg": "only screen and (min-width: #{map-get(map-get($breakpoints, lg), width)}) and (max-width: #{map-get(map-get($breakpoints, xl), width) - 1px})",
+  "xl": "only screen and (min-width: #{map-get(map-get($breakpoints, xl), width)})"
+);
+
+// hidden/visible: loop breakpoints
+@each $breakpoint-key, $breakpoint-query in $target-breakpoint {   
+  @media #{$breakpoint-query} {
+    [data-hidden~="#{$breakpoint-key}"],
+    [data-visible]:not([data-visible~="#{$breakpoint-key}"]) {
+      display: none !important;
+    }
+  }
+}

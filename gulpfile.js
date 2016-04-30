@@ -7,8 +7,8 @@
 var config = {
   css: {
     src: './all.scss',
-    dest: './dist/css',
-    dir: './src/sass'
+    dest: './dist',
+    dir: './'
   }
 };
 
@@ -31,6 +31,10 @@ var autoprefixer = require('gulp-autoprefixer'),
 
 gulp.task('default', function() {
   runSequence('clean', 'build-css', 'watch');
+});
+
+gulp.task('build', function() {
+  runSequence('clean', 'build-css');
 });
 
 
@@ -63,7 +67,7 @@ gulp.task('build-css', function() {
       browsers: ['> 0.5%']
     }))
     .pipe(cleanCSS())
-    .pipe(rename('app.min.css'))
+    .pipe(rename('am-strap.min.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.css.dest));
 });
