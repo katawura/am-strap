@@ -1,0 +1,17 @@
+{
+  "name": "am-sass",
+  "version": "1.0.0",
+  "author": "Rich Cooper",
+  "description": "A modular framework built in SCSS using attribute modules and DRY principles",  
+  "private": true,
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "2.0.0-alpha",
+    "run-sequence": "^1.1.5"
+  }
+}
