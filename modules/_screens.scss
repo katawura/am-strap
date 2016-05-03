@@ -1,7 +1,23 @@
 // config
 // --------------------------------
 
-@import "../config/breakpoints.config";
+$breakpoints: (
+  "xs": (
+    "width": 0px
+  ),
+  "sm": (
+    "width": 420px
+  ),
+  "md": (
+    "width": 768px
+  ),
+  "lg": (
+    "width": 992px
+  ),
+  "xl": (
+    "width": 1200px
+  )
+) !default;
 
 
 // target specific breakpoint

@@ -1,11 +1,8 @@
 // import
 // --------------------------------
 
-@import "base/normalize",
-        "base/helpers";
-        
-@import "modules/screens",
-        "modules/grid",
+@import "modules/grid",
         "modules/forms",
         "modules/system",
+        "modules/screens",
         "modules/buttons";
