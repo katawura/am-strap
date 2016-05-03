@@ -1,6 +1,6 @@
 {
   "name": "am-strap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Rich Cooper",
   "main": "all.scss",
   "description": "Modular styles built with SCSS using attribute modules and DRY principles",
