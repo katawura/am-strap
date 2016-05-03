@@ -1,7 +1,30 @@
 // config
 // --------------------------------
 
-@import "../config/breakpoints.config";
+$columns: 12 !default;
+
+$breakpoints: (
+  "xs": (
+    "width": 0px,
+    "padding": 1rem 
+  ),
+  "sm": (
+    "width": 420px,
+    "padding": 1rem
+  ),
+  "md": (
+    "width": 768px,
+    "padding": 2rem
+  ),
+  "lg": (
+    "width": 992px,
+    "padding": 2rem
+  ),
+  "xl": (
+    "width": 1200px,
+    "padding": 2rem
+  )
+) !default;
 
 
 // base
