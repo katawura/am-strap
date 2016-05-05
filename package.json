@@ -1,8 +1,9 @@
 {
   "name": "am-strap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Rich Cooper",
   "main": "all.scss",
+  "license" : "MIT",
   "description": "Modular styles built with SCSS using attribute modules and DRY principles",
   "homepage": "https://github.com/Rich-SHD/AM-Strap#readme",
   "repository" : { 
