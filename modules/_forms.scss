@@ -1,7 +1,7 @@
 // config
 // --------------------------------
 
-$form: (
+$am-form: (
   "height": 48px,
   "checkbox-height": 32px,
   "spacing": 1rem,
@@ -18,61 +18,74 @@ $form: (
 // forms
 // --------------------------------
 
-textarea,
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="password"] {
+@mixin am-input {
   display: block;
   width: 100%;
-  height: map-get($form, "height");
-  padding: 0 map-get($form, "spacing");
-  margin-bottom: map-get($form, "spacing");
+  height: map-get($am-form, "height");
+  padding: 0 map-get($am-form, "spacing");
+  margin-bottom: map-get($am-form, "spacing");
   font-size: 1rem;
-  color: map-get($form, "color");
-  background: map-get($form, "background");
+  color: map-get($am-form, "color");
+  background: map-get($am-form, "background");
+  outline: none;
   appearance: none;
   border-radius: 0px;
   box-sizing: border-box;
-  border: map-get($form, "border-width") solid map-get($form, "border-color");
+  border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
   transition: border 300ms;
 
   &[disabled] {
-    color: lighten(map-get($form, "color"), 50);
+    color: lighten(map-get($am-form, "color"), 50);
   }
   
   &:-moz-placeholder {
-    color: map-get($form, "placeholder");
+    color: map-get($am-form, "placeholder");
   }
 
   &::-moz-placeholder {
-    color: map-get($form, "placeholder");
+    color: map-get($am-form, "placeholder");
   }
 
   &:-ms-input-placeholder {
-    color: map-get($form, "placeholder");
+    color: map-get($am-form, "placeholder");
   }
 
   &::-webkit-input-placeholder {
-    color: map-get($form, "placeholder");
+    color: map-get($am-form, "placeholder");
   }
 
   &.valid,
   &.ng-dirty.ng-valid {
-    border-color: map-get($form, "valid");
+    border-color: map-get($am-form, "valid");
   }
 
   &.invalid,
   &.ng-dirty.ng-invalid {
-    border-color: map-get($form, "invalid");
+    border-color: map-get($am-form, "invalid");
   }
 }
 
 textarea {
+  @include am-input;
   height: 8em;
-  padding: map-get($form, "spacing");
+  padding: map-get($am-form, "spacing");
+}
+
+input {
+  &[type="url"],
+  &[type="tel"],
+  &[type="text"],
+  &[type="date"],
+  &[type="time"],
+  &[type="week"],
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="password"],
+  &[type="datetime"],
+  &[type="datetime-local"] {
+    @include am-input;
+  }
 }
 
 
@@ -82,18 +95,18 @@ textarea {
 [data-select] {
   position: relative;
   width: 100%;
-  height: map-get($form, "height");
-  line-height: map-get($form, "height");
-  margin-bottom: map-get($form, "spacing");
+  height: map-get($am-form, "height");
+  line-height: map-get($am-form, "height");
+  margin-bottom: map-get($am-form, "spacing");
   overflow: hidden;
-  background: map-get($form, "background");
-  border: map-get($form, "border-width") solid map-get($form, "border-color");
+  background: map-get($am-form, "background");
+  border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
 
   select {
     display: block;
     width: 100%; 
     height: 100%;
-    padding: 0 map-get($form, "spacing");
+    padding: 0 map-get($am-form, "spacing");
     border: none;
     cursor: pointer;
     font-size: inherit;
@@ -110,12 +123,12 @@ textarea {
     
     &:-moz-focusring {
       color: transparent;
-      text-shadow: 0 0 0 map-get($form, "color");
+      text-shadow: 0 0 0 map-get($am-form, "color");
     }
   }
 
   option {
-    padding: 10px map-get($form, "spacing");
+    padding: 10px map-get($am-form, "spacing");
     background: #ffffff;
   }
 }
@@ -126,10 +139,10 @@ textarea {
 
 [data-checkbox] {
   position: relative;
-  min-height: map-get($form, "checkbox-height");
-  line-height: map-get($form, "checkbox-height");
-  padding-left: map-get($form, "checkbox-height");
-  margin-bottom: map-get($form, "spacing");
+  min-height: map-get($am-form, "checkbox-height");
+  line-height: map-get($am-form, "checkbox-height");
+  padding-left: map-get($am-form, "checkbox-height");
+  margin-bottom: map-get($am-form, "spacing");
   
   &::before,
   &::after {
@@ -149,12 +162,12 @@ textarea {
       display: block;
       top: 0; 
       left: 0;
-      width: map-get($form, "checkbox-height");
-      height: map-get($form, "checkbox-height");
+      width: map-get($am-form, "checkbox-height");
+      height: map-get($am-form, "checkbox-height");
       vertical-align: middle;
       cursor: pointer;
-      background: map-get($form, "background");
-      border: map-get($form, "border-width") solid map-get($form, "border-color");
+      background: map-get($am-form, "background");
+      border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
       
       & + label {
         display: block;
@@ -174,7 +187,7 @@ textarea {
         width: 80%; 
         height: 1px;
         margin-top: -0.5px;
-        background: map-get($form, "color"); 
+        background: map-get($am-form, "color"); 
       }
   
       &::before { 
