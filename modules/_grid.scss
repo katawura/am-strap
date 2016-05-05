@@ -1,9 +1,9 @@
 // config
 // --------------------------------
 
-$columns: 12 !default;
+$am-columns: 12 !default;
 
-$breakpoints: (
+$am-breakpoints: (
   "xs": (
     "width": 0px,
     "padding": 1rem 
@@ -62,7 +62,7 @@ $breakpoints: (
 @mixin grid-rules($breakpoint-key, $breakpoint-map) {
   
   // grid rules: column width
-  $col-width: (100% / $columns);
+  $col-width: (100% / $am-columns);
   
   // grid rules: container, row, col
   [data-container] {    
@@ -78,14 +78,14 @@ $breakpoints: (
   }
   
   // grid rules: column width
-  @for $i from 1 through $columns {
+  @for $i from 1 through $am-columns {
     [data-col~="#{$breakpoint-key}-#{$i}"] {
       width: ($col-width * $i);
     }
   }
   
   // grid rules: push, pull, offset
-  @for $i from 0 through ($columns - 1) {
+  @for $i from 0 through ($am-columns - 1) {
     [data-push~="#{$breakpoint-key}-#{$i}"] {
       left: ($col-width * $i);
     }
@@ -104,7 +104,7 @@ $breakpoints: (
 // apply grid
 // --------------------------------
 
-@each $breakpoint-key, $breakpoint-map in $breakpoints {
+@each $breakpoint-key, $breakpoint-map in $am-breakpoints {
   
   // apply grid: mobile first
   @if ($breakpoint-key == xs) {
@@ -131,11 +131,11 @@ $breakpoints: (
 
 // hidden/visible: media query map
 $target-breakpoint: (
-  "xs": "only screen and (max-width: #{map-get(map-get($breakpoints, sm), width) - 1px})",
-  "sm": "only screen and (min-width: #{map-get(map-get($breakpoints, sm), width)}) and (max-width: #{map-get(map-get($breakpoints, md), width) - 1px})",
-  "md": "only screen and (min-width: #{map-get(map-get($breakpoints, md), width)}) and (max-width: #{map-get(map-get($breakpoints, lg), width) - 1px})",
-  "lg": "only screen and (min-width: #{map-get(map-get($breakpoints, lg), width)}) and (max-width: #{map-get(map-get($breakpoints, xl), width) - 1px})",
-  "xl": "only screen and (min-width: #{map-get(map-get($breakpoints, xl), width)})"
+  "xs": "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})",
+  "sm": "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})",
+  "md": "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)}) and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})",
+  "lg": "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)}) and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})",
+  "xl": "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})"
 );
 
 // hidden/visible: loop breakpoints

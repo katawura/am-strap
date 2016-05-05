@@ -1,7 +1,7 @@
 // config
 // --------------------------------
 
-$btn: (
+$am-btn: (
   "height": 48px,
   "color": #111111,
   "background": transparent,
@@ -33,22 +33,22 @@ $btn: (
   @extend .btn;
   position: relative;
   display: inline-block;
-  color: map-get($btn, "color");
-  line-height: (map-get($btn, "height") - (map-get($btn, "border-width") * 2));
-  height: map-get($btn, "height");
+  color: map-get($am-btn, "color");
+  line-height: (map-get($am-btn, "height") - (map-get($am-btn, "border-width") * 2));
+  height: map-get($am-btn, "height");
   padding: 0 2em;
   opacity: 1;
-  background: map-get($btn, "background");
-  border: map-get($btn, "border-width") solid map-get($btn, "border-color");
+  background: map-get($am-btn, "background");
+  border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
 
   &:hover {
-    color: map-get($btn, "color");
+    color: map-get($am-btn, "color");
     text-decoration: none;
     transition: none;
   }
 
   &[disabled] {
-    color: map-get($btn, "color");
+    color: map-get($am-btn, "color");
     text-shadow: none;
     cursor: not-allowed;
 
@@ -81,8 +81,8 @@ $btn: (
     margin-top: -0.7em;
     margin-left: -0.3em;
     opacity: 0;
-    border-right: 0.2em solid map-get($btn, "color");
-    border-bottom: 0.2em solid map-get($btn, "color");
+    border-right: 0.2em solid map-get($am-btn, "color");
+    border-bottom: 0.2em solid map-get($am-btn, "color");
     box-sizing: border-box;
     transform-origin: 50% 50%;
     transform: rotate(45deg) scale(0.5, 0.5);
@@ -119,8 +119,8 @@ $btn: (
     width: 0.8em;
     height: 0.8em;
     opacity: 0;
-    border-right: 0.2em solid map-get($btn, "color");
-    border-bottom: 0.2em solid map-get($btn, "color");
+    border-right: 0.2em solid map-get($am-btn, "color");
+    border-bottom: 0.2em solid map-get($am-btn, "color");
     box-sizing: border-box;
     transform-origin: 50% 50%;
     transform: rotate(-45deg) translate(-10px, -10px);
@@ -146,14 +146,14 @@ $btn: (
   transform-origin: 50% 50%;
   transition: transform 300ms, color 300ms, border 300ms, background 300ms;
   
-  @if (lightness(map-get($btn, "loading-background")) > 50) {
-    border-color: lighten(map-get($btn, "loading-background"), 30);
-    background: darken(map-get($btn, "loading-background"), 30);
+  @if (lightness(map-get($am-btn, "loading-background")) > 50) {
+    border-color: lighten(map-get($am-btn, "loading-background"), 30);
+    background: darken(map-get($am-btn, "loading-background"), 30);
   }
   
   @else {
-    border-color: lighten(map-get($btn, "loading-background"), 30);
-    background: lighten(map-get($btn, "loading-background"), 30);
+    border-color: lighten(map-get($am-btn, "loading-background"), 30);
+    background: lighten(map-get($am-btn, "loading-background"), 30);
   }
 
   &::after {
@@ -164,7 +164,7 @@ $btn: (
     right: 0;
     bottom: 0;
     left: 0;
-    background: map-get($btn, "loading-background");
+    background: map-get($am-btn, "loading-background");
     animation: amBtnLoading 1500ms linear 300ms infinite backwards;
   }
 

@@ -1,7 +1,7 @@
 // system config
 // --------------------------------
 
-$system: (
+$am-system: (
   "padding": 1rem,
   "spacing": 1rem,
   "line-height": 1.5,
@@ -19,9 +19,9 @@ $system: (
   position: relative;
   display: block;
   font-size: 1rem;
-  line-height: map-get($system, "line-height");
-  padding: map-get($system, "padding");
-  margin-bottom: map-get($system, "spacing");
+  line-height: map-get($am-system, "line-height");
+  padding: map-get($am-system, "padding");
+  margin-bottom: map-get($am-system, "spacing");
 
   // response: enter & leave
   &.ng-enter {
@@ -36,8 +36,8 @@ $system: (
     &.ng-enter-active {
       opacity: 1;
       max-height: 6rem;
-      padding: map-get($system, "padding");
-      margin-bottom: map-get($system, "spacing");
+      padding: map-get($am-system, "padding");
+      margin-bottom: map-get($am-system, "spacing");
     }
   }
 
@@ -62,13 +62,13 @@ $system: (
 // --------------------------------
 
 [data-response~="success"] {
-  color: map-get($system, "valid-color");
-  background: map-get($system, "valid-background");
+  color: map-get($am-system, "valid-color");
+  background: map-get($am-system, "valid-background");
 }
 
 [data-response~="error"] {
-  color: map-get($system, "invalid-color");
-  background: map-get($system, "invalid-background");
+  color: map-get($am-system, "invalid-color");
+  background: map-get($am-system, "invalid-background");
 }
 
 
@@ -76,17 +76,17 @@ $system: (
 // --------------------------------
 
 [data-response~="close"] {
-  padding-right: (map-get($system, "padding") * 3);
+  padding-right: (map-get($am-system, "padding") * 3);
   
   &::before,
   &::after {
     position: absolute;
     display: block;
     content: "";
-    width: map-get($system, "padding");
+    width: map-get($am-system, "padding");
     height: 1px;
-    top: map-get($system, "padding") + (map-get($system, "line-height") - 1rem);
-    right: map-get($system, "padding");
+    top: map-get($am-system, "padding") + (map-get($am-system, "line-height") - 1rem);
+    right: map-get($am-system, "padding");
     transform-origin: 50% 50%;
   }
   
@@ -101,14 +101,14 @@ $system: (
   &[data-response~="success"] {
     &::before,
     &::after {
-      background: map-get($system, "valid-color");
+      background: map-get($am-system, "valid-color");
     }
   }
   
   &[data-response~="error"] {
     &::before,
     &::after {
-      background: map-get($system, "invalid-color");
+      background: map-get($am-system, "invalid-color");
     }
   }
 }

@@ -22,9 +22,9 @@ To include the full package in your project, add the following to the start of y
 
 #### Config
 
-    $columns: 12;
+    $am-columns: 12;
 
-    $breakpoints: (
+    $am-breakpoints: (
       "xs": (
         "width": 0px,
         "padding": 1rem 
@@ -80,7 +80,7 @@ The grid follows the same rules as Bootstrap, so a more detailed explanation of 
 
 Config
 
-    $breakpoints: (
+    $am-breakpoints: (
       "xs": (
         "width": 0px
       ),
@@ -123,7 +123,7 @@ Note that the config uses a map config with the same name as the grid. This is t
 
 Config
 
-    $btn: (
+    $am-btn: (
       "height": 48px,
       "color": #111111,
       "background": transparent,
