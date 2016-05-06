@@ -4,11 +4,19 @@
 // config
 // --------------------------------
 
-var config = {
+var paths = {
   css: {
-    src: './all.scss',
     dest: './dist',
-    dir: './'
+    dir: '../',
+    src: [
+      '../all.scss'
+    ]
+  },
+  normalize: {
+    dest: './dist',
+    src: [
+      '../node_modules/normalize.css/normalize.css'
+    ]
   }
 };
 
@@ -17,6 +25,7 @@ var config = {
 // --------------------------------
 
 var autoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync'),
     cleanCSS = require('gulp-clean-css'),
     del = require('del'),
     gulp = require('gulp'),
@@ -30,11 +39,30 @@ var autoprefixer = require('gulp-autoprefixer'),
 // --------------------------------
 
 gulp.task('default', function() {
-  runSequence('clean', 'build-css', 'watch');
+  runSequence(
+    'clean', 
+    'build-css'
+  );
 });
 
-gulp.task('build', function() {
-  runSequence('clean', 'build-css');
+gulp.task('dev', function() {
+  runSequence(
+    'clean', 
+    ['build-css', 'normalize'], 
+    'serve'
+  );
+});
+
+
+// serve test 
+// --------------------------------
+
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
+  });
 });
 
 
@@ -42,9 +70,13 @@ gulp.task('build', function() {
 // --------------------------------
 
 gulp.task('watch', function() {
-  gulp.watch(config.css.dir  + '/**/*.scss', function() {
-    gulp.start('build-css');
+
+  gulp.watch(paths.css.dir + '/**/*.scss', function() {
+    runSequence('build-css', browserSync.reload);
   });
+  
+  gulp.watch('./*.html').on('change', browserSync.reload);
+
 });
 
 
@@ -60,7 +92,7 @@ gulp.task('clean', function() {
 // --------------------------------
 
 gulp.task('build-css', function() {
-  return gulp.src(config.css.src)
+  return gulp.src(paths.css.src)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
@@ -69,5 +101,14 @@ gulp.task('build-css', function() {
     .pipe(cleanCSS())
     .pipe(rename('am-strap.min.css'))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(config.css.dest));
+    .pipe(gulp.dest(paths.css.dest));
+});
+
+
+// distribute normalize
+// --------------------------------
+
+gulp.task('normalize', function() {
+  return gulp.src(paths.normalize.src)
+    .pipe(gulp.dest(paths.normalize.dest)); 
 });
