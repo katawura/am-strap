@@ -6,17 +6,16 @@
 
 var paths = {
   css: {
-    dest: './dist',
-    dir: '../',
-    src: [
-      '../all.scss'
-    ]
+    dest: './examples/dist',
+    dir: './',
+    src: './all.scss'
+  },
+  html: {
+    dir: './examples'
   },
   normalize: {
-    dest: './dist',
-    src: [
-      '../node_modules/normalize.css/normalize.css'
-    ]
+    dest: './examples/dist',
+    src: './node_modules/normalize.css/normalize.css'
   }
 };
 
@@ -49,7 +48,8 @@ gulp.task('dev', function() {
   runSequence(
     'clean', 
     ['build-css', 'normalize'], 
-    'serve'
+    'serve',
+    'watch'
   );
 });
 
@@ -60,7 +60,7 @@ gulp.task('dev', function() {
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./examples"
     }
   });
 });
@@ -75,7 +75,7 @@ gulp.task('watch', function() {
     runSequence('build-css', browserSync.reload);
   });
   
-  gulp.watch('./*.html').on('change', browserSync.reload);
+  gulp.watch(paths.html.dir + '/*.html').on('change', browserSync.reload);
 
 });
 
@@ -105,10 +105,18 @@ gulp.task('build-css', function() {
 });
 
 
-// distribute normalize
+// normalize.css
 // --------------------------------
 
 gulp.task('normalize', function() {
   return gulp.src(paths.normalize.src)
-    .pipe(gulp.dest(paths.normalize.dest)); 
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['> 0.5%']
+    }))
+    .pipe(cleanCSS())
+    .pipe(rename('normalize.min.css'))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(paths.normalize.dest));
 });
