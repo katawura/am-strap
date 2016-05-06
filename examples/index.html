@@ -11,65 +11,22 @@
   <title>Am Strap</title>
 
   <!--css-->
-  <link rel="stylesheet" type="text/css" href="/dist/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/dist/am-strap.min.css">
+  <link rel="stylesheet" type="text/css" href="dist/normalize.css">
+  <link rel="stylesheet" type="text/css" href="dist/am-strap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
-  <!--page styles-->
-  <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    
-    body {
-      padding: 2rem 0;
-      font-family: sans-serif;
-      background: #fff;
-    }
-    
-    [data-block] {
-      padding: 1rem 0;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    
-    [data-block~="red"] {
-      background: #c88787;
-    }
-    
-    [data-block~="blue"] {
-      background: #a0b5d1;
-    }
-    
-    [data-block~="green"] {
-      background: #a1cab0;
-    }
-    
-    code {
-      display: inline-block;
-      padding: 1rem;
-      margin-bottom: 1em;
-      background: #eee;
-      border: 1px solid #ddd;
-    }
-  </style>
 </head>
 <body>
   <div data-container>
     
     <!--container-->
     <h1>Container</h1>
+    <p>Wrap all content in a <b>data-container</b> to scope page widths. It often makes sense to keep the number of containers to a minimum, for example 1 for the nav, 1 for main content and 1 for the footer.</p>
     <div data-row>
       <div data-col="xs-12">
         <div data-block="red"></div>
       </div>
     </div>
-    
     <code>
       &lt;div data-container&gt;<br />
         &nbsp; &lt;div data-row&gt;<br />
@@ -80,6 +37,7 @@
     
     <!--grid layout-->
     <h1>Grid layout</h1>
+    <p>A row and column based grid with multiple breakpoints. A value will apply to all breakpoints at and above the declared size until a higher breakpoint value is declared. For example if a column has <b>data-col="xs-6 xl-8"</b> the column will be 6 wide for <b>xs</b>, <b>sm</b>, <b>md</b> and <b>lg</b> breakpoints then 8 wide at <b>xl</b>. The number of columns is declared in the config.</p>
     <div data-row>
       <div data-col="xs-6 sm-4 lg-8">
         <div data-block="red"></div>
@@ -90,18 +48,18 @@
       <div data-col="sm-4 lg-12">
         <div data-block="green"></div>
       </div>
-    </div>
-    
+    </div>    
     <code>
-    &lt;div data-row&gt;<br />
-      &nbsp; &lt;div data-col="xs-6 sm-4 lg-8"&gt;&lt;/div&gt;<br />
-      &nbsp; &lt;div data-col="xs-6 sm-4 lg-4"&gt;&lt;/div&gt;<br />
-      &nbsp; &lt;div data-col="sm-4 lg-12"&gt;&lt;/div&gt;<br />
-    &lt;/div&gt;
+      &lt;div data-row&gt;<br />
+        &nbsp; &lt;div data-col="xs-6 sm-4 lg-8"&gt;&lt;/div&gt;<br />
+        &nbsp; &lt;div data-col="xs-6 sm-4 lg-4"&gt;&lt;/div&gt;<br />
+        &nbsp; &lt;div data-col="sm-4 lg-12"&gt;&lt;/div&gt;<br />
+      &lt;/div&gt;
     </code>
     
-    <!--push/pull-->
-    <h1>Push/pull</h1>
+    <!--push & pull-->
+    <h1>Push & pull</h1>
+    <p>Change the order of columns at specific breakpoints. AM-Strap is built mobile first so the order you want columns to display at the lowest breakpoint should be the order of the code.</p>
     <div data-row>
       <div data-col="sm-6" data-push="lg-6">
         <div data-block="red"></div>
@@ -110,14 +68,27 @@
         <div data-block="blue"></div>
       </div>
     </div>
-    
     <code>
       &lt;div data-row&gt;<br />
         &nbsp; &lt;div data-col="sm-6" data-push="lg-6"&gt;&lt;/div&gt;<br />
         &nbsp; &lt;div data-col="sm-6" data-pull="lg-6"&gt;&lt;/div&gt;<br />
       &lt;/div&gt;
     </code>
-        
+    
+    <!--offset-->
+    <h1>Offset</h1>
+    <p>Indent columns by any number of column widths. This is ideal for centralising a column which doesn't have full width.</p>
+    <div data-row>
+      <div data-col="sm-6" data-offset="sm-3">
+        <div data-block="green"></div>
+      </div>
+    </div> 
+    <code>
+      &lt;div data-row&gt;<br />
+        &nbsp; &lt;div data-col="sm-6" data-offset="sm-3"&gt;&lt;/div&gt;<br />
+      &lt;/div&gt;
+    </code>
+    
   </div>
 </body>
 </html>
