@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--meta-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
+
+  <!--document-->
+  <title>Am Strap</title>
+
+  <!--css-->
+  <link rel="stylesheet" type="text/css" href="/dist/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/dist/am-strap.min.css">
+
+  <!--page styles-->
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    body {
+      padding: 2rem 0;
+      font-family: sans-serif;
+      background: #fff;
+    }
+    
+    [data-block] {
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    [data-block~="red"] {
+      background: #c88787;
+    }
+    
+    [data-block~="blue"] {
+      background: #a0b5d1;
+    }
+    
+    [data-block~="green"] {
+      background: #a1cab0;
+    }
+    
+    code {
+      display: inline-block;
+      padding: 1rem;
+      margin-bottom: 1em;
+      background: #eee;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div data-container>
+    
+    <!--container-->
+    <h1>Container</h1>
+    <div data-row>
+      <div data-col="xs-12">
+        <div data-block="red"></div>
+      </div>
+    </div>
+    
+    <code>
+      &lt;div data-container&gt;<br />
+        &nbsp; &lt;div data-row&gt;<br />
+          &nbsp;&nbsp;&nbsp; &lt;div data-col="xs-12"&gt;&lt;/div&gt;<br />
+        &nbsp; &lt;/div&gt;<br />
+      &lt;/div&gt;
+    </code>
+    
+    <!--grid layout-->
+    <h1>Grid layout</h1>
+    <div data-row>
+      <div data-col="xs-6 sm-4 lg-8">
+        <div data-block="red"></div>
+      </div>
+      <div data-col="xs-6 sm-4 lg-4">
+        <div data-block="blue"></div>
+      </div>
+      <div data-col="sm-4 lg-12">
+        <div data-block="green"></div>
+      </div>
+    </div>
+    
+    <code>
+    &lt;div data-row&gt;<br />
+      &nbsp; &lt;div data-col="xs-6 sm-4 lg-8"&gt;&lt;/div&gt;<br />
+      &nbsp; &lt;div data-col="xs-6 sm-4 lg-4"&gt;&lt;/div&gt;<br />
+      &nbsp; &lt;div data-col="sm-4 lg-12"&gt;&lt;/div&gt;<br />
+    &lt;/div&gt;
+    </code>
+    
+    <!--push/pull-->
+    <h1>Push/pull</h1>
+    <div data-row>
+      <div data-col="sm-6" data-push="lg-6">
+        <div data-block="red"></div>
+      </div>
+      <div data-col="sm-6" data-pull="lg-6">
+        <div data-block="blue"></div>
+      </div>
+    </div>
+    
+    <code>
+      &lt;div data-row&gt;<br />
+        &nbsp; &lt;div data-col="sm-6" data-push="lg-6"&gt;&lt;/div&gt;<br />
+        &nbsp; &lt;div data-col="sm-6" data-pull="lg-6"&gt;&lt;/div&gt;<br />
+      &lt;/div&gt;
+    </code>
+        
+  </div>
+</body>
+</html>
