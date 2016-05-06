@@ -31,6 +31,14 @@ $am-breakpoints: (
 // --------------------------------
 
 [data-container],
+[data-row],
+[data-col] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+[data-container],
 [data-row] {
   &::before,
   &::after {
@@ -52,7 +60,6 @@ $am-breakpoints: (
   width: 100%;
   float: left;
   min-height: 1px;
-  box-sizing: border-box;
 }
 
 
@@ -61,10 +68,10 @@ $am-breakpoints: (
 
 @mixin grid-rules($breakpoint-key, $breakpoint-map) {
   
-  // grid rules: column width
+  // column width
   $col-width: (100% / $am-columns);
   
-  // grid rules: container, row, col
+  // grid spacing
   [data-container] {    
     padding: 0 map-get($breakpoint-map, "padding");
   }
@@ -77,15 +84,27 @@ $am-breakpoints: (
     padding: 0 map-get($breakpoint-map, "padding");
   }
   
-  // grid rules: column width
-  @for $i from 1 through $am-columns {
-    [data-col~="#{$breakpoint-key}-#{$i}"] {
-      width: ($col-width * $i);
+  // equal height columns
+  [data-row~="flex-#{$breakpoint-key}"] {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    
+    & > [data-col] {
+      flex: 1;
     }
   }
   
-  // grid rules: push, pull, offset
+  [data-row~="noflex-#{$breakpoint-key}"] {
+    display: block;
+  }
+  
+  // col, push, pull & offset
   @for $i from 0 through ($am-columns - 1) {
+    [data-col~="#{$breakpoint-key}-#{$i + 1}"] {
+      width: ($col-width * ($i + 1));
+    }
+    
     [data-push~="#{$breakpoint-key}-#{$i}"] {
       left: ($col-width * $i);
     }
@@ -106,12 +125,12 @@ $am-breakpoints: (
 
 @each $breakpoint-key, $breakpoint-map in $am-breakpoints {
   
-  // apply grid: mobile first
+  // mobile first
   @if ($breakpoint-key == xs) {
     @include grid-rules($breakpoint-key, $breakpoint-map);
   }
   
-  // apply grid: other breakpoints
+  // other breakpoints
   @else {
     @media only screen and (min-width: #{map-get($breakpoint-map, "width")}) {
       @if ($breakpoint-key != sm) {
@@ -129,7 +148,7 @@ $am-breakpoints: (
 // hidden/visible
 // --------------------------------
 
-// hidden/visible: media query map
+// media query map
 $target-breakpoint: (
   "xs": "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})",
   "sm": "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})",
@@ -138,7 +157,7 @@ $target-breakpoint: (
   "xl": "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})"
 );
 
-// hidden/visible: loop breakpoints
+// loop breakpoints
 @each $breakpoint-key, $breakpoint-query in $target-breakpoint {   
   @media #{$breakpoint-query} {
     [data-hidden~="#{$breakpoint-key}"],
