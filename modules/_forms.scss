@@ -37,20 +37,24 @@ $am-form: (
   &[disabled] {
     color: lighten(map-get($am-form, "color"), 50);
   }
-  
+
   &:-moz-placeholder {
+    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
   &::-moz-placeholder {
+    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
   &:-ms-input-placeholder {
+    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
   &::-webkit-input-placeholder {
+    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
