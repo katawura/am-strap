@@ -6,40 +6,69 @@ $am-columns: 12 !default;
 $am-breakpoints: (
   "xs": (
     "width": 0px,
-    "padding": 1rem 
+    "spacing": 1rem 
   ),
   "sm": (
     "width": 420px,
-    "padding": 1rem
+    "spacing": 1rem
   ),
   "md": (
     "width": 768px,
-    "padding": 2rem
+    "spacing": 2rem
   ),
   "lg": (
     "width": 992px,
-    "padding": 2rem
+    "spacing": 2rem
   ),
   "xl": (
     "width": 1200px,
-    "padding": 2rem
+    "spacing": 2rem
   )
 ) !default;
+
+
+// target specific breakpoint
+// --------------------------------
+
+$only-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
+$only-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})";
+$only-md: "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)}) and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})";
+$only-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)}) and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})";
+$only-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
+
+
+// below breakpoint
+// --------------------------------
+
+$below-sm: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
+$below-md: "only screen and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})";
+$below-lg: "only screen and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})";
+$below-xl: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})";
+
+
+// above breakpoint
+// --------------------------------
+
+$above-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)})";
+$above-md: "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)})";
+$above-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)})";
+$above-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
+
+
+// ipad
+// --------------------------------
+
+$ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
+$ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)";
 
 
 // base
 // --------------------------------
 
 [data-container],
-[data-row],
-[data-col] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-[data-container],
 [data-row] {
+  box-sizing: border-box;
+  
   &::before,
   &::after {
     display: table;
@@ -60,6 +89,7 @@ $am-breakpoints: (
   width: 100%;
   float: left;
   min-height: 1px;
+  box-sizing: border-box;
 }
 
 
@@ -73,15 +103,15 @@ $am-breakpoints: (
   
   // grid spacing
   [data-container] {    
-    padding: 0 map-get($breakpoint-map, "padding");
+    padding: 0 map-get($breakpoint-map, "spacing");
   }
   
   [data-row] {
-    margin: 0 (-#{map-get($breakpoint-map, "padding")});
+    margin: 0 (-#{map-get($breakpoint-map, "spacing")});
   }
   
   [data-col] {
-    padding: 0 map-get($breakpoint-map, "padding");
+    padding: 0 map-get($breakpoint-map, "spacing");
   }
   
   // equal height columns
@@ -150,11 +180,11 @@ $am-breakpoints: (
 
 // media query map
 $target-breakpoint: (
-  "xs": "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})",
-  "sm": "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})",
-  "md": "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)}) and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})",
-  "lg": "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)}) and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})",
-  "xl": "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})"
+  "xs": $only-xs,
+  "sm": $only-sm,
+  "md": $only-md,
+  "lg": $only-lg,
+  "xl": $only-xl
 );
 
 // loop breakpoints
