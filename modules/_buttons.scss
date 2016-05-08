@@ -17,7 +17,7 @@ $am-btn: (
 @mixin vendorPrefix($property, $value, $prefixes: ()) {
   @each $prefix in $prefixes {
     #{'-' + $prefix + '-' + $property}: $value;
-  } 
+  }
   #{$property}: $value;
 }
 
@@ -78,7 +78,6 @@ $am-btn: (
 [data-btn="tick"]:not([disabled]):not(.loading) {
   @include vendorPrefix(transition, "color 300ms ease-out 150ms", webkit moz o);
 
-
   &:hover {
     color: transparent !important;
     @include vendorPrefix(transition, "color 300ms ease-out", webkit moz o);
@@ -98,7 +97,7 @@ $am-btn: (
     opacity: 0;
     border-right: 0.2em solid map-get($am-btn, "color");
     border-bottom: 0.2em solid map-get($am-btn, "color");
-    box-sizing: border-box;    
+    box-sizing: border-box;
     @include vendorPrefix(transform, "rotate(45deg) scale(0.5, 0.5)", webkit moz o);
     @include vendorPrefix(transform-origin, "50% 50%", webkit moz o);
     @include vendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o));
@@ -160,12 +159,12 @@ $am-btn: (
   @include vendorPrefix(transform, "scale(1, 0.25)", webkit moz o);
   @include vendorPrefix(transform-origin, "50% 50%", webkit moz o);
   @include vendorPrefix(transition, "transform 300ms, color 300ms, border 300ms, background 300ms", webkit moz o);
-  
+
   @if (lightness(map-get($am-btn, "loading-background")) > 50) {
     border-color: lighten(map-get($am-btn, "loading-background"), 30);
     background-color: darken(map-get($am-btn, "loading-background"), 30);
   }
-  
+
   @else {
     border-color: lighten(map-get($am-btn, "loading-background"), 30);
     background-color: lighten(map-get($am-btn, "loading-background"), 30);
