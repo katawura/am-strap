@@ -22,14 +22,20 @@ $am-btn: (
 }
 
 
-// buttons base
+// basic styles
 // --------------------------------
 
-.btn {
+[data-btn] {
+  position: relative;
+  display: inline-block;
+  color: map-get($am-btn, "color");
+  height: map-get($am-btn, "height");
+  padding: 0 2em;
+  margin: 0;
+  opacity: 1;
   font-size: 1rem;
   font-weight: normal;
-  margin: 0;
-  padding: 0;
+  line-height: (map-get($am-btn, "height") - (map-get($am-btn, "border-width") * 2));
   outline: none;
   cursor: pointer;
   overflow: hidden;
@@ -40,17 +46,6 @@ $am-btn: (
   text-decoration: none;
   box-sizing: border-box;
   vertical-align: middle;
-}
-
-[data-btn] {
-  @extend .btn;
-  position: relative;
-  display: inline-block;
-  color: map-get($am-btn, "color");
-  line-height: (map-get($am-btn, "height") - (map-get($am-btn, "border-width") * 2));
-  height: map-get($am-btn, "height");
-  padding: 0 2em;
-  opacity: 1;
   background-color: map-get($am-btn, "background");
   border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
 
@@ -100,10 +95,10 @@ $am-btn: (
     box-sizing: border-box;
     @include vendorPrefix(transform, "rotate(45deg) scale(0.5, 0.5)", webkit moz o);
     @include vendorPrefix(transform-origin, "50% 50%", webkit moz o);
-    @include vendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o));
+    @include vendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
   }
 
-  &:hover::before {
+  &:hover::before { 
     opacity: 1;
     @include vendorPrefix(transform, "rotate(45deg) scale(1, 1)", webkit moz o);
     @include vendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
