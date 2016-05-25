@@ -2,16 +2,16 @@
 // --------------------------------
 
 $am-form: (
-  "height": 48px,
+  "input-height": 48px,
   "checkbox-height": 32px,
   "spacing": 1rem,
   "color": #111111,
-  "placeholder": #888888,
+  "placeholder-color": #888888,
   "background-color": #eeeeee,
   "border-width": 2px,
   "border-color": #cccccc,
-  "valid": #9bd49b,
-  "invalid": #ed9696
+  "valid-color": #9bd49b,
+  "invalid-color": #ed9696
 ) !default;
 
 
@@ -21,7 +21,7 @@ $am-form: (
 @mixin am-input {
   display: block;
   width: 100%;
-  height: map-get($am-form, "height");
+  height: map-get($am-form, "input-height");
   padding: 0 map-get($am-form, "spacing");
   margin-bottom: map-get($am-form, "spacing");
   font-size: 1rem;
@@ -40,32 +40,31 @@ $am-form: (
 
   &:-moz-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder");
+    color: map-get($am-form, "placeholder-color");
   }
 
   &::-moz-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder");
+    color: map-get($am-form, "placeholder-color");
   }
 
   &:-ms-input-placeholder {
-    opacity: 0.8;
-    color: map-get($am-form, "placeholder");
+    color: map-get($am-form, "placeholder-color");
   }
 
   &::-webkit-input-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder");
+    color: map-get($am-form, "placeholder-color");
   }
 
   &.valid,
   &.ng-dirty.ng-valid {
-    border-color: map-get($am-form, "valid");
+    border-color: map-get($am-form, "valid-color");
   }
 
   &.invalid,
   &.ng-dirty.ng-invalid {
-    border-color: map-get($am-form, "invalid");
+    border-color: map-get($am-form, "invalid-color");
   }
 }
 
@@ -99,8 +98,8 @@ input {
 [data-select] {
   position: relative;
   width: 100%;
-  height: map-get($am-form, "height");
-  line-height: map-get($am-form, "height");
+  height: map-get($am-form, "input-height");
+  line-height: map-get($am-form, "input-height");
   margin-bottom: map-get($am-form, "spacing");
   overflow: hidden;
   background: map-get($am-form, "background");
