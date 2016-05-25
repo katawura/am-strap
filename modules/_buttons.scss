@@ -16,7 +16,7 @@ $am-btn: (
 
 @mixin vendorPrefix($property, $value, $prefixes: ()) {
   @each $prefix in $prefixes {
-    #{'-' + $prefix + '-' + $property}: $value;
+    #{"-" + $prefix + "-" + $property}: #{$value};
   }
   #{$property}: $value;
 }
