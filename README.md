@@ -5,15 +5,26 @@ A modular styling framework built with SCSS using attribute modules and DRY prin
 ## Usage
 ---
 
-To include the full package in your project, import it at the start of your SCSS with the relevant path.
+Download via bower
 
-`@import "./node_modules/am-strap/all"`
+    bower install am-strap
+    
+Then include at the start of your SASS
 
-Each module requires a config map. If you want to customise a module, you can declare it's config map with your own values. Otherwise, modules will default to using the maps shown below.
+    @import "./bower_components/am-strap/all";
+    
+Or download via NPM
+
+    npm install am-strap
+
+Then include at the start of your SASS
+
+    @import "./node_modules/am-strap/all";
+
+Alternatively you can just import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map. If you want to customise a module, you can declare it's config map with your own values. Otherwise, modules will default to using the maps shown below.
 
 
 ## Modules
----
 
 1. [Grid](#grid)
 2. [Buttons](#buttons)
@@ -22,7 +33,6 @@ Each module requires a config map. If you want to customise a module, you can de
 
 
 ## <a name="grid"></a>Grid
----
 
 #### Config
 
@@ -53,7 +63,7 @@ Each module requires a config map. If you want to customise a module, you can de
 
 #### HTML
 
-** Grid layout **
+**Grid layout**
 
     <div data-container>
       <div data-row>
@@ -63,21 +73,21 @@ Each module requires a config map. If you want to customise a module, you can de
       </div>
     </div>
 
-** Pushes & pulls **
+**Pushes & pulls**
 
     <div data-col="sm-6" data-push="sm-6"></div>
     <div data-col="sm-6" data-pull="sm-6"></div>
 
-** Offset **
+**Offset**
 
     <div data-col="md-6" data-offset="md-3"></div>
 
-** Hidden & visible **
+**Hidden & visible**
 
     <div data-col="md-6" data-hidden="xs sm"></div>
     <div data-col="xs-12" data-visible="xs sm"></div>
  
-** Equal height columns **
+**Equal height columns**
 
     <div data-row="flex-sm noflex-lg">
       <div data-col="xs-6"></div>
@@ -86,19 +96,19 @@ Each module requires a config map. If you want to customise a module, you can de
 
 #### CSS
 
-** Target specific screen size **
+**Target specific screen size**
 
     @media #{$only-sm} {
       // target sm breakpoint
     }
     
-** Target screen sizes above a breakpoint **
+**Target screen sizes above a breakpoint**
 
     @media #{$above-sm} {
       // target breakpoints above sm
     }
     
-** Target screen sizes below a breakpoint ** 
+**Target screen sizes below a breakpoint**
     
     @media #{$above-lg} {
       // target breakpoints below lg
@@ -107,7 +117,6 @@ Each module requires a config map. If you want to customise a module, you can de
 
 
 ## <a name="buttons"></a>Buttons
----
 
 #### Config
 
