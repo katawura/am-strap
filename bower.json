@@ -5,13 +5,15 @@
   "main": "all.scss",
   "license" : "MIT",
   "description": "Modular styles built with SCSS using attribute modules and DRY principles",
-  "homepage": "https://github.com/Rich-SHD/AM-Strap#readme",
-  "repository" : { 
-    "type" : "git", 
-    "url" : "https://github.com/Rich-SHD/AM-Strap.git"
-  },
-  "bugs": { 
-    "url" : "https://github.com/Rich-SHD/AM-Strap/issues"
+  "ignore": [
+    ".gitignore",
+    "bower.json",
+    "gulpfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "normalize.css": "^4.1.1"
   },
   "devDependencies": {
     "browser-sync": "^2.12.5",
@@ -22,7 +24,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
-    "normalize.css": "^4.1.1",
     "run-sequence": "^1.1.5"
   }
 }
