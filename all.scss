@@ -2,8 +2,9 @@
 // --------------------------------
 
 @import 
-  "modules/reset",
-  "modules/grid",
-  "modules/forms",
-  "modules/system",
-  "modules/buttons";
+  "./node_modules/normalize.css/normalize.css",
+  "./modules/reset",
+  "./modules/grid",
+  "./modules/forms",
+  "./modules/system",
+  "./modules/buttons";
