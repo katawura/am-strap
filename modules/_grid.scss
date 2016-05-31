@@ -6,7 +6,7 @@ $am-columns: 12 !default;
 $am-breakpoints: (
   "xs": (
     "width": 0px,
-    "spacing": 1rem 
+    "spacing": 1rem
   ),
   "sm": (
     "width": 420px,
@@ -68,13 +68,13 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 [data-container],
 [data-row] {
   box-sizing: border-box;
-  
+
   &::before,
   &::after {
     display: table;
     content: " ";
   }
-  
+
   &::after {
     clear: both;
   }
@@ -96,55 +96,55 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 // grid rules
 // --------------------------------
 
-@mixin grid-rules($breakpoint-key, $breakpoint-map) {
-  
+@mixin grid-rules($am-breakpoint-key, $am-breakpoint-map) {
+
   // column width
-  $col-width: (100% / $am-columns);
-  
+  $am-col-width: (100% / $am-columns);
+
   // grid spacing
-  [data-container] {    
-    padding: 0 map-get($breakpoint-map, "spacing");
+  [data-container] {
+    padding: 0 map-get($am-breakpoint-map, "spacing");
   }
-  
+
   [data-row] {
-    margin: 0 (-#{map-get($breakpoint-map, "spacing")});
+    margin: 0 (-#{map-get($am-breakpoint-map, "spacing")});
   }
-  
+
   [data-col] {
-    padding: 0 map-get($breakpoint-map, "spacing");
+    padding: 0 map-get($am-breakpoint-map, "spacing");
   }
-  
+
   // equal height columns
-  [data-row~="flex-#{$breakpoint-key}"] {
+  [data-row~="flex-#{$am-breakpoint-key}"] {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    
+
     & > [data-col] {
       flex: 1;
     }
   }
-  
-  [data-row~="noflex-#{$breakpoint-key}"] {
+
+  [data-row~="noflex-#{$am-breakpoint-key}"] {
     display: block;
   }
-  
+
   // col, push, pull & offset
   @for $i from 0 through ($am-columns - 1) {
-    [data-col~="#{$breakpoint-key}-#{$i + 1}"] {
-      width: ($col-width * ($i + 1));
+    [data-col~="#{$am-breakpoint-key}-#{$i + 1}"] {
+      width: ($am-col-width * ($i + 1));
     }
-    
-    [data-push~="#{$breakpoint-key}-#{$i}"] {
-      left: ($col-width * $i);
+
+    [data-push~="#{$am-breakpoint-key}-#{$i}"] {
+      left: ($am-col-width * $i);
     }
-  
-    [data-pull~="#{$breakpoint-key}-#{$i}"] {
-      right: ($col-width * $i);
+
+    [data-pull~="#{$am-breakpoint-key}-#{$i}"] {
+      right: ($am-col-width * $i);
     }
-  
-    [data-offset~="#{$breakpoint-key}-#{$i}"] {
-      margin-left: ($col-width * $i);
+
+    [data-offset~="#{$am-breakpoint-key}-#{$i}"] {
+      margin-left: ($am-col-width * $i);
     }
   }
 }
@@ -153,25 +153,25 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 // apply grid
 // --------------------------------
 
-@each $breakpoint-key, $breakpoint-map in $am-breakpoints {
-  
+@each $am-breakpoint-key, $am-breakpoint-map in $am-breakpoints {
+
   // mobile first
-  @if ($breakpoint-key == xs) {
-    @include grid-rules($breakpoint-key, $breakpoint-map);
+  @if ($am-breakpoint-key == xs) {
+    @include grid-rules($am-breakpoint-key, $am-breakpoint-map);
   }
-  
+
   // other breakpoints
   @else {
-    @media only screen and (min-width: #{map-get($breakpoint-map, "width")}) {
-      @if ($breakpoint-key != sm) {
+    @media only screen and (min-width: #{map-get($am-breakpoint-map, "width")}) {
+      @if ($am-breakpoint-key != sm) {
         [data-container] {
-          max-width: map-get($breakpoint-map, "width");
+          max-width: map-get($am-breakpoint-map, "width");
         }
       }
-      
-      @include grid-rules($breakpoint-key, $breakpoint-map);
+
+      @include grid-rules($am-breakpoint-key, $am-breakpoint-map);
     }
-  }  
+  }
 }
 
 
@@ -179,7 +179,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 // --------------------------------
 
 // media query map
-$target-breakpoint: (
+$am-target-breakpoint: (
   "xs": $only-xs,
   "sm": $only-sm,
   "md": $only-md,
@@ -188,10 +188,10 @@ $target-breakpoint: (
 );
 
 // loop breakpoints
-@each $breakpoint-key, $breakpoint-query in $target-breakpoint {   
-  @media #{$breakpoint-query} {
-    [data-hidden~="#{$breakpoint-key}"],
-    [data-visible]:not([data-visible~="#{$breakpoint-key}"]) {
+@each $am-breakpoint-key, $am-breakpoint-query in $am-target-breakpoint {
+  @media #{$am-breakpoint-query} {
+    [data-hidden~="#{$am-breakpoint-key}"],
+    [data-visible]:not([data-visible~="#{$am-breakpoint-key}"]) {
       display: none !important;
     }
   }

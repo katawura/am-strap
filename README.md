@@ -1,28 +1,18 @@
 # AM Strap
 A modular styling framework built with SCSS using attribute modules and DRY principles.
 
-
 ## Usage
 ---
 
-Download via bower
+Download with bower
 
     bower install am-strap
     
-Then include at the start of your SASS
+Then import at the start of your SCSS
 
     @import "./bower_components/am-strap/all";
-    
-Or download via NPM
 
-    npm install am-strap
-
-Then include at the start of your SASS
-
-    @import "./node_modules/am-strap/all";
-
-Alternatively you can just import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map. If you want to customise a module, you can declare it's config map with your own values. Otherwise, modules will default to using the maps shown below.
-
+Alternatively you can just import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map, and includes a default map in the file. To customise a module, just declare it's config map with your own values.
 
 ## Modules
 
@@ -31,8 +21,8 @@ Alternatively you can just import individual modules. They are all stand-alone f
 3. [Forms](#forms)
 4. [System](#system)
 
-
-## <a name="grid"></a>Grid
+<a name="grid"></a>
+## Grid
 
 #### Config
 
@@ -68,12 +58,12 @@ Alternatively you can just import individual modules. They are all stand-alone f
     <div data-container>
       <div data-row>
         <div data-col="md-6 xs-12"></div>
-        <div data-col="md-3 xs-12"></div>
-        <div data-col="md-3 xs-12"></div>
+        <div data-col="md-3 xs-6"></div>
+        <div data-col="md-3 xs-6"></div>
       </div>
     </div>
 
-**Pushes & pulls**
+**Push & pull**
 
     <div data-col="sm-6" data-push="sm-6"></div>
     <div data-col="sm-6" data-pull="sm-6"></div>
@@ -99,24 +89,23 @@ Alternatively you can just import individual modules. They are all stand-alone f
 **Target specific screen size**
 
     @media #{$only-sm} {
-      // target sm breakpoint
+      // target sm
     }
     
 **Target screen sizes above a breakpoint**
 
-    @media #{$above-sm} {
-      // target breakpoints above sm
+    @media #{$above-md} {
+      // target above md
     }
     
 **Target screen sizes below a breakpoint**
     
-    @media #{$above-lg} {
-      // target breakpoints below lg
+    @media #{$below-lg} {
+      // target below lg
     }
-  
 
-
-## <a name="buttons"></a>Buttons
+<a name="buttons"></a>
+## Buttons
 
 #### Config
 
