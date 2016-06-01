@@ -2,17 +2,16 @@
 A modular styling framework built with SCSS using attribute modules and DRY principles.
 
 ## Usage
----
 
-Download with bower
+**Download**
 
     bower install am-strap
     
-Then import at the start of your SCSS
+**Import at the start of your SCSS**
 
     @import "./bower_components/am-strap/all";
 
-Alternatively you can just import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map, and includes a default map in the file. To customise a module, just declare it's config map with your own values.
+Alternatively you can import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map, and includes a default map in the file. To customise a module, just declare it's config map with your own values.
 
 ## Modules
 
