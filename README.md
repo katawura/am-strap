@@ -1,5 +1,5 @@
 # AM Strap
-A modular styling framework built with SCSS using attribute modules and DRY principles.
+A modular styling framework built with SCSS using attribute modules and DRY principles. It is strongly recommended to import [normalize.css](https://necolas.github.io/normalize.css/) in your project before AM-Strap.
 
 ## Usage
 
