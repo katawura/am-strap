@@ -2,16 +2,16 @@
 // --------------------------------
 
 $am-form: (
-  "input-height": 48px,
-  "checkbox-height": 32px,
+  "input-height": 3rem,
+  "checkbox-height": 2rem,
   "spacing": 1rem,
   "color": #111111,
-  "placeholder-color": #888888,
-  "background-color": #eeeeee,
+  "placeholder": #888888,
+  "background-color": transparent,
   "border-width": 2px,
   "border-color": #cccccc,
-  "valid-color": #9bd49b,
-  "invalid-color": #ed9696
+  "positive-color": #9bd49b,
+  "negative-color": #ed9696
 ) !default;
 
 
@@ -26,7 +26,7 @@ $am-form: (
   margin-bottom: map-get($am-form, "spacing");
   font-size: 1rem;
   color: map-get($am-form, "color");
-  background: map-get($am-form, "background");
+  background-color: map-get($am-form, "background-color");
   outline: none;
   appearance: none;
   border-radius: 0px;
@@ -40,31 +40,31 @@ $am-form: (
 
   &:-moz-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder-color");
+    color: map-get($am-form, "placeholder");
   }
 
   &::-moz-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder-color");
+    color: map-get($am-form, "placeholder");
   }
 
   &:-ms-input-placeholder {
-    color: map-get($am-form, "placeholder-color");
+    color: map-get($am-form, "placeholder");
   }
 
   &::-webkit-input-placeholder {
     opacity: 0.8;
-    color: map-get($am-form, "placeholder-color");
+    color: map-get($am-form, "placeholder");
   }
 
   &.valid,
   &.ng-dirty.ng-valid {
-    border-color: map-get($am-form, "valid-color");
+    border-color: map-get($am-form, "positive-color");
   }
 
   &.invalid,
   &.ng-dirty.ng-invalid {
-    border-color: map-get($am-form, "invalid-color");
+    border-color: map-get($am-form, "negative-color");
   }
 }
 
@@ -102,7 +102,7 @@ input {
   line-height: map-get($am-form, "input-height");
   margin-bottom: map-get($am-form, "spacing");
   overflow: hidden;
-  background: map-get($am-form, "background");
+  background-color: map-get($am-form, "background-color");
   border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
 
   select {
@@ -132,7 +132,7 @@ input {
 
   option {
     padding: 10px map-get($am-form, "spacing");
-    background: #ffffff;
+    background-color: #ffffff;
   }
 }
 
@@ -169,7 +169,7 @@ input {
       height: map-get($am-form, "checkbox-height");
       vertical-align: middle;
       cursor: pointer;
-      background: map-get($am-form, "background");
+      background-color: map-get($am-form, "background-color");
       border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
       
       & + label {
@@ -190,7 +190,7 @@ input {
         width: 80%; 
         height: 1px;
         margin-top: -0.5px;
-        background: map-get($am-form, "color"); 
+        background-color: map-get($am-form, "color"); 
       }
   
       &::before { 

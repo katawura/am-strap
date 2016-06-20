@@ -16,9 +16,10 @@ Thumbs.db
 npm-debug.log
 node_modules/
 bower_components/
+tests/node_modules/
 
 
 # compiled files
 # --------------------------------
 
-dist/
+tests/dist/
