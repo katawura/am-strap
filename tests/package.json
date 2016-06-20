@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "name": "am-strap-tests",
+  "author": "Rich Cooper",
+  "license": "MIT",
+  "description": "A testing environment for AM-Strap",
+  "scripts": {
+    "dev": "lite-server -c bs-config.json"
+  },
+  "devDependencies": {    
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-watch": "^4.3.5",
+    "lite-server": "^2.2.0",
+    "run-sequence": "^1.1.5"
+  }
+}
