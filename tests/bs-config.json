@@ -1,0 +1,9 @@
+{ 
+  "injectChanges": true,
+  "files": ["./**/*.{html,css}"],
+  "watchOptions": { 
+    "ignored": [
+      "node_modules"
+    ]
+  }
+}
