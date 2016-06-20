@@ -1,24 +1,27 @@
 # AM Strap
-A modular styling framework built with SCSS using attribute modules and DRY principles. It is strongly recommended to import [normalize.css](https://necolas.github.io/normalize.css/) in your project before AM-Strap.
+A modular styling framework built with SCSS using attribute modules and DRY principles. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before using AM-Strap.
 
-## Usage
 
-**Download**
+## Contents
+
+1. [Install](#install)
+2. [Grid](#grid)
+3. [Buttons](#buttons)
+4. [Forms](#forms)
+5. [System](#system)
+
+<a name="install"></a>
+## Install
+
+Download with bower
 
     bower install am-strap
     
-**Import at the start of your SCSS**
+Then import at the start of your SCSS
 
     @import "./bower_components/am-strap/all";
 
-Alternatively you can import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map, and includes a default map in the file. To customise a module, just declare it's config map with your own values.
-
-## Modules
-
-1. [Grid](#grid)
-2. [Buttons](#buttons)
-3. [Forms](#forms)
-4. [System](#system)
+Alternatively you can import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map and includes fallback settings. To customise a module, simply declare it's config map using your own values. In config maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
@@ -50,9 +53,9 @@ Alternatively you can import individual modules. They are all stand-alone files 
       )
     );
 
-#### HTML
+#### Usage
 
-**Grid layout**
+Grid layout
 
     <div data-container>
       <div data-row>
@@ -62,21 +65,21 @@ Alternatively you can import individual modules. They are all stand-alone files 
       </div>
     </div>
 
-**Push & pull**
+Push & pull
 
     <div data-col="sm-6" data-push="sm-6"></div>
     <div data-col="sm-6" data-pull="sm-6"></div>
 
-**Offset**
+Offset
 
     <div data-col="md-6" data-offset="md-3"></div>
 
-**Hidden & visible**
+Hidden & visible
 
     <div data-col="md-6" data-hidden="xs sm"></div>
     <div data-col="xs-12" data-visible="xs sm"></div>
  
-**Equal height columns**
+Equal height columns
 
     <div data-row="flex-sm noflex-lg">
       <div data-col="xs-6"></div>
@@ -85,19 +88,19 @@ Alternatively you can import individual modules. They are all stand-alone files 
 
 #### CSS
 
-**Target specific screen size**
+Target specific screen size
 
     @media #{$only-sm} {
       // target sm
     }
     
-**Target screen sizes above a breakpoint**
+Target screen sizes above a breakpoint
 
     @media #{$above-md} {
       // target above md
     }
     
-**Target screen sizes below a breakpoint**
+Target screen sizes below a breakpoint
     
     @media #{$below-lg} {
       // target below lg
@@ -117,7 +120,75 @@ Alternatively you can import individual modules. They are all stand-alone files 
       "loading-background": #333333
     );
 
-#### HTML
+#### Usage
 
     <a href="" data-btn="tick">Submit</a>
     <a href="" data-btn="arrow">Next</a>
+
+<a name="forms"></a>
+## Forms
+
+#### Config
+
+	$am-form: (
+      "input-height": 3rem,
+      "checkbox-height": 2rem,
+      "spacing": 1rem,
+      "color": #111111,
+      "placeholder": #888888,
+      "background-color": transparent,
+      "border-width": 2px,
+      "border-color": #cccccc,
+      "positive-color": #9bd49b,
+      "negative-color": #ed9696
+    );
+    
+#### Usage
+
+Input
+
+    <input type="text" />
+    
+Select box
+
+    <div data-select>
+      <select>
+        <option selected="true" disabled="disabled">-- Select --</option>
+        <option value="Option 1">Option 1</option>
+       <option value="Option 2">Option 2</option>
+      </select>
+    </div>
+    
+Checkbox
+
+    <div data-checkbox>
+      <input type="checkbox" id="checkbox1" />
+      <label for="checkbox1"></label>
+      <label for="checkbox1">Accept our terms and conditions</label>
+    </div>
+    
+<a name="system"></a>
+## System
+
+#### Config
+
+    $am-system: (
+      "padding": 1rem,
+      "spacing": 1rem,
+      "positive-color": #9bd49b,
+      "negative-color": #ed9696
+    );
+    
+#### Usage
+
+Basic response message
+
+    <div data-response="positive">
+      Thank you for submitting your details
+    </div>
+    
+Response as link with close icon
+
+    <a href="" data-response="negative close">
+      There was an error submitting your details
+    </a>    
