@@ -9,6 +9,17 @@ $am-system: (
 ) !default;
 
 
+// vendor prefixes
+// --------------------------------
+
+@mixin amVendorPrefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: #{$value};
+  }
+  #{$property}: $value;
+}
+
+
 // response
 // --------------------------------
 
@@ -22,7 +33,7 @@ $am-system: (
   // enter animation
   &.ng-enter {
     opacity: 0;
-    transition: opacity 300ms;
+    @include amVendorPrefix(transition, "opacity 300ms", webkit moz o);
 
     &.ng-enter-active {
       opacity: 1;
@@ -32,7 +43,7 @@ $am-system: (
   // leave animation
   &.ng-leave {
     opacity: 1;
-    transition: opacity 300ms;
+    @include amVendorPrefix(transition, "opacity 300ms", webkit moz o);
 
     &.ng-leave-active {
       opacity: 0;
@@ -79,15 +90,15 @@ $am-system: (
     top: 50%;
     right: map-get($am-system, "padding");
     margin-top: (-#{map-get($am-system, "padding")} / 2);
-    transform-origin: 50% 50%;
+    @include amVendorPrefix(transform-origin, "50% 50%", webkit moz ms o);
   }
   
   &::before {
-    transform: rotate(-45deg);
+    @include amVendorPrefix(transform, "rotate(-45deg)", webkit moz ms o);
   }
   
   &::after {
-    transform: rotate(45deg);
+    @include amVendorPrefix(transform, "rotate(45deg)", webkit moz ms o);
   }
   
   &[data-response~="positive"] {

@@ -15,6 +15,17 @@ $am-form: (
 ) !default;
 
 
+// vendor prefixes
+// --------------------------------
+
+@mixin amVendorPrefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: #{$value};
+  }
+  #{$property}: $value;
+}
+
+
 // forms
 // --------------------------------
 
@@ -32,7 +43,7 @@ $am-form: (
   border-radius: 0px;
   box-sizing: border-box;
   border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
-  transition: border 300ms;
+  @include amVendorPrefix(transition, "border 300ms", webkit moz o);
 
   &[disabled] {
     color: lighten(map-get($am-form, "color"), 50);
@@ -194,11 +205,11 @@ input {
       }
   
       &::before { 
-        transform: rotate(-45deg);
+        @include amVendorPrefix(transform, "rotate(-45deg)", webkit moz ms o);
       }
       
       &::after { 
-        transform: rotate(45deg);
+        @include amVendorPrefix(transform, "rotate(45deg)", webkit moz ms o);
       }
     }
   }
