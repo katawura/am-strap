@@ -71,7 +71,7 @@ $am-btn: (
 // tick buttons
 // --------------------------------
 
-[data-btn="tick"]:not([disabled]):not(.loading) {
+[data-btn~="tick"]:not([disabled]):not(.loading) {
   @include amVendorPrefix(transition, "color 300ms ease-out 150ms", webkit moz o);
 
   &:hover {
@@ -110,7 +110,7 @@ $am-btn: (
 // arrow buttons
 // --------------------------------
 
-[data-btn="arrow"]:not([disabled]):not(.loading) {
+[data-btn~="arrow"]:not([disabled]):not(.loading) {
   @include amVendorPrefix(transition, "color 300ms ease-out 150ms", webkit moz o);
 
   &:hover {
