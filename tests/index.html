@@ -8,19 +8,6 @@
   <link rel="stylesheet" type="text/css" href="dist/app.min.css">
 </head>
 <body>
-
-  <a href="" am-btn>Test button</a>
-  <a href="" am-btn="arrow">Arrow button</a>
-  <a href="" am-btn="tick">Tick button</a>
-  
-  <br /><br /><br />
-  
-  <form name="contact" novalidate autocomplete="off" ng-submit="contact.$valid && contactSubmit(user)" ng-hide="res.success">
-    <input type="text" placeholder="Your name" ng-model="user.name" required am-form="input" />
-    <input type="email" placeholder="Email address" ng-model="user.email" required am-form="input" />
-    <input type="text" placeholder="Leave blank" ng-model="user.robot" style="display:none!important;" />
-    <button type="submit" am-btn="tick" ng-disabled="contact.$invalid || res.loading">Send</button>
-  </form>
   
 </body>
 </html>
