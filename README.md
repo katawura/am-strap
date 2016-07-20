@@ -111,9 +111,10 @@ Target screen sizes below a breakpoint
 #### Config
 
     $am-btn: (
-      "height": 48px,
-      "color": #111111,
-      "background": transparent,
+      "height": 3rem,
+      "fill-color": #ffffff,
+      "fill-background": #333333,
+      "ghost-color": #111111,
       "border-width": 2px,
       "border-color": #111111,
       "loading-background": #333333
@@ -121,9 +122,10 @@ Target screen sizes below a breakpoint
 
 #### Usage
 
-    <a href="" am-btn>More</a>
-    <a href="" am-btn="tick">Submit</a>
-    <a href="" am-btn="arrow">Next</a>
+    <a href="" am-btn="ghost">More</a>
+    <a href="" am-btn="fill">More</a>
+    <a href="" am-btn="ghost tick">Submit</a>
+    <a href="" am-btn="fill arrow">Next</a>
 
 <a name="forms"></a>
 ## Forms

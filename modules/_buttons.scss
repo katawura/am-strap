@@ -3,8 +3,9 @@
 
 $am-btn: (
   "height": 3rem,
-  "color": #111111,
-  "background": transparent,
+  "fill-color": #ffffff,
+  "fill-background": #333333,
+  "ghost-color": #111111,
   "border-width": 2px,
   "border-color": #111111,
   "loading-background": #333333
@@ -17,15 +18,15 @@ $am-btn: (
 [am-btn] {
   position: relative;
   display: inline-block;
-  color: map-get($am-btn, "color");
   height: map-get($am-btn, "height");
   padding: 0 2em;
   margin: 0;
   opacity: 1;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: inherit;
+  font-family: inherit;
   line-height: map-get($am-btn, "height");
-  line-height: calc(#{map-get($am-btn, "height")} - #{map-get($am-btn, "border-width") * 2});
+  text-decoration: none;
   outline: none;
   cursor: pointer;
   overflow: hidden;
@@ -36,18 +37,9 @@ $am-btn: (
   text-decoration: none;
   box-sizing: border-box;
   vertical-align: middle;
-  touch-action: manipulation;
-  background-color: map-get($am-btn, "background");
-  border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
-
-  &:hover {
-    color: map-get($am-btn, "color");
-    text-decoration: none;
-    transition: none;
-  }
+  transition: none;
 
   &[disabled] {
-    color: map-get($am-btn, "color");
     text-shadow: none;
     cursor: not-allowed;
 
@@ -58,17 +50,44 @@ $am-btn: (
 }
 
 
+// Ghost & fill styles
+// --------------------------------
+
+[am-btn~="ghost"] {
+  color: map-get($am-btn, "ghost-color");
+  background-color: transparent;
+  border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
+  line-height: calc(#{map-get($am-btn, "height")} - #{map-get($am-btn, "border-width") * 2});
+  
+  &:hover,
+  &[disabled] {
+    color: map-get($am-btn, "ghost-color");
+  }
+}
+
+[am-btn~="fill"] {
+  color: map-get($am-btn, "fill-color");
+  background-color: map-get($am-btn, "fill-background");
+  
+  &:hover,
+  &[disabled] {
+    color: map-get($am-btn, "fill-color");
+  }
+}
+
+
+
+
 // Tick button
 // --------------------------------
 
-[am-btn~="tick"]:not([disabled]):not(.loading) {
-  transition: color 300ms ease-out 150ms;
+[am-btn~="tick"] {
+  transition: color 300ms ease 150ms;
 
   &:hover {
-    color: transparent !important;
-    transition: color 300ms ease-out;
+    transition-delay: 0ms;
   }
-
+  
   &::before {
     position: absolute;
     display: block;
@@ -82,17 +101,29 @@ $am-btn: (
     opacity: 0;
     border-style: solid;
     border-width: 0 0.15em 0.15em 0;
-    border-color: map-get($am-btn, "color");
     box-sizing: border-box;
     transform: rotate(45deg) scale(0.5, 0.5);
     transform-origin: 50% 50%;
     transition: opacity 300ms, transform 300ms;
   }
-
-  &:hover::before { 
-    opacity: 1;
-    transform: rotate(45deg) scale(1, 1);
-    transition: opacity 300ms, transform 300ms;
+  
+  &[am-btn~="fill"]::before {
+    border-color: map-get($am-btn, "fill-color");
+  }
+  
+  &[am-btn~="ghost"]::before {
+    border-color: map-get($am-btn, "ghost-color");
+  }
+  
+  &:not([disabled]):not(.loading) {
+    &:hover {
+      color: transparent;
+    }
+    
+    &:hover::before { 
+      opacity: 1;
+      transform: rotate(45deg) scale(1, 1);
+    }
   }
 }
 
@@ -100,12 +131,11 @@ $am-btn: (
 // Arrow button
 // --------------------------------
 
-[am-btn~="arrow"]:not([disabled]):not(.loading) {
-  transition: color 300ms ease-out 150ms;
+[am-btn~="arrow"] {
+  transition: color 300ms ease 150ms;
 
   &:hover {
-    color: transparent !important;
-    transition: color 300ms ease-out;
+    transition-delay: 0ms;
   }
 
   &::before {
@@ -121,17 +151,29 @@ $am-btn: (
     opacity: 0;
     border-style: solid;
     border-width: 0 0.15em 0.15em 0;
-    border-color: map-get($am-btn, "color");
     box-sizing: border-box;
     transform: rotate(-45deg) translate(-10px, -10px);
     transform-origin: 50% 50%;
     transition: opacity 300ms, transform 300ms;
   }
-
-  &:hover::before {
-    opacity: 1;
-    transform: rotate(-45deg) translate(0px, 0px);
-    transition: opacity 300ms, transform 300ms;
+  
+  &[am-btn~="fill"]::before {
+    border-color: map-get($am-btn, "fill-color");
+  }
+  
+  &[am-btn~="ghost"]::before {
+    border-color: map-get($am-btn, "ghost-color");
+  }
+  
+  &:not([disabled]):not(.loading) {
+    &:hover {
+      color: transparent;
+    }
+    
+    &:hover::before {
+      opacity: 1;
+      transform: rotate(-45deg) translate(0px, 0px);
+    }
   }
 }
 
@@ -140,7 +182,7 @@ $am-btn: (
 // --------------------------------
 
 [am-btn].loading {
-  color: transparent !important;
+  color: transparent;
   cursor: default;
   pointer-events: none;
   transform: scale(1, 0.25);
