@@ -1,4 +1,4 @@
-// config
+// Config map
 // --------------------------------
 
 $am-columns: 12 !default;
@@ -27,7 +27,7 @@ $am-breakpoints: (
 ) !default;
 
 
-// target specific breakpoint
+// Target specific breakpoints
 // --------------------------------
 
 $only-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
@@ -37,7 +37,7 @@ $only-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), w
 $only-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
 
 
-// below breakpoint
+// Target breakpoints below x
 // --------------------------------
 
 $below-sm: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
@@ -46,7 +46,7 @@ $below-lg: "only screen and (max-width: #{map-get(map-get($am-breakpoints, lg), 
 $below-xl: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})";
 
 
-// above breakpoint
+// Target breakpoints above x
 // --------------------------------
 
 $above-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)})";
@@ -55,18 +55,18 @@ $above-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), 
 $above-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
 
 
-// ipad
+// Target ipad
 // --------------------------------
 
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
 $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)";
 
 
-// base
+// Base styles
 // --------------------------------
 
-[data-container],
-[data-row] {
+[am-container],
+[am-row] {
   box-sizing: border-box;
 
   &::before,
@@ -80,11 +80,11 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
   }
 }
 
-[data-container] {
+[am-container] {
   margin: 0 auto;
 }
 
-[data-col] {
+[am-col] {
   position: relative;
   width: 100%;
   float: left;
@@ -93,74 +93,74 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 }
 
 
-// grid rules
+// Grid rules
 // --------------------------------
 
 @mixin grid-rules($am-breakpoint-key, $am-breakpoint-map) {
 
-  // column width
+  // Column width
   $am-col-width: (100% / $am-columns);
 
-  // grid spacing
-  [data-container] {
+  // Grid spacing
+  [am-container] {
     padding: 0 map-get($am-breakpoint-map, "spacing");
   }
 
-  [data-row] {
+  [am-row] {
     margin: 0 (-#{map-get($am-breakpoint-map, "spacing")});
   }
 
-  [data-col] {
+  [am-col] {
     padding: 0 map-get($am-breakpoint-map, "spacing");
   }
 
-  // equal height columns
-  [data-row~="flex-#{$am-breakpoint-key}"] {
+  // Equal height columns
+  [am-row~="flex-#{$am-breakpoint-key}"] {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
   
-  [data-row~="noflex-#{$am-breakpoint-key}"] {
+  [am-row~="noflex-#{$am-breakpoint-key}"] {
     display: block;
   }
 
-  // col, push, pull & offset
+  // Declare col, push, pull & offset
   @for $i from 0 through ($am-columns - 1) {
-    [data-col~="#{$am-breakpoint-key}-#{$i + 1}"] {
+    [am-col~="#{$am-breakpoint-key}-#{$i + 1}"] {
       width: ($am-col-width * ($i + 1));
     }
 
-    [data-push~="#{$am-breakpoint-key}-#{$i}"] {
+    [am-push~="#{$am-breakpoint-key}-#{$i}"] {
       left: ($am-col-width * $i);
     }
 
-    [data-pull~="#{$am-breakpoint-key}-#{$i}"] {
+    [am-pull~="#{$am-breakpoint-key}-#{$i}"] {
       right: ($am-col-width * $i);
     }
 
-    [data-offset~="#{$am-breakpoint-key}-#{$i}"] {
+    [am-offset~="#{$am-breakpoint-key}-#{$i}"] {
       margin-left: ($am-col-width * $i);
     }
   }
 }
 
 
-// apply grid
+// Apply grid
 // --------------------------------
 
 @each $am-breakpoint-key, $am-breakpoint-map in $am-breakpoints {
 
-  // mobile first
+  // Mobile first
   @if ($am-breakpoint-key == xs) {
     @include grid-rules($am-breakpoint-key, $am-breakpoint-map);
   }
 
-  // other breakpoints
+  // Breakpoints
   @else {
     @media only screen and (min-width: #{map-get($am-breakpoint-map, "width")}) {
       @if ($am-breakpoint-key != sm) {
-        [data-container] {
+        [am-container] {
           max-width: map-get($am-breakpoint-map, "width");
         }
       }
@@ -171,10 +171,10 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 }
 
 
-// hidden/visible
+// Set hidden/visible states
 // --------------------------------
 
-// media query map
+// Media query map
 $am-target-breakpoint: (
   "xs": $only-xs,
   "sm": $only-sm,
@@ -183,11 +183,11 @@ $am-target-breakpoint: (
   "xl": $only-xl
 );
 
-// loop breakpoints
+// Loop breakpoints & apply hidden/visible state
 @each $am-breakpoint-key, $am-breakpoint-query in $am-target-breakpoint {
   @media #{$am-breakpoint-query} {
-    [data-hidden~="#{$am-breakpoint-key}"],
-    [data-visible]:not([data-visible~="#{$am-breakpoint-key}"]) {
+    [am-hidden~="#{$am-breakpoint-key}"],
+    [am-visible]:not([am-visible~="#{$am-breakpoint-key}"]) {
       display: none !important;
     }
   }

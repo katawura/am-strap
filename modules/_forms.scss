@@ -1,4 +1,4 @@
-// config
+// Config map
 // --------------------------------
 
 $am-form: (
@@ -15,35 +15,29 @@ $am-form: (
 ) !default;
 
 
-// vendor prefixes
+// Input & textarea
 // --------------------------------
 
-@mixin amVendorPrefix($property, $value, $prefixes: ()) {
-  @each $prefix in $prefixes {
-    #{"-" + $prefix + "-" + $property}: #{$value};
-  }
-  #{$property}: $value;
-}
-
-
-// forms
-// --------------------------------
-
-@mixin am-input {
+[am-form~="input"] {
   display: block;
   width: 100%;
   height: map-get($am-form, "input-height");
   padding: 0 map-get($am-form, "spacing");
   margin-bottom: map-get($am-form, "spacing");
   font-size: 1rem;
+  font-weight: inherit;
+  line-height: normal;
   color: map-get($am-form, "color");
   background-color: map-get($am-form, "background-color");
   outline: none;
   appearance: none;
   border-radius: 0px;
   box-sizing: border-box;
+  box-shadow: none;
+  vertical-align: baseline;
+  touch-action: manipulation;
   border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
-  @include amVendorPrefix(transition, "border 300ms", webkit moz o);
+  transition: border 300ms;
 
   &[disabled] {
     color: lighten(map-get($am-form, "color"), 50);
@@ -77,36 +71,18 @@ $am-form: (
   &.ng-dirty.ng-invalid {
     border-color: map-get($am-form, "negative-color");
   }
-}
 
-textarea {
-  @include am-input;
-  height: 8em;
-  padding: map-get($am-form, "spacing");
-}
-
-input {
-  &[type="url"],
-  &[type="tel"],
-  &[type="text"],
-  &[type="date"],
-  &[type="time"],
-  &[type="week"],
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="password"],
-  &[type="datetime"],
-  &[type="datetime-local"] {
-    @include am-input;
+  textarea {
+    height: 8em;
+    padding: map-get($am-form, "spacing");
   }
 }
 
 
-// select boxes
+// Select boxes
 // --------------------------------
 
-[data-select] {
+[am-form~="select"] {
   position: relative;
   width: 100%;
   height: map-get($am-form, "input-height");
@@ -148,10 +124,10 @@ input {
 }
 
 
-// checkboxes
+// Checkboxes
 // --------------------------------
 
-[data-checkbox] {
+[am-form~="checkbox"] {
   position: relative;
   min-height: map-get($am-form, "checkbox-height");
   line-height: map-get($am-form, "checkbox-height");
@@ -170,7 +146,7 @@ input {
 
   input { 
     display: none;
-  
+
     & + label {
       position: absolute;
       display: block;
@@ -205,11 +181,11 @@ input {
       }
   
       &::before { 
-        @include amVendorPrefix(transform, "rotate(-45deg)", webkit moz ms o);
+        transform: rotate(-45deg);
       }
       
       &::after { 
-        @include amVendorPrefix(transform, "rotate(45deg)", webkit moz ms o);
+        transform: rotate(45deg);
       }
     }
   }
