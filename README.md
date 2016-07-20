@@ -8,7 +8,6 @@ A modular styling framework built with SCSS using attribute modules and DRY prin
 2. [Grid](#grid)
 3. [Buttons](#buttons)
 4. [Forms](#forms)
-5. [System](#system)
 
 <a name="install"></a>
 ## Install
@@ -57,33 +56,33 @@ Alternatively you can import individual modules. They are all stand-alone files 
 
 Grid layout
 
-    <div data-container>
-      <div data-row>
-        <div data-col="md-6 xs-12"></div>
-        <div data-col="md-3 xs-6"></div>
-        <div data-col="md-3 xs-6"></div>
+    <div am-container>
+      <div am-row>
+        <div am-col="md-6 xs-12"></div>
+        <div am-col="md-3 xs-6"></div>
+        <div am-col="md-3 xs-6"></div>
       </div>
     </div>
 
 Push & pull
 
-    <div data-col="sm-6" data-push="sm-6"></div>
-    <div data-col="sm-6" data-pull="sm-6"></div>
+    <div am-col="sm-6" am-push="sm-6"></div>
+    <div am-col="sm-6" am-pull="sm-6"></div>
 
 Offset
 
-    <div data-col="md-6" data-offset="md-3"></div>
+    <div am-col="md-6" am-offset="md-3"></div>
 
 Hidden & visible
 
-    <div data-col="md-6" data-hidden="xs sm"></div>
-    <div data-col="xs-12" data-visible="xs sm"></div>
+    <div am-col="md-6" am-hidden="xs sm"></div>
+    <div am-col="xs-12" am-visible="xs sm"></div>
  
 Equal height columns
 
-    <div data-row="flex-sm noflex-lg">
-      <div data-col="xs-6"></div>
-      <div data-col="xs-6"></div>
+    <div am-row="flex-sm noflex-lg">
+      <div am-col="xs-6"></div>
+      <div am-col="xs-6"></div>
     </div>
 
 #### CSS
@@ -122,8 +121,9 @@ Target screen sizes below a breakpoint
 
 #### Usage
 
-    <a href="" data-btn="tick">Submit</a>
-    <a href="" data-btn="arrow">Next</a>
+    <a href="" am-btn>More</a>
+    <a href="" am-btn="tick">Submit</a>
+    <a href="" am-btn="arrow">Next</a>
 
 <a name="forms"></a>
 ## Forms
@@ -147,13 +147,14 @@ Target screen sizes below a breakpoint
 
 Input
 
-    <input type="text" />
+    <input type="text" am-form="input" />
+    <textarea am-form="input"><textarea/>
     
 Select box
 
-    <div data-select>
+    <div am-form="select">
       <select>
-        <option selected="true" disabled="disabled">-- Select --</option>
+        <option selected="true" disabled="disabled">--Select--</option>
         <option value="Option 1">Option 1</option>
        <option value="Option 2">Option 2</option>
       </select>
@@ -161,34 +162,8 @@ Select box
     
 Checkbox
 
-    <div data-checkbox>
+    <div am-form="checkbox">
       <input type="checkbox" id="checkbox1" />
       <label for="checkbox1"></label>
       <label for="checkbox1">Accept our terms and conditions</label>
     </div>
-    
-<a name="system"></a>
-## System
-
-#### Config
-
-    $am-system: (
-      "padding": 1rem,
-      "spacing": 1rem,
-      "positive-color": #9bd49b,
-      "negative-color": #ed9696
-    );
-    
-#### Usage
-
-Basic response message
-
-    <div data-response="positive">
-      Thank you for submitting your details
-    </div>
-    
-Response as link with close icon
-
-    <a href="" data-response="negative close">
-      There was an error submitting your details
-    </a>    

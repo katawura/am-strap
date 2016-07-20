@@ -1,4 +1,4 @@
-// config
+// Config map
 // --------------------------------
 
 $am-btn: (
@@ -11,21 +11,10 @@ $am-btn: (
 ) !default;
 
 
-// vendor prefixes
+// Base styles
 // --------------------------------
 
-@mixin amVendorPrefix($property, $value, $prefixes: ()) {
-  @each $prefix in $prefixes {
-    #{"-" + $prefix + "-" + $property}: #{$value};
-  }
-  #{$property}: $value;
-}
-
-
-// basic styles
-// --------------------------------
-
-[data-btn] {
+[am-btn] {
   position: relative;
   display: inline-block;
   color: map-get($am-btn, "color");
@@ -47,13 +36,14 @@ $am-btn: (
   text-decoration: none;
   box-sizing: border-box;
   vertical-align: middle;
+  touch-action: manipulation;
   background-color: map-get($am-btn, "background");
   border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
 
   &:hover {
     color: map-get($am-btn, "color");
     text-decoration: none;
-    @include amVendorPrefix(transition, "none", webkit moz o);
+    transition: none;
   }
 
   &[disabled] {
@@ -68,16 +58,15 @@ $am-btn: (
 }
 
 
-// tick buttons
+// Tick button
 // --------------------------------
 
-[data-btn~="tick"]:not([disabled]):not(.loading) {
-  @include amVendorPrefix(transition, "color 300ms ease-out 150ms", webkit moz o);
+[am-btn~="tick"]:not([disabled]):not(.loading) {
+  transition: color 300ms ease-out 150ms;
 
   &:hover {
     color: transparent !important;
-    @include amVendorPrefix(transition, "color 300ms ease-out", webkit moz o);
-
+    transition: color 300ms ease-out;
   }
 
   &::before {
@@ -91,31 +80,32 @@ $am-btn: (
     margin-top: -0.7em;
     margin-left: -0.2em;
     opacity: 0;
-    border-right: 0.15em solid map-get($am-btn, "color");
-    border-bottom: 0.15em solid map-get($am-btn, "color");
+    border-style: solid;
+    border-width: 0 0.15em 0.15em 0;
+    border-color: map-get($am-btn, "color");
     box-sizing: border-box;
-    @include amVendorPrefix(transform, "rotate(45deg) scale(0.5, 0.5)", webkit moz ms o);
-    @include amVendorPrefix(transform-origin, "50% 50%", webkit moz ms o);
-    @include amVendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
+    transform: rotate(45deg) scale(0.5, 0.5);
+    transform-origin: 50% 50%;
+    transition: opacity 300ms, transform 300ms;
   }
 
   &:hover::before { 
     opacity: 1;
-    @include amVendorPrefix(transform, "rotate(45deg) scale(1, 1)", webkit moz ms o);
-    @include amVendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
+    transform: rotate(45deg) scale(1, 1);
+    transition: opacity 300ms, transform 300ms;
   }
 }
 
 
-// arrow buttons
+// Arrow button
 // --------------------------------
 
-[data-btn~="arrow"]:not([disabled]):not(.loading) {
-  @include amVendorPrefix(transition, "color 300ms ease-out 150ms", webkit moz o);
+[am-btn~="arrow"]:not([disabled]):not(.loading) {
+  transition: color 300ms ease-out 150ms;
 
   &:hover {
     color: transparent !important;
-    @include amVendorPrefix(transition, "color 300ms ease-out", webkit moz o);
+    transition: color 300ms ease-out;
   }
 
   &::before {
@@ -129,32 +119,33 @@ $am-btn: (
     width: 0.8em;
     height: 0.8em;
     opacity: 0;
-    border-right: 0.15em solid map-get($am-btn, "color");
-    border-bottom: 0.15em solid map-get($am-btn, "color");
+    border-style: solid;
+    border-width: 0 0.15em 0.15em 0;
+    border-color: map-get($am-btn, "color");
     box-sizing: border-box;
-    @include amVendorPrefix(transform, "rotate(-45deg) translate(-10px, -10px)", webkit moz ms o);
-    @include amVendorPrefix(transform-origin, "50% 50%", webkit moz ms o);
-    @include amVendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
+    transform: rotate(-45deg) translate(-10px, -10px);
+    transform-origin: 50% 50%;
+    transition: opacity 300ms, transform 300ms;
   }
 
   &:hover::before {
     opacity: 1;
-    @include amVendorPrefix(transform, "rotate(-45deg) translate(0px, 0px)", webkit moz ms o);
-    @include amVendorPrefix(transition, "opacity 300ms, transform 300ms", webkit moz o);
+    transform: rotate(-45deg) translate(0px, 0px);
+    transition: opacity 300ms, transform 300ms;
   }
 }
 
 
-// button loading
+// Loading state
 // --------------------------------
 
-[data-btn].loading {
+[am-btn].loading {
   color: transparent !important;
   cursor: default;
   pointer-events: none;
-  @include amVendorPrefix(transform, "scale(1, 0.25)", webkit moz ms o);
-  @include amVendorPrefix(transform-origin, "50% 50%", webkit moz ms o);
-  @include amVendorPrefix(transition, "transform 300ms, color 300ms, border 300ms, background 300ms", webkit moz o);
+  transform: scale(1, 0.25);
+  transform-origin: 50% 50%;
+  transition: transform 300ms, color 300ms, border 300ms, background 300ms;
 
   @if (lightness(map-get($am-btn, "loading-background")) > 50) {
     border-color: lighten(map-get($am-btn, "loading-background"), 30);
@@ -175,23 +166,21 @@ $am-btn: (
     bottom: 0;
     left: 0;
     background-color: map-get($am-btn, "loading-background");
-    @include amVendorPrefix(animation, "amBtnLoading 1500ms linear 300ms infinite backwards", webkit moz o);
+    animation: amBtnLoading 1500ms linear 300ms infinite backwards;
   }
+}
 
-  @at-root {
-    @keyframes amBtnLoading {
-      0% {
-        left: 0%;
-        right: 100%;
-      }
-      50% {
-        left: 0%;
-        right: 0%;
-      }
-      100% {
-        left: 100%;
-        right: 0%;
-      }
-    }
+@keyframes amBtnLoading {
+  0% {
+    left: 0%;
+    right: 100%;
+  }
+  50% {
+    left: 0%;
+    right: 0%;
+  }
+  100% {
+    left: 100%;
+    right: 0%;
   }
 }
