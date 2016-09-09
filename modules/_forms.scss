@@ -44,12 +44,10 @@ $am-form: (
   }
 
   &:-moz-placeholder {
-    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
   &::-moz-placeholder {
-    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
@@ -58,7 +56,6 @@ $am-form: (
   }
 
   &::-webkit-input-placeholder {
-    opacity: 0.8;
     color: map-get($am-form, "placeholder");
   }
 
@@ -94,7 +91,7 @@ $am-form: (
 
   select {
     display: block;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     padding: 0 map-get($am-form, "spacing");
     border: none;
@@ -110,7 +107,7 @@ $am-form: (
     &:focus {
       outline: none;
     }
-    
+
     &:-moz-focusring {
       color: transparent;
       text-shadow: 0 0 0 map-get($am-form, "color");
@@ -133,24 +130,24 @@ $am-form: (
   line-height: map-get($am-form, "checkbox-height");
   padding-left: map-get($am-form, "checkbox-height");
   margin-bottom: map-get($am-form, "spacing");
-  
+
   &::before,
   &::after {
     display: table;
     content: " ";
   }
-  
+
   &::after {
     clear: both;
   }
 
-  input { 
+  input {
     display: none;
 
     & + label {
       position: absolute;
       display: block;
-      top: 0; 
+      top: 0;
       left: 0;
       width: map-get($am-form, "checkbox-height");
       height: map-get($am-form, "checkbox-height");
@@ -158,7 +155,7 @@ $am-form: (
       cursor: pointer;
       background-color: map-get($am-form, "background-color");
       border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
-      
+
       & + label {
         display: block;
         float: left;
@@ -172,19 +169,19 @@ $am-form: (
         position: absolute;
         display: block;
         content: "";
-        top: 50%; 
+        top: 50%;
         left: 10%;
-        width: 80%; 
+        width: 80%;
         height: 1px;
         margin-top: -0.5px;
-        background-color: map-get($am-form, "color"); 
+        background-color: map-get($am-form, "color");
       }
-  
-      &::before { 
+
+      &::before {
         transform: rotate(-45deg);
       }
-      
-      &::after { 
+
+      &::after {
         transform: rotate(45deg);
       }
     }
