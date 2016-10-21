@@ -1,13 +1,12 @@
 {
   "version": "1.0.0",
-  "name": "am-strap-tests",
+  "name": "am-strap-test",
   "author": "Rich Cooper",
-  "license": "MIT",
-  "description": "A testing environment for AM-Strap",
+  "description": "A testing environment for AM Strap",
   "scripts": {
     "dev": "lite-server"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "gulp": "~3.9.1",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "~2.2.0",

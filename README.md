@@ -8,11 +8,11 @@ A modular styling framework built with SCSS using attribute modules and DRY prin
 2. [Grid](#grid)
 3. [Buttons](#buttons)
 4. [Forms](#forms)
+5. [Float](#float)
+6. [Align](#align)
 
 <a name="install"></a>
 ## Install
-
-Download with bower
 
     bower install am-strap
     
@@ -20,7 +20,7 @@ Then import at the start of your SCSS
 
     @import "./bower_components/am-strap/all";
 
-Alternatively you can import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map and includes fallback settings. To customise a module, simply declare it's config map using your own values. In config maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
+Alternatively you can import individual modules. Each module has a config map for custom settings. In config maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
@@ -52,7 +52,7 @@ Alternatively you can import individual modules. They are all stand-alone files 
       )
     );
 
-#### Usage
+#### HTML Usage
 
 Grid layout
 
@@ -85,21 +85,21 @@ Equal height columns
       <div am-col="xs-6"></div>
     </div>
 
-#### CSS
+#### CSS Usage
 
-Target specific screen size
+Target specific breakpoint
 
     @media #{$only-sm} {
       // target sm
     }
     
-Target screen sizes above a breakpoint
+Target screens above breakpoint
 
     @media #{$above-md} {
       // target above md
     }
     
-Target screen sizes below a breakpoint
+Target screens below breakpoint
     
     @media #{$below-lg} {
       // target below lg
@@ -115,15 +115,17 @@ Target screen sizes below a breakpoint
       "fill-color": #ffffff,
       "fill-background": #333333,
       "ghost-color": #111111,
-      "border-width": 2px,
-      "border-color": #111111,
+      "ghost-border-width": 2px,
+      "ghost-border-color": #111111,
       "loading-background": #333333
     );
 
 #### Usage
 
-    <a href="" am-btn="ghost">More</a>
-    <a href="" am-btn="fill">More</a>
+Values include: ghost and fill. Additional hover state values include: tick and arrow.
+
+    <a href="" am-btn="ghost">Read more</a>
+    <a href="" am-btn="fill">Read more</a>
     <a href="" am-btn="ghost tick">Submit</a>
     <a href="" am-btn="fill arrow">Next</a>
 
@@ -168,4 +170,26 @@ Checkbox
       <input type="checkbox" id="checkbox1" />
       <label for="checkbox1"></label>
       <label for="checkbox1">Accept our terms and conditions</label>
+    </div>
+
+<a name="float"></a>
+## Float
+
+#### Usage
+
+Values include: left, right, none, initial and inherit.
+
+    <div am-float="left">
+      Element floated left
+    </div>
+
+<a name="align"></a>
+## Align
+
+#### Usage
+
+Values include: left, right, center, justify, initial and inherit.
+
+    <div am-align="left">
+      Text is left aligned
     </div>
