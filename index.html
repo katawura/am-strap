@@ -13,9 +13,11 @@
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/dist/app.min.css">
 
+  <!-- Custom styles -->
   <style>
     [am-block] {
       height: 2rem;
+      margin-bottom: 1rem;
     }
 
     [am-block~="red"] {
@@ -29,29 +31,57 @@
 </head>
 <body>
 
-  <!-- Test container -->
+  <!-- Grid test -->
   <div am-container>
-
+    <h1>Grid</h1>
     <div am-row>
-      <div am-col="sm-6">
+      <div am-col="lg-1 sm-2 xs-3">
         <div am-block="red"></div>
       </div>
-      <div am-col="sm-6">
+      <div am-col="lg-11 sm-10 xs-9">
         <div am-block="blue"></div>
       </div>
     </div>
-
-    <br>
-
-    <div am-row="compress">
-      <div am-col="sm-6">
+    <div am-row>
+      <div am-col="lg-2 sm-3 xs-4">
         <div am-block="red"></div>
       </div>
-      <div am-col="sm-6">
+      <div am-col="lg-10 sm-9 xs-8">
         <div am-block="blue"></div>
       </div>
     </div>
-
+    <div am-row>
+      <div am-col="lg-3 sm-4 xs-5">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-9 sm-8 xs-7">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+    <div am-row>
+      <div am-col="lg-4 sm-5 xs-6">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-8 sm-7 xs-6">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+    <div am-row>
+      <div am-col="lg-5 sm-6 xs-7">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-7 sm-6 xs-5">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+    <div am-row>
+      <div am-col="lg-6 sm-7 xs-8">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-6 sm-5 xs-4">
+        <div am-block="blue"></div>
+      </div>
+    </div>
   </div>
 
 </body>

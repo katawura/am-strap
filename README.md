@@ -44,7 +44,7 @@ The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attri
       ),
       "md": (
         "container": set,
-        "padding": 2rem,
+        "padding": 1rem,
         "width": 768px
       ),
       "lg": (
