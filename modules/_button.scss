@@ -2,12 +2,12 @@
 // --------------------------------
 
 $am-btn: (
-  "height": 3rem,
   "fill-color": #ffffff,
   "fill-background": #333333,
   "ghost-color": #111111,
-  "ghost-border-width": 2px,
   "ghost-border-color": #111111,
+  "ghost-border-width": 2px,
+  "height": 3rem,
   "loading-background": #333333
 ) !default;
 
@@ -28,6 +28,7 @@ $am-btn: (
   line-height: map-get($am-btn, "height");
   text-decoration: none;
   outline: none;
+  border: none;
   cursor: pointer;
   appearance: none;
   user-select: none;

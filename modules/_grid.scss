@@ -58,15 +58,6 @@ $above-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), 
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
 $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)";
 
-// Specific breakpoint map
-$am-target-breakpoint: (
-  "xs": $only-xs,
-  "sm": $only-sm,
-  "md": $only-md,
-  "lg": $only-lg,
-  "xl": $only-xl
-);
-
 
 // Base styles
 // --------------------------------
@@ -183,6 +174,16 @@ $am-target-breakpoint: (
 // Hidden & visible states
 // --------------------------------
 
+// Specific breakpoint map
+$am-target-breakpoint: (
+  "xs": $only-xs,
+  "sm": $only-sm,
+  "md": $only-md,
+  "lg": $only-lg,
+  "xl": $only-xl
+);
+
+// Loop breakpoints
 @each $am-breakpoint-key, $am-breakpoint-query in $am-target-breakpoint {
   @media #{$am-breakpoint-query} {
     [am-hidden~="#{$am-breakpoint-key}"],

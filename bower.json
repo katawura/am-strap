@@ -3,7 +3,7 @@
   "name": "bolser-am-strap",
   "author": "Rich Cooper",
   "license" : "MIT",
-  "description": "A modular styling framework built with SCSS using attribute modules and DRY principles",
+  "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "ignore": [
     ".gitignore",
     "bower.json",
