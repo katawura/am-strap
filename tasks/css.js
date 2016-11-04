@@ -4,8 +4,8 @@
 var autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
     config = require('./config'),
-    importCSS = require('gulp-import-css'),
     gulp = require('gulp'),
+    importCSS = require('gulp-import-css'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps');
