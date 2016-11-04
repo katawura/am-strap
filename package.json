@@ -1,0 +1,25 @@
+{
+  "version": "3.0.2",
+  "name": "bolser-am-strap",
+  "author": "Rich Cooper",
+  "license" : "MIT",
+  "description": "A modular styling framework built with SCSS using attribute modules and DRY principles",
+  "scripts": {
+    "dev": "concurrently \"gulp development\" \"gulp server\""
+  },
+  "devDependencies": {
+    "browser-sync": "~2.17.5",
+    "concurrently": "~3.1.0",
+    "connect-logger": "~0.0.1",
+    "del": "~2.2.0",
+    "gulp": "~3.9.1",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-clean-css": "~2.0.4",
+    "gulp-import-css": "~0.1.2",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "~2.2.0",
+    "gulp-sourcemaps": "~1.6.0",
+    "gulp-watch": "~4.3.5",
+    "run-sequence": "~1.1.5"
+  }
+}

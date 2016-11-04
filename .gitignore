@@ -1,4 +1,4 @@
-# os generated files
+# OS files
 # --------------------------------
 
 .DS_Store
@@ -10,7 +10,7 @@ ehthumbs.db
 Thumbs.db
 
 
-# package managers
+# Package managers
 # --------------------------------
 
 npm-debug.log
@@ -18,8 +18,7 @@ node_modules/
 bower_components/
 
 
-# compiled files
+# Compiled files
 # --------------------------------
 
-test/dist/
-test/node_modules/
+dist/
