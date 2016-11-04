@@ -1,9 +1,10 @@
 {
-  "version": "3.0.2",
+  "version": "3.2.0",
   "name": "bolser-am-strap",
   "author": "Rich Cooper",
   "license" : "MIT",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
+  "private": true,
   "scripts": {
     "dev": "concurrently \"gulp development\" \"gulp server\""
   },
