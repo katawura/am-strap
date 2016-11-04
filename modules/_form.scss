@@ -18,7 +18,8 @@ $am-form: (
 // Input & textarea
 // --------------------------------
 
-[am-form~="input"] {
+[am-form~="input"],
+[am-form~="textarea"] {
   display: block;
   width: 100%;
   height: map-get($am-form, "input-height");
@@ -68,11 +69,11 @@ $am-form: (
   &.ng-dirty.ng-invalid {
     border-color: map-get($am-form, "negative-color");
   }
+}
 
-  textarea {
-    height: 8em;
-    padding: map-get($am-form, "spacing");
-  }
+[am-form~="textarea"] {
+  height: 8em;
+  padding: map-get($am-form, "spacing");
 }
 
 

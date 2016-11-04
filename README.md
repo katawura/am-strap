@@ -152,8 +152,11 @@ Values include: ghost and fill. Additional hover state values include: tick and 
 Input
 
     <input type="text" am-form="input" />
-    <textarea am-form="input"><textarea/>
     
+Textarea
+
+    <textarea am-form="textarea"><textarea/>
+
 Select box
 
     <div am-form="select">
