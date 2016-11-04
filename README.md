@@ -1,5 +1,5 @@
 # AM Strap
-A modular styling framework built with SCSS using attribute modules and DRY principles. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before using AM-Strap.
+A modular styling framework built with SCSS using attribute modules and DRY principles. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before importing AM Strap and to ensure browser support with [autoprefixer](https://github.com/postcss/autoprefixer).
 
 
 ## Contents
@@ -14,16 +14,18 @@ A modular styling framework built with SCSS using attribute modules and DRY prin
 <a name="install"></a>
 ## Install
 
-    bower install am-strap
+    bower install bolser-am-strap
     
 Then import at the start of your SCSS
 
-    @import "./bower_components/am-strap/all";
+    @import "./bower_components/bolser-am-strap/all";
 
-Alternatively you can import individual modules. Each module has a config map for custom settings. In config maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
+Alternatively you can import individual modules. Each one has a config map for custom settings. In the maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
+
+The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute modules. Reference their documentation for more details on how to use it - just remember to convert to the relevant attribute module values.
 
 #### Config
 
@@ -31,24 +33,29 @@ Alternatively you can import individual modules. Each module has a config map fo
 
     $am-breakpoints: (
       "xs": (
-        "width": 0px,
-        "spacing": 1rem 
+        "container": fluid,
+        "padding": 1rem,
+        "width": 0px
       ),
       "sm": (
-        "width": 420px,
-        "spacing": 1rem
+        "container": fluid,
+        "padding": 1rem,
+        "width": 420px
       ),
       "md": (
-        "width": 768px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 1rem,
+        "width": 768px
       ),
       "lg": (
-        "width": 992px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 2rem,
+        "width": 992px
       ),
       "xl": (
-        "width": 1200px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 2rem,
+        "width": 1200px
       )
     );
 
@@ -77,32 +84,25 @@ Hidden & visible
 
     <div am-col="md-6" am-hidden="xs sm"></div>
     <div am-col="xs-12" am-visible="xs sm"></div>
- 
-Equal height columns
-
-    <div am-row="flex-sm noflex-lg">
-      <div am-col="xs-6"></div>
-      <div am-col="xs-6"></div>
-    </div>
 
 #### CSS Usage
 
 Target specific breakpoint
 
     @media #{$only-sm} {
-      // target sm
+      // Styles for sm only
     }
     
 Target screens above breakpoint
 
     @media #{$above-md} {
-      // target above md
+      // Styles for above md
     }
     
 Target screens below breakpoint
     
     @media #{$below-lg} {
-      // target below lg
+      // Styles for below lg
     }
 
 <a name="buttons"></a>
@@ -155,7 +155,7 @@ Input
     
 Textarea
 
-    <textarea am-form="textarea"><textarea/>
+    <textarea am-form="textarea"></textarea>
 
 Select box
 
