@@ -179,10 +179,15 @@ Checkbox
 
 #### Usage
 
-Values include: left, right, none, initial and inherit.
+Values include: clear, left, right, none, initial and inherit.
 
-    <div am-float="left">
-      Element floated left
+    <div am-float="clear">
+      <div am-float="left">
+        Element floated left
+      </div>
+      <div am-float="right">
+        Element floated right
+      </div>
     </div>
 
 <a name="align"></a>
