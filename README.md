@@ -1,4 +1,5 @@
 # AM Strap
+
 A DRY modular styling framework built with SCSS using attribute modules. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before importing AM Strap. Ensure required browser support by using [autoprefixer](https://github.com/postcss/autoprefixer).
 
 ## Contents
@@ -13,11 +14,11 @@ A DRY modular styling framework built with SCSS using attribute modules. It is r
 <a name="install"></a>
 ## Install
 
-    bower install bolser-am-strap
+    bower install am-strap
     
 Import at the start of your SCSS
 
-    @import "./bower_components/bolser-am-strap/all";
+    @import "./bower_components/am-strap/all";
 
 Alternatively you can import individual modules. To customise a module, add it's config map with your settings before the import. All dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
 
