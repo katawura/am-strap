@@ -1,6 +1,5 @@
 # AM Strap
-A modular styling framework built with SCSS using attribute modules and DRY principles. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before using AM-Strap.
-
+A DRY modular styling framework built with SCSS using attribute modules. It is recommended to [normalize](https://necolas.github.io/normalize.css/) your project before importing AM Strap. Ensure required browser support by using [autoprefixer](https://github.com/postcss/autoprefixer).
 
 ## Contents
 
@@ -8,22 +7,24 @@ A modular styling framework built with SCSS using attribute modules and DRY prin
 2. [Grid](#grid)
 3. [Buttons](#buttons)
 4. [Forms](#forms)
+5. [Float](#float)
+6. [Align](#align)
 
 <a name="install"></a>
 ## Install
 
-Download with bower
-
-    bower install am-strap
+    bower install bolser-am-strap
     
-Then import at the start of your SCSS
+Import at the start of your SCSS
 
-    @import "./bower_components/am-strap/all";
+    @import "./bower_components/bolser-am-strap/all";
 
-Alternatively you can import individual modules. They are all stand-alone files with no dependencies. Each module requires a config map and includes fallback settings. To customise a module, simply declare it's config map using your own values. In config maps, all dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
+Alternatively you can import individual modules. To customise a module, add it's config map with your settings before the import. All dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
+
+The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute modules. Reference their documentation for more details on how to use it - just remember to convert to the relevant attribute module values.
 
 #### Config
 
@@ -31,28 +32,33 @@ Alternatively you can import individual modules. They are all stand-alone files 
 
     $am-breakpoints: (
       "xs": (
-        "width": 0px,
-        "spacing": 1rem 
+        "container": fluid,
+        "padding": 1rem,
+        "width": 0px
       ),
       "sm": (
-        "width": 420px,
-        "spacing": 1rem
+        "container": fluid,
+        "padding": 1rem,
+        "width": 420px
       ),
       "md": (
-        "width": 768px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 1rem,
+        "width": 768px
       ),
       "lg": (
-        "width": 992px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 2rem,
+        "width": 992px
       ),
       "xl": (
-        "width": 1200px,
-        "spacing": 2rem
+        "container": set,
+        "padding": 2rem,
+        "width": 1200px
       )
     );
 
-#### Usage
+#### HTML Usage
 
 Grid layout
 
@@ -77,32 +83,25 @@ Hidden & visible
 
     <div am-col="md-6" am-hidden="xs sm"></div>
     <div am-col="xs-12" am-visible="xs sm"></div>
- 
-Equal height columns
 
-    <div am-row="flex-sm noflex-lg">
-      <div am-col="xs-6"></div>
-      <div am-col="xs-6"></div>
-    </div>
+#### CSS Usage
 
-#### CSS
-
-Target specific screen size
+Target specific breakpoint
 
     @media #{$only-sm} {
-      // target sm
+      // Styles for sm only
     }
     
-Target screen sizes above a breakpoint
+Target screens above breakpoint
 
     @media #{$above-md} {
-      // target above md
+      // Styles for above md
     }
     
-Target screen sizes below a breakpoint
+Target screens below breakpoint
     
     @media #{$below-lg} {
-      // target below lg
+      // Styles for below lg
     }
 
 <a name="buttons"></a>
@@ -111,19 +110,21 @@ Target screen sizes below a breakpoint
 #### Config
 
     $am-btn: (
-      "height": 3rem,
       "fill-color": #ffffff,
       "fill-background": #333333,
       "ghost-color": #111111,
-      "border-width": 2px,
-      "border-color": #111111,
+      "ghost-border-color": #111111,
+      "ghost-border-width": 2px,
+      "height": 3rem,
       "loading-background": #333333
     );
 
 #### Usage
 
-    <a href="" am-btn="ghost">More</a>
-    <a href="" am-btn="fill">More</a>
+Values include: ghost and fill. Additional hover state values include: tick and arrow.
+
+    <a href="" am-btn="ghost">Read more</a>
+    <a href="" am-btn="fill">Read more</a>
     <a href="" am-btn="ghost tick">Submit</a>
     <a href="" am-btn="fill arrow">Next</a>
 
@@ -133,16 +134,16 @@ Target screen sizes below a breakpoint
 #### Config
 
 	$am-form: (
-      "input-height": 3rem,
-      "checkbox-height": 2rem,
-      "spacing": 1rem,
-      "color": #111111,
-      "placeholder": #888888,
       "background-color": transparent,
-      "border-width": 2px,
       "border-color": #cccccc,
-      "positive-color": #9bd49b,
-      "negative-color": #ed9696
+      "border-width": 2px,
+      "checkbox-height": 2rem,
+      "color": #111111,
+      "input-height": 3rem,
+      "padding": 1rem,
+      "placeholder-color": #888888,
+      "response-negative-color": #ed9696,
+      "response-positive-color": #9bd49b
     );
     
 #### Usage
@@ -150,8 +151,11 @@ Target screen sizes below a breakpoint
 Input
 
     <input type="text" am-form="input" />
-    <textarea am-form="input"><textarea/>
     
+Textarea
+
+    <textarea am-form="textarea"></textarea>
+
 Select box
 
     <div am-form="select">
@@ -168,4 +172,31 @@ Checkbox
       <input type="checkbox" id="checkbox1" />
       <label for="checkbox1"></label>
       <label for="checkbox1">Accept our terms and conditions</label>
+    </div>
+
+<a name="float"></a>
+## Float
+
+#### Usage
+
+Values include: clear, left, right, none, initial and inherit.
+
+    <div am-float="clear">
+      <div am-float="left">
+        Element floated left
+      </div>
+      <div am-float="right">
+        Element floated right
+      </div>
+    </div>
+
+<a name="align"></a>
+## Align
+
+#### Usage
+
+Values include: left, right, center, justify, initial and inherit.
+
+    <div am-align="left">
+      Text is left aligned
     </div>

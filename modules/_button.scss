@@ -2,12 +2,12 @@
 // --------------------------------
 
 $am-btn: (
-  "height": 3rem,
   "fill-color": #ffffff,
   "fill-background": #333333,
   "ghost-color": #111111,
-  "border-width": 2px,
-  "border-color": #111111,
+  "ghost-border-color": #111111,
+  "ghost-border-width": 2px,
+  "height": 3rem,
   "loading-background": #333333
 ) !default;
 
@@ -28,8 +28,8 @@ $am-btn: (
   line-height: map-get($am-btn, "height");
   text-decoration: none;
   outline: none;
+  border: none;
   cursor: pointer;
-  overflow: hidden;
   appearance: none;
   user-select: none;
   text-align: center;
@@ -50,15 +50,15 @@ $am-btn: (
 }
 
 
-// Ghost & fill styles
+// Ghost & fill
 // --------------------------------
 
 [am-btn~="ghost"] {
   color: map-get($am-btn, "ghost-color");
   background-color: transparent;
-  border: map-get($am-btn, "border-width") solid map-get($am-btn, "border-color");
-  line-height: calc(#{map-get($am-btn, "height")} - #{map-get($am-btn, "border-width") * 2});
-  
+  border: map-get($am-btn, "ghost-border-width") solid map-get($am-btn, "ghost-border-color");
+  line-height: calc(#{map-get($am-btn, "height")} - #{map-get($am-btn, "ghost-border-width") * 2});
+
   &:hover,
   &[disabled] {
     color: map-get($am-btn, "ghost-color");
@@ -68,7 +68,7 @@ $am-btn: (
 [am-btn~="fill"] {
   color: map-get($am-btn, "fill-color");
   background-color: map-get($am-btn, "fill-background");
-  
+
   &:hover,
   &[disabled] {
     color: map-get($am-btn, "fill-color");
@@ -85,7 +85,7 @@ $am-btn: (
   &:hover {
     transition-delay: 0ms;
   }
-  
+
   &::before {
     position: absolute;
     display: block;
@@ -104,21 +104,21 @@ $am-btn: (
     transform-origin: 50% 50%;
     transition: opacity 300ms, transform 300ms;
   }
-  
+
   &[am-btn~="fill"]::before {
     border-color: map-get($am-btn, "fill-color");
   }
-  
+
   &[am-btn~="ghost"]::before {
     border-color: map-get($am-btn, "ghost-color");
   }
-  
+
   &:not([disabled]):not(.loading) {
     &:hover {
       color: transparent;
     }
-    
-    &:hover::before { 
+
+    &:hover::before {
       opacity: 1;
       transform: rotate(45deg) scale(1, 1);
     }
@@ -154,20 +154,20 @@ $am-btn: (
     transform-origin: 50% 50%;
     transition: opacity 300ms, transform 300ms;
   }
-  
+
   &[am-btn~="fill"]::before {
     border-color: map-get($am-btn, "fill-color");
   }
-  
+
   &[am-btn~="ghost"]::before {
     border-color: map-get($am-btn, "ghost-color");
   }
-  
+
   &:not([disabled]):not(.loading) {
     &:hover {
       color: transparent;
     }
-    
+
     &:hover::before {
       opacity: 1;
       transform: rotate(-45deg) translate(0px, 0px);

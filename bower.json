@@ -1,14 +1,16 @@
 {
-  "name": "am-strap",
-  "version": "2.0.2",
+  "version": "3.2.0",
+  "name": "bolser-am-strap",
   "author": "Rich Cooper",
-  "main": "all.scss",
   "license" : "MIT",
-  "description": "A modular styling framework built with SCSS using attribute modules and DRY principles",
+  "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "ignore": [
     ".gitignore",
     "bower.json",
+    "gulpfile.js",
+    "index.html",
+    "package.json",
     "README.md",
-    "tests"
+    "tasks"
   ]
 }
