@@ -6,7 +6,7 @@ $am-form: (
   "border-color": #cccccc,
   "border-width": 2px,
   "checkbox-height": 2rem,
-  "checkbox-checked": 1.25rem,
+  "checkbox-checked-size": 1.25rem,
   "color": #111111,
   "input-height": 3rem,
   "padding": 1rem,
@@ -174,8 +174,8 @@ $am-form: (
         display: block;
         content: "";
         top: 50%;
-        left: ((map-get($am-form, "checkbox-height") - map-get($am-form, "checkbox-checked")) / 2);
-        width: map-get($am-form, "checkbox-checked");
+        left: ((map-get($am-form, "checkbox-height") - map-get($am-form, "checkbox-checked-size")) / 2);
+        width: map-get($am-form, "checkbox-checked-size");
         height: 2px;
         margin-top: -1px;
         background-color: map-get($am-form, "color");

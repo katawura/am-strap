@@ -139,7 +139,7 @@ Values include: ghost and fill. Additional hover state values include: tick and 
       "border-color": #cccccc,
       "border-width": 2px,
       "checkbox-height": 2rem,
-      "checkbox-checked": 1.25rem,
+      "checkbox-checked-size": 1.25rem,
       "color": #111111,
       "input-height": 3rem,
       "padding": 1rem,
