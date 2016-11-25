@@ -91,6 +91,16 @@ $am-form: (
   background-color: map-get($am-form, "background-color");
   border: map-get($am-form, "border-width") solid map-get($am-form, "border-color");
 
+  &.valid,
+  &.ng-dirty.ng-valid {
+    border-color: map-get($am-form, "response-positive-color");
+  }
+
+  &.invalid,
+  &.ng-dirty.ng-invalid {
+    border-color: map-get($am-form, "response-negative-color");
+  }
+
   select {
     display: block;
     width: 100%;
@@ -189,6 +199,20 @@ $am-form: (
       &::after {
         transform: rotate(45deg);
       }
+    }
+  }
+
+  &.valid,
+  &.ng-dirty.ng-valid {
+    input + label {
+      border-color: map-get($am-form, "response-positive-color");
+    }
+  }
+
+  &.invalid,
+  &.ng-dirty.ng-invalid {
+    input + label {
+      border-color: map-get($am-form, "response-negative-color");
     }
   }
 }
