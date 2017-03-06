@@ -132,6 +132,7 @@ Accepted values for hover animation:
 - tick
 - arrow
 
+Examples:
 
     <a href="" am-btn="ghost">Read more</a>
     <a href="" am-btn="fill">Read more</a>
@@ -143,7 +144,7 @@ Accepted values for hover animation:
 
 #### Config
 
-	$am-form: (
+	  $am-form: (
       "background-color": transparent,
       "border-color": #cccccc,
       "border-width": 2px,
@@ -159,10 +160,17 @@ Accepted values for hover animation:
     
 #### Usage
 
+Accepted values:
+
+- input
+- textarea
+- select
+- checkbox
+
 Input
 
-    <input type="text" am-form="input" />
-    
+    <input type="text" am-form="input">
+
 Textarea
 
     <textarea am-form="textarea"></textarea>
@@ -176,11 +184,11 @@ Select box
        <option value="Option 2">Option 2</option>
       </select>
     </div>
-    
+
 Checkbox
 
     <div am-form="checkbox">
-      <input type="checkbox" id="checkbox1" />
+      <input type="checkbox" id="checkbox1">
       <label for="checkbox1"></label>
       <label for="checkbox1">Accept our terms and conditions</label>
     </div>
@@ -199,6 +207,7 @@ Accepted values:
 - initial
 - inherit
 
+Examples:
 
     <div am-float="clear">
       <div am-float="left">
@@ -223,7 +232,11 @@ Accepted values:
 - initial
 - inherit
 
+Examples:
 
     <div am-align="left">
       Text is left aligned
+    </div>
+    <div am-align="right">
+      Text is right aligned
     </div>
