@@ -2,11 +2,11 @@
   "version": "4.0.0",
   "name": "am-strap",
   "author": "Rich Cooper",
-  "license" : "MIT",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
+  "license" : "MIT",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"gulp development\" \"gulp server\""
+    "development": "concurrently \"gulp development\" \"gulp server\""
   },
   "devDependencies": {
     "browser-sync": "~2.17.5",
