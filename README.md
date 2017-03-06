@@ -123,12 +123,15 @@ Target screens below breakpoint
 #### Usage
 
 Accepted values for style:
+
 - ghost 
 - fill 
 
 Accepted values for hover animation:
+
 - tick
 - arrow
+
 
     <a href="" am-btn="ghost">Read more</a>
     <a href="" am-btn="fill">Read more</a>
@@ -188,12 +191,14 @@ Checkbox
 #### Usage
 
 Accepted values:
+
 - clear
 - left
 - right
 - none
 - initial
 - inherit
+
 
     <div am-float="clear">
       <div am-float="left">
@@ -210,12 +215,14 @@ Accepted values:
 #### Usage
 
 Accepted values:
+
 - left
 - right
 - center
 - justify 
 - initial
 - inherit
+
 
     <div am-align="left">
       Text is left aligned
