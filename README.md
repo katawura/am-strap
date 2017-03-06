@@ -123,12 +123,10 @@ Target screens below breakpoint
 #### Usage
 
 Accepted values for style:
-
 - ghost 
 - fill 
 
 Accepted values for hover animation:
-
 - tick
 - arrow
 
@@ -190,7 +188,6 @@ Checkbox
 #### Usage
 
 Accepted values:
-
 - clear
 - left
 - right
@@ -213,7 +210,6 @@ Accepted values:
 #### Usage
 
 Accepted values:
-
 - left
 - right
 - center
