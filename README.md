@@ -20,7 +20,7 @@ Import at the start of your SCSS
 
     @import "./bower_components/am-strap/all";
 
-Alternatively you can import individual modules. To customise a module, add it's config map with your settings before the import. All dimension keys accept rem, em and px while color keys accept rgba, rgb, hex and named values.
+Alternatively you can import individual modules. To customise a module, add it's config map with your settings before the import. All dimension values accept rem, em and px while color values accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
@@ -122,7 +122,15 @@ Target screens below breakpoint
 
 #### Usage
 
-Values include: ghost and fill. Additional hover state values include: tick and arrow.
+Accepted values for style:
+
+- ghost 
+- fill 
+
+Accepted values for hover animation:
+
+- tick
+- arrow
 
     <a href="" am-btn="ghost">Read more</a>
     <a href="" am-btn="fill">Read more</a>
@@ -181,7 +189,14 @@ Checkbox
 
 #### Usage
 
-Values include: clear, left, right, none, initial and inherit.
+Accepted values:
+
+- clear
+- left
+- right
+- none
+- initial
+- inherit
 
     <div am-float="clear">
       <div am-float="left">
@@ -197,7 +212,14 @@ Values include: clear, left, right, none, initial and inherit.
 
 #### Usage
 
-Values include: left, right, center, justify, initial and inherit.
+Accepted values:
+
+- left
+- right
+- center
+- justify 
+- initial
+- inherit
 
     <div am-align="left">
       Text is left aligned
