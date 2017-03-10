@@ -144,7 +144,7 @@ Examples:
 
 #### Config
 
-	  $am-form: (
+    $am-form: (
       "background-color": transparent,
       "border-color": #cccccc,
       "border-width": 2px,
