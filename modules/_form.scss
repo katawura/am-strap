@@ -26,7 +26,7 @@ $am-form: (
   height: map-get($am-form, "input-height");
   padding: 0 map-get($am-form, "padding");
   margin-bottom: map-get($am-form, "padding");
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: inherit;
   line-height: normal;
   color: map-get($am-form, "color");
