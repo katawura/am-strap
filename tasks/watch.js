@@ -1,14 +1,15 @@
 'use strict';
 
+// Packages
+import gulp from 'gulp';
+import watch from 'gulp-watch';
+
 // Modules
-var config = require('./config'),
-    gulp = require('gulp'),
-    runSequence = require('run-sequence'),
-    watch = require('gulp-watch');
+import config from './config';
 
 // Watch files
-gulp.task('watch', function() {
-  watch(config.css.watch, function() {
-    runSequence('css-development');
+gulp.task('watch', () => {
+  watch(config.css.watch, () => {
+    gulp.start('css-development');
   });
 });

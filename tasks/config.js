@@ -1,10 +1,9 @@
 'use strict';
 
-module.exports = {
-  compile: {
-    dest: 'dist',
-    temp: '.tmp'
-  },
+export default {
+  clean: [
+    'dist'
+  ],
   css: {
     dest: 'dist',
     filename: 'app.min.css',

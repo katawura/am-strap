@@ -1,17 +1,19 @@
 'use strict';
 
+// Packages
+import autoprefixer from 'gulp-autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import gulp from 'gulp';
+import importCSS from 'gulp-import-css';
+import rename from 'gulp-rename';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+
 // Modules
-var autoprefixer = require('gulp-autoprefixer'),
-    cleanCSS = require('gulp-clean-css'),
-    config = require('./config'),
-    gulp = require('gulp'),
-    importCSS = require('gulp-import-css'),
-    rename = require('gulp-rename'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps');
+import config from './config';
 
 // Development CSS build
-gulp.task('css-development', function() {
+gulp.task('css-development', () => {
   return gulp
     .src(config.css.src)
     .pipe(sourcemaps.init())
@@ -23,7 +25,7 @@ gulp.task('css-development', function() {
 });
 
 // Production CSS build
-gulp.task('css-production', function() {
+gulp.task('css-production', () => {
   return gulp
     .src(config.css.src)
     .pipe(sass())
