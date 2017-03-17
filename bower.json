@@ -1,16 +1,16 @@
 {
-  "version": "4.0.0",
+  "version": "4.0.2",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license" : "MIT",
   "ignore": [
+    ".babelrc",
     ".gitignore",
     "bower.json",
-    "gulpfile.js",
+    "gulpfile.babel.js",
     "index.html",
     "package.json",
-    "README.md",
     "tasks"
   ]
 }

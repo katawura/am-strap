@@ -1,14 +1,13 @@
 'use strict';
 
+// Packages
+import del from 'del';
+import gulp from 'gulp';
+
 // Modules
-var config = require('./config'),
-    del = require('del'),
-    gulp = require('gulp');
+import config from './config';
 
 // Empty distribution directory
-gulp.task('clean', function() {
-  return del([
-    config.compile.dest,
-    config.compile.temp
-  ]);
+gulp.task('clean', () => {
+  return del(config.clean);
 });

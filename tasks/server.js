@@ -1,13 +1,18 @@
 'use strict';
 
+// Packages
+import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import log from 'connect-logger';
+
 // Modules
-var browserSync = require('browser-sync').create(),
-    config = require('./config'),
-    gulp = require('gulp'),
-    log = require('connect-logger');
+import config from './config';
+
+// Create server
+browserSync.create()
 
 // Serve with browser sync
-gulp.task('browser-sync', function() {
+gulp.task('server', () => {
   browserSync.init({
     injectChanges: true,
     files: config.server.files,
