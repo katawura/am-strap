@@ -24,7 +24,7 @@ Import at the start of your SCSS
 @import "./bower_components/am-strap/all";
 ````
 
-Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values. All dimensions accept rem, em and px while colors accept rgba, rgb, hex and named values.
+Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values.
 
 <a name="grid"></a>
 ## Grid
