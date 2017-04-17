@@ -212,7 +212,7 @@ Select box
   <select>
     <option selected="true" disabled="disabled">--Select--</option>
     <option value="Option 1">Option 1</option>
-   <option value="Option 2">Option 2</option>
+    <option value="Option 2">Option 2</option>
   </select>
 </div>
 ````
