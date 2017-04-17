@@ -24,7 +24,7 @@ Import at the start of your SCSS
 @import "./bower_components/am-strap/all";
 ````
 
-Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values. All dimensions accept rem, em and px while colors accept rgba, rgb, hex and named values.
+Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values.
 
 <a name="grid"></a>
 ## Grid
@@ -67,8 +67,6 @@ $am-breakpoints: (
 
 #### HTML Usage
 
-Grid layout
-
 ````html
 <div am-container>
   <div am-row>
@@ -79,20 +77,14 @@ Grid layout
 </div>
 ````
 
-Push & pull
-
 ````html
 <div am-col="sm-6" am-push="sm-6"></div>
 <div am-col="sm-6" am-pull="sm-6"></div>
 ````
 
-Offset
-
 ````html
 <div am-col="md-6" am-offset="md-3"></div>
 ````
-
-Hidden & visible
 
 ````html
 <div am-col="md-6" am-hidden="xs sm"></div>
@@ -101,24 +93,18 @@ Hidden & visible
 
 #### CSS Usage
 
-Target specific breakpoint
-
 ````scss
 @media #{$only-sm} {
   // Styles for sm only
 }
 ````
     
-Target screens above breakpoint
-
 ````scss
 @media #{$above-md} {
   // Styles for above md
 }
 ````
     
-Target screens below breakpoint
-
 ````scss
 @media #{$below-lg} {
   // Styles for below lg
@@ -142,25 +128,20 @@ $am-btn: (
 );
 ````
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - ghost 
 - fill 
+- tick *(optional hover state)*
+- arrow *(optional hover state)*
 
-Accepted HTML values for hover state
-
-- tick
-- arrow
-
-HTML examples
+#### Usage
 
 ````html
-<a href="" am-btn="ghost">Read more</a>
-<a href="" am-btn="fill">Read more</a>
-<a href="" am-btn="ghost tick">Submit</a>
-<a href="" am-btn="fill arrow">Next</a>
+<a href="" am-btn="ghost">Text</a>
+<a href="" am-btn="fill">Text</a>
+<a href="" am-btn="ghost tick">Text</a>
+<a href="" am-btn="fill arrow">Text</a>
 ````
 
 <a name="forms"></a>
@@ -184,28 +165,23 @@ $am-form: (
 );
 ````
 
-#### Usage
-
-Accepted html values
+#### Accepted values
 
 - input
 - textarea
 - select
 - checkbox
 
-Input
+
+#### Usage
 
 ````html
 <input type="text" am-form="input">
 ````
 
-Textarea
-
 ````html
 <textarea am-form="textarea"></textarea>
 ````
-
-Select box
 
 ````html
 <div am-form="select">
@@ -217,22 +193,18 @@ Select box
 </div>
 ````
 
-Checkbox
-
 ````html
 <div am-form="checkbox">
-  <input type="checkbox" id="checkbox1">
-  <label for="checkbox1"></label>
-  <label for="checkbox1">Accept our terms and conditions</label>
+  <input type="checkbox" id="checkbox-1">
+  <label for="checkbox-1"></label>
+  <label for="checkbox-1">Label text</label>
 </div>
 ````
 
 <a name="float"></a>
 ## Float
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - clear
 - left
@@ -241,7 +213,7 @@ Accepted HTML values
 - initial
 - inherit
 
-HTML example
+#### Usage
 
 ````html
 <div am-float="clear">
@@ -257,9 +229,7 @@ HTML example
 <a name="align"></a>
 ## Align
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - left
 - right
@@ -268,13 +238,13 @@ Accepted HTML values
 - initial
 - inherit
 
-HTML example
+#### Usage
 
 ````html
 <div am-align="left">
-  Text is left aligned
+  Text aligned left
 </div>
 <div am-align="right">
-  Text is right aligned
+  Text aligned right
 </div>
 ````
