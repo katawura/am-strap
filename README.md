@@ -24,14 +24,14 @@ Import at the start of your SCSS
 @import "./bower_components/am-strap/all";
 ````
 
-Alternatively you can import individual modules. To customise a module, add it's config map with your settings before the import. All dimension values accept rem, em and px while color values accept rgba, rgb, hex and named values.
+Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values. All dimension values accept rem, em and px while color values accept rgba, rgb, hex and named values.
 
 <a name="grid"></a>
 ## Grid
 
-The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute modules. Reference their documentation for more details on how to use it - just remember to convert to the relevant attribute module values.
+The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute modules. Please reference their documentation for additional details on how to use it - just remember to convert to the relevant attribute modules and values.
 
-#### Config
+### Config
 
 ````scss
 $am-columns: 12;
@@ -65,9 +65,9 @@ $am-breakpoints: (
 );
 ````
 
-#### HTML Usage
+### HTML Usage
 
-Grid layout
+#### Grid layout
 
 ````html
 <div am-container>
@@ -79,20 +79,20 @@ Grid layout
 </div>
 ````
 
-Push & pull
+#### Push & pull
 
 ````html
 <div am-col="sm-6" am-push="sm-6"></div>
 <div am-col="sm-6" am-pull="sm-6"></div>
 ````
 
-Offset
+#### Offset
 
 ````html
 <div am-col="md-6" am-offset="md-3"></div>
 ````
 
-Hidden & visible
+#### Hidden & visible
 
 ````html
 <div am-col="md-6" am-hidden="xs sm"></div>
