@@ -142,19 +142,14 @@ $am-btn: (
 );
 ````
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - ghost 
 - fill 
+- tick *(optional hover state)*
+- arrow *(optional hover state)*
 
-Accepted HTML values for hover state
-
-- tick
-- arrow
-
-HTML examples
+#### Usage
 
 ````html
 <a href="" am-btn="ghost">Read more</a>
@@ -184,14 +179,15 @@ $am-form: (
 );
 ````
 
-#### Usage
-
-Accepted html values
+#### Accepted values
 
 - input
 - textarea
 - select
 - checkbox
+
+
+#### Usage
 
 Input
 
@@ -230,9 +226,7 @@ Checkbox
 <a name="float"></a>
 ## Float
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - clear
 - left
@@ -241,7 +235,7 @@ Accepted HTML values
 - initial
 - inherit
 
-HTML example
+#### Usage
 
 ````html
 <div am-float="clear">
@@ -257,9 +251,7 @@ HTML example
 <a name="align"></a>
 ## Align
 
-#### Usage
-
-Accepted HTML values
+#### Accepted values
 
 - left
 - right
@@ -268,7 +260,7 @@ Accepted HTML values
 - initial
 - inherit
 
-HTML example
+#### Usage
 
 ````html
 <div am-align="left">
