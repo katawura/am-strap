@@ -31,7 +31,7 @@ Alternatively you can import any individual modules from the [modules](modules/)
 
 The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute modules. Please reference their documentation for additional details on how to use it - just remember to convert to the relevant attribute modules and values.
 
-### Config
+#### Config
 
 ````scss
 $am-columns: 12;
@@ -65,9 +65,9 @@ $am-breakpoints: (
 );
 ````
 
-### HTML Usage
+#### HTML Usage
 
-#### Grid layout
+Grid layout
 
 ````html
 <div am-container>
@@ -79,20 +79,20 @@ $am-breakpoints: (
 </div>
 ````
 
-#### Push & pull
+Push & pull
 
 ````html
 <div am-col="sm-6" am-push="sm-6"></div>
 <div am-col="sm-6" am-pull="sm-6"></div>
 ````
 
-#### Offset
+Offset
 
 ````html
 <div am-col="md-6" am-offset="md-3"></div>
 ````
 
-#### Hidden & visible
+Hidden & visible
 
 ````html
 <div am-col="md-6" am-hidden="xs sm"></div>
@@ -144,17 +144,17 @@ $am-btn: (
 
 #### Usage
 
-Accepted values for style:
+Accepted HTML values
 
 - ghost 
 - fill 
 
-Accepted values for hover animation:
+Accepted HTML values for hover state
 
 - tick
 - arrow
 
-Examples:
+HTML examples
 
 ````html
 <a href="" am-btn="ghost">Read more</a>
@@ -186,20 +186,26 @@ $am-form: (
 
 #### Usage
 
-Accepted values:
+Accepted html values
 
 - input
 - textarea
 - select
 - checkbox
 
+Input
+
 ````html
 <input type="text" am-form="input">
 ````
 
+Textarea
+
 ````html
 <textarea am-form="textarea"></textarea>
 ````
+
+Select box
 
 ````html
 <div am-form="select">
@@ -210,6 +216,8 @@ Accepted values:
   </select>
 </div>
 ````
+
+Checkbox
 
 ````html
 <div am-form="checkbox">
@@ -224,7 +232,7 @@ Accepted values:
 
 #### Usage
 
-Accepted values:
+Accepted HTML values
 
 - clear
 - left
@@ -233,7 +241,7 @@ Accepted values:
 - initial
 - inherit
 
-Examples:
+HTML example
 
 ````html
 <div am-float="clear">
@@ -251,7 +259,7 @@ Examples:
 
 #### Usage
 
-Accepted values:
+Accepted HTML values
 
 - left
 - right
@@ -260,7 +268,7 @@ Accepted values:
 - initial
 - inherit
 
-Examples:
+HTMl example
 
 ````html
 <div am-align="left">
