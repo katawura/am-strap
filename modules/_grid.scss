@@ -1,6 +1,4 @@
 // Config map
-// --------------------------------
-
 $am-columns: 12 !default;
 
 $am-breakpoints: (
@@ -31,10 +29,6 @@ $am-breakpoints: (
   )
 ) !default;
 
-
-// Target breakpoints
-// --------------------------------
-
 // Target specific breakpoint
 $only-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
 $only-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})";
@@ -58,10 +52,7 @@ $above-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), 
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
 $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)";
 
-
 // Base styles
-// --------------------------------
-
 [am-container],
 [am-row] {
   box-sizing: border-box;
@@ -87,10 +78,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
   box-sizing: border-box;
 }
 
-
 // Grid rules
-// --------------------------------
-
 @mixin grid-rules($am-breakpoint-key, $am-breakpoint-map) {
 
   // Column width
@@ -137,10 +125,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
   }
 }
 
-
 // Apply grid rules
-// --------------------------------
-
 @each $am-breakpoint-key, $am-breakpoint-map in $am-breakpoints {
 
   // Base (mobile first)
@@ -156,10 +141,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
   }
 }
 
-
 // Compress
-// --------------------------------
-
 [am-row~="compress"] {
   margin-left: 0;
   margin-right: 0;
@@ -170,11 +152,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
   }
 }
 
-
 // Hidden & visible states
-// --------------------------------
-
-// Specific breakpoint map
 $am-target-breakpoint: (
   "xs": $only-xs,
   "sm": $only-sm,
@@ -183,7 +161,6 @@ $am-target-breakpoint: (
   "xl": $only-xl
 );
 
-// Loop breakpoints
 @each $am-breakpoint-key, $am-breakpoint-query in $am-target-breakpoint {
   @media #{$am-breakpoint-query} {
     [am-hidden~="#{$am-breakpoint-key}"],
