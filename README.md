@@ -67,8 +67,6 @@ $am-breakpoints: (
 
 #### HTML Usage
 
-Grid layout
-
 ````html
 <div am-container>
   <div am-row>
@@ -79,20 +77,14 @@ Grid layout
 </div>
 ````
 
-Push & pull
-
 ````html
 <div am-col="sm-6" am-push="sm-6"></div>
 <div am-col="sm-6" am-pull="sm-6"></div>
 ````
 
-Offset
-
 ````html
 <div am-col="md-6" am-offset="md-3"></div>
 ````
-
-Hidden & visible
 
 ````html
 <div am-col="md-6" am-hidden="xs sm"></div>
@@ -101,24 +93,18 @@ Hidden & visible
 
 #### CSS Usage
 
-Target specific breakpoint
-
 ````scss
 @media #{$only-sm} {
   // Styles for sm only
 }
 ````
     
-Target screens above breakpoint
-
 ````scss
 @media #{$above-md} {
   // Styles for above md
 }
 ````
     
-Target screens below breakpoint
-
 ````scss
 @media #{$below-lg} {
   // Styles for below lg
@@ -189,19 +175,13 @@ $am-form: (
 
 #### Usage
 
-Input
-
 ````html
 <input type="text" am-form="input">
 ````
 
-Textarea
-
 ````html
 <textarea am-form="textarea"></textarea>
 ````
-
-Select box
 
 ````html
 <div am-form="select">
@@ -212,8 +192,6 @@ Select box
   </select>
 </div>
 ````
-
-Checkbox
 
 ````html
 <div am-form="checkbox">
