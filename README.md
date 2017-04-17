@@ -138,10 +138,10 @@ $am-btn: (
 #### Usage
 
 ````html
-<a href="" am-btn="ghost">Read more</a>
-<a href="" am-btn="fill">Read more</a>
-<a href="" am-btn="ghost tick">Submit</a>
-<a href="" am-btn="fill arrow">Next</a>
+<a href="" am-btn="ghost">Text</a>
+<a href="" am-btn="fill">Text</a>
+<a href="" am-btn="ghost tick">Text</a>
+<a href="" am-btn="fill arrow">Text</a>
 ````
 
 <a name="forms"></a>
@@ -195,9 +195,9 @@ $am-form: (
 
 ````html
 <div am-form="checkbox">
-  <input type="checkbox" id="checkbox1">
-  <label for="checkbox1"></label>
-  <label for="checkbox1">Accept our terms and conditions</label>
+  <input type="checkbox" id="checkbox-1">
+  <label for="checkbox-1"></label>
+  <label for="checkbox-1">Label text</label>
 </div>
 ````
 
@@ -242,9 +242,9 @@ $am-form: (
 
 ````html
 <div am-align="left">
-  Text is left aligned
+  Text aligned left
 </div>
 <div am-align="right">
-  Text is right aligned
+  Text aligned right
 </div>
 ````
