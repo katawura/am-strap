@@ -1,20 +1,15 @@
 // Config map
-// --------------------------------
-
 $am-btn: (
+  "height": 3rem,
   "fill-color": #ffffff,
-  "fill-background": #333333,
+  "fill-background-color": #333333,
   "ghost-color": #111111,
   "ghost-border-color": #111111,
   "ghost-border-width": 2px,
-  "height": 3rem,
-  "loading-background": #333333
+  "loading-background-color": #333333
 ) !default;
 
-
 // Base styles
-// --------------------------------
-
 [am-btn] {
   position: relative;
   display: inline-block;
@@ -49,10 +44,7 @@ $am-btn: (
   }
 }
 
-
 // Ghost & fill
-// --------------------------------
-
 [am-btn~="ghost"] {
   color: map-get($am-btn, "ghost-color");
   background-color: transparent;
@@ -67,7 +59,7 @@ $am-btn: (
 
 [am-btn~="fill"] {
   color: map-get($am-btn, "fill-color");
-  background-color: map-get($am-btn, "fill-background");
+  background-color: map-get($am-btn, "fill-background-color");
 
   &:hover,
   &[disabled] {
@@ -75,10 +67,7 @@ $am-btn: (
   }
 }
 
-
 // Tick button
-// --------------------------------
-
 [am-btn~="tick"] {
   transition: color 300ms ease 150ms;
 
@@ -125,10 +114,7 @@ $am-btn: (
   }
 }
 
-
 // Arrow button
-// --------------------------------
-
 [am-btn~="arrow"] {
   transition: color 300ms ease 150ms;
 
@@ -175,10 +161,7 @@ $am-btn: (
   }
 }
 
-
 // Loading state
-// --------------------------------
-
 [am-btn].loading {
   color: transparent;
   cursor: default;
@@ -187,14 +170,14 @@ $am-btn: (
   transform-origin: 50% 50%;
   transition: transform 300ms, color 300ms, border 300ms, background 300ms;
 
-  @if (lightness(map-get($am-btn, "loading-background")) > 50) {
-    border-color: lighten(map-get($am-btn, "loading-background"), 30);
-    background-color: darken(map-get($am-btn, "loading-background"), 30);
+  @if (lightness(map-get($am-btn, "loading-background-color")) > 50) {
+    border-color: lighten(map-get($am-btn, "loading-background-color"), 30);
+    background-color: darken(map-get($am-btn, "loading-background-color"), 30);
   }
 
   @else {
-    border-color: lighten(map-get($am-btn, "loading-background"), 30);
-    background-color: lighten(map-get($am-btn, "loading-background"), 30);
+    border-color: lighten(map-get($am-btn, "loading-background-color"), 30);
+    background-color: lighten(map-get($am-btn, "loading-background-color"), 30);
   }
 
   &::after {
@@ -205,12 +188,12 @@ $am-btn: (
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: map-get($am-btn, "loading-background");
-    animation: amBtnLoading 1500ms linear 300ms infinite backwards;
+    background-color: map-get($am-btn, "loading-background-color");
+    animation: am-btn-loading 1500ms linear 300ms infinite backwards;
   }
 }
 
-@keyframes amBtnLoading {
+@keyframes am-btn-loading {
   0% {
     left: 0%;
     right: 100%;

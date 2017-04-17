@@ -118,13 +118,13 @@ $am-breakpoints: (
 
 ````scss
 $am-btn: (
+  "height": 3rem,
   "fill-color": #ffffff,
-  "fill-background": #333333,
+  "fill-background-color": #333333,
   "ghost-color": #111111,
   "ghost-border-color": #111111,
   "ghost-border-width": 2px,
-  "height": 3rem,
-  "loading-background": #333333
+  "loading-background-color": #333333
 );
 ````
 
@@ -151,14 +151,14 @@ $am-btn: (
 
 ````scss
 $am-form: (
-  "background-color": transparent,
-  "border-color": #cccccc,
-  "border-width": 2px,
-  "checkbox-height": 2rem,
-  "checkbox-checked-size": 1.25rem,
   "color": #111111,
   "input-height": 3rem,
   "padding": 1rem,
+  "border-width": 2px,
+  "border-color": #cccccc,
+  "background-color": transparent,  
+  "checkbox-height": 2rem,
+  "checkbox-checked-size": 1.25rem,
   "placeholder-color": #888888,
   "response-negative-color": #ed9696,
   "response-positive-color": #9bd49b

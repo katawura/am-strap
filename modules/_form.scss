@@ -1,24 +1,19 @@
 // Config map
-// --------------------------------
-
 $am-form: (
-  "background-color": transparent,
-  "border-color": #cccccc,
-  "border-width": 2px,
-  "checkbox-height": 2rem,
-  "checkbox-checked-size": 1.25rem,
   "color": #111111,
   "input-height": 3rem,
   "padding": 1rem,
+  "border-width": 2px,
+  "border-color": #cccccc,
+  "background-color": transparent,
+  "checkbox-height": 2rem,
+  "checkbox-checked-size": 1.25rem,
   "placeholder-color": #888888,
   "response-negative-color": #ed9696,
   "response-positive-color": #9bd49b
 ) !default;
 
-
 // Input & textarea
-// --------------------------------
-
 [am-form~="input"],
 [am-form~="textarea"] {
   display: block;
@@ -77,10 +72,7 @@ $am-form: (
   padding: map-get($am-form, "padding");
 }
 
-
 // Select box
-// --------------------------------
-
 [am-form~="select"] {
   position: relative;
   width: 100%;
@@ -133,10 +125,7 @@ $am-form: (
   }
 }
 
-
 // Checkbox
-// --------------------------------
-
 [am-form~="checkbox"] {
   position: relative;
   min-height: map-get($am-form, "checkbox-height");
