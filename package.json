@@ -4,7 +4,6 @@
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license" : "MIT",
-  "private": true,
   "files": [
     "all.scss",
     "modules"
