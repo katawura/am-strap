@@ -1,5 +1,5 @@
 {
-  "version": "4.0.2",
+  "version": "4.2.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
