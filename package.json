@@ -6,8 +6,8 @@
   "license" : "MIT",
   "private": true,
   "files": [
-	  "all.scss",
-	  "modules"
+    "all.scss",
+    "modules"
   ],
   "dependencies": {
     "babel": "~6.23.0",
