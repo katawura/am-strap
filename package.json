@@ -1,14 +1,14 @@
 {
-  "version": "4.0.2",
+  "version": "4.2.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license" : "MIT",
   "private": true,
-  "scripts": {
-    "development": "gulp development",
-    "production": "gulp production"
-  },
+  "files": [
+    "all.scss",
+    "modules"
+  ],
   "dependencies": {
     "babel": "~6.23.0",
     "babel-preset-es2015": "~6.24.0",

@@ -14,17 +14,19 @@ A DRY modular styling framework built with SCSS using attribute modules. It is r
 <a name="install"></a>
 ## Install
 
+#### NPM
+
+````sh
+npm install am-strap
+````
+
+#### Bower
+
 ````sh
 bower install am-strap
 ````
-    
-Import at the start of your SCSS
 
-````scss
-@import "./bower_components/am-strap/all";
-````
-
-Alternatively you can import any individual modules from the [modules](modules/) directory. To customise styles for a module, add it's config map before the import declaration and edit the relevant values.
+At the start of your stylesheet, import individual files from the [modules](modules/) directory or use the `all` file to import all modules. To customise styles for a module, add it's config map before the import declaration and edit the relevant values.
 
 <a name="grid"></a>
 ## Grid
