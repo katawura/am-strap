@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0",
+  "version": "4.3.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
@@ -11,6 +11,7 @@
     "gulpfile.babel.js",
     "index.html",
     "package.json",
-    "tasks"
+    "tasks",
+    "yarn.lock"
   ]
 }

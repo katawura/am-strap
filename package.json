@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0",
+  "version": "4.3.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
@@ -8,7 +8,7 @@
     "all.scss",
     "modules"
   ],
-  "dependencies": {
+  "devDependencies": {
     "babel": "~6.23.0",
     "babel-preset-es2015": "~6.24.0",
     "babel-register": "~6.24.0",

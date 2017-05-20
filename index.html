@@ -1,116 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <!-- Meta -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
 
-  <!-- Page -->
-  <title>AM Strap Test</title>
+    <!-- Page -->
+    <title>AM Strap Test</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="/dist/app.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/dist/styles.min.css">
 
-  <!-- Styles -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
+    <!-- Styles -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
 
-    [am-block] {
-      height: 2rem;
-      margin-bottom: 1rem;
-    }
+      .Block {
+        height: 2rem;
+        margin-bottom: 1rem;
+      }
 
-    [am-block~="red"] {
-      background-color: #c57070;
-    }
+      .Block--red {
+        background-color: #c57070;
+      }
 
-    [am-block~="blue"] {
-      background-color: #7092c5;
-    }
-  </style>
-</head>
-<body>
+      .Block--blue {
+        background-color: #7092c5;
+      }
+    </style>
+  </head>
+  <body>
 
-  <!-- Grid test -->
-  <div am-container>
-    <h1>Grid</h1>
-    <div am-row>
-      <div am-col="lg-1 sm-2 xs-3">
-        <div am-block="red"></div>
+    <!-- Grid -->
+    <div am-container>
+      <h1>Grid</h1>
+      <div am-row>
+        <div am-col="lg-1 sm-2 xs-3">
+          <div class="Block--red"></div>
+        </div>
+        <div am-col="lg-11 sm-10 xs-9">
+          <div class="Block--blue"></div>
+        </div>
       </div>
-      <div am-col="lg-11 sm-10 xs-9">
-        <div am-block="blue"></div>
+      <div am-row>
+        <div am-col="lg-2 sm-3 xs-4">
+          <div am-block="red"></div>
+        </div>
+        <div am-col="lg-10 sm-9 xs-8">
+          <div class="Block--blue"></div>
+        </div>
+      </div>
+      <div am-row>
+        <div am-col="lg-3 sm-4 xs-5">
+          <div blacc="Block--red"></div>
+        </div>
+        <div am-col="lg-9 sm-8 xs-7">
+          <div class="Block--blue"></div>
+        </div>
+      </div>
+      <div am-row>
+        <div am-col="lg-4 sm-5 xs-6">
+          <div class="Block--red"></div>
+        </div>
+        <div am-col="lg-8 sm-7 xs-6">
+          <div class="Block--blue"></div>
+        </div>
+      </div>
+      <div am-row>
+        <div am-col="lg-5 sm-6 xs-7">
+          <div class="Block--red"></div>
+        </div>
+        <div am-col="lg-7 sm-6 xs-5">
+          <div class="Block--blue"></div>
+        </div>
+      </div>
+      <div am-row>
+        <div am-col="lg-6 sm-7 xs-8">
+          <div class="Block--red"></div>
+        </div>
+        <div am-col="lg-6 sm-5 xs-4">
+          <div class="Block--blue"></div>
+        </div>
       </div>
     </div>
-    <div am-row>
-      <div am-col="lg-2 sm-3 xs-4">
-        <div am-block="red"></div>
-      </div>
-      <div am-col="lg-10 sm-9 xs-8">
-        <div am-block="blue"></div>
-      </div>
-    </div>
-    <div am-row>
-      <div am-col="lg-3 sm-4 xs-5">
-        <div am-block="red"></div>
-      </div>
-      <div am-col="lg-9 sm-8 xs-7">
-        <div am-block="blue"></div>
-      </div>
-    </div>
-    <div am-row>
-      <div am-col="lg-4 sm-5 xs-6">
-        <div am-block="red"></div>
-      </div>
-      <div am-col="lg-8 sm-7 xs-6">
-        <div am-block="blue"></div>
-      </div>
-    </div>
-    <div am-row>
-      <div am-col="lg-5 sm-6 xs-7">
-        <div am-block="red"></div>
-      </div>
-      <div am-col="lg-7 sm-6 xs-5">
-        <div am-block="blue"></div>
-      </div>
-    </div>
-    <div am-row>
-      <div am-col="lg-6 sm-7 xs-8">
-        <div am-block="red"></div>
-      </div>
-      <div am-col="lg-6 sm-5 xs-4">
-        <div am-block="blue"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Form test -->
-  <div am-container>
-    <h1>Form</h1>
-    <form name="contact" novalidate autocomplete="off">
-      <input type="text" placeholder="Your name" am-form="input" required>
-      <input type="email" placeholder="Email address" am-form="input" required>
-      <textarea name="message" placeholder="Message" am-form="textarea"></textarea>
-      <div am-form="select">
-        <select>
-          <option selected="true" disabled="disabled">--Select--</option>
-          <option value="Option 1">Option 1</option>
-         <option value="Option 2">Option 2</option>
-        </select>
-      </div>
-      <div am-form="checkbox">
-        <input type="checkbox" id="checkbox1">
-        <label for="checkbox1"></label>
-        <label for="checkbox1">Accept our terms and conditions</label>
-      </div>
-      <button type="submit" am-btn="fill tick">Submit</button>
-      <a href="" am-btn="ghost arrow">Reset</a>
-    </form>
-  </div>
-
-</body>
+    <!-- Form -->
+    <div am-container>
+      <h1>Form</h1>
+      <form name="contact" novalidate autocomplete="off">
+        <input type="text" placeholder="Your name" am-form="input" required>
+        <input type="email" placeholder="Email address" am-form="input" required>
+        <textarea name="message" placeholder="Message" am-form="textarea"></textarea>
+        <div am-form="select">
+          <select>
+            <option selected="true" disabled="disabled">--Select--</option>
+            <option value="Option 1">Option 1</option>
+           <option value="Option 2">Option 2</option>
+          </select>
+        </div>
+        <div am-form="checkbox">
+          <input type="checkbox" id="c1">
+          <label for="c1"></label>
+          <label for="c1">Accept our terms and conditions</label>
+        </div>
+        <button type="submit" am-btn="fill tick">Submit</button>
+        <a href="" am-btn="ghost arrow">Reset</a>
+      </form>
+    </div>
+  </body>
 </html>

@@ -6,7 +6,7 @@ export default {
   ],
   css: {
     dest: 'dist',
-    filename: 'app.min.css',
+    filename: 'styles.min.css',
     src: 'all.scss',
     watch: '**/*.scss',
   },
