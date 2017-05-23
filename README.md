@@ -36,33 +36,38 @@ The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attri
 #### Config
 
 ````scss
-$am-columns: 12;
+$am-grid-columns: 12;
 
-$am-breakpoints: (
+$am-grid-breakpoints: (
   "xs": (
-    "container": fluid,
-    "padding": 1rem,
-    "width": 0px
+    "breakpoint": 0px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": fluid
   ),
   "sm": (
-    "container": fluid,
-    "padding": 1rem,
-    "width": 420px
+    "breakpoint": 420px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": fluid
   ),
   "md": (
-    "container": set,
-    "padding": 1rem,
-    "width": 768px
+    "breakpoint": 768px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": set
   ),
   "lg": (
-    "container": set,
-    "padding": 2rem,
-    "width": 992px
+    "breakpoint": 992px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-type": set
   ),
   "xl": (
-    "container": set,
-    "padding": 2rem,
-    "width": 1200px
+    "breakpoint": 1200px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-type": set
   )
 );
 ````
