@@ -1,52 +1,57 @@
 // Config map
-$am-columns: 12 !default;
+$am-grid-columns: 12 !default;
 
-$am-breakpoints: (
+$am-grid-breakpoints: (
   "xs": (
-    "container": fluid,
-    "padding": 1rem,
-    "width": 0px
+    "breakpoint": 0px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": fluid
   ),
   "sm": (
-    "container": fluid,
-    "padding": 1rem,
-    "width": 420px
+    "breakpoint": 420px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": fluid
   ),
   "md": (
-    "container": set,
-    "padding": 1rem,
-    "width": 768px
+    "breakpoint": 768px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-type": set
   ),
   "lg": (
-    "container": set,
-    "padding": 2rem,
-    "width": 992px
+    "breakpoint": 992px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-type": set
   ),
   "xl": (
-    "container": set,
-    "padding": 2rem,
-    "width": 1200px
+    "breakpoint": 1200px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-type": set
   )
 ) !default;
 
 // Target specific breakpoint
-$only-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
-$only-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)}) and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})";
-$only-md: "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)}) and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})";
-$only-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)}) and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})";
-$only-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
+$only-xs: "only screen and (max-width: #{map-get(map-get($am-grid-breakpoints, sm), breakpoint) - 1px})";
+$only-sm: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, sm), breakpoint)}) and (max-width: #{map-get(map-get($am-grid-breakpoints, md), breakpoint) - 1px})";
+$only-md: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, md), breakpoint)}) and (max-width: #{map-get(map-get($am-grid-breakpoints, lg), breakpoint) - 1px})";
+$only-lg: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, lg), breakpoint)}) and (max-width: #{map-get(map-get($am-grid-breakpoints, xl), breakpoint) - 1px})";
+$only-xl: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, xl), breakpoint)})";
 
 // Target breakpoints below
-$below-sm: "only screen and (max-width: #{map-get(map-get($am-breakpoints, sm), width) - 1px})";
-$below-md: "only screen and (max-width: #{map-get(map-get($am-breakpoints, md), width) - 1px})";
-$below-lg: "only screen and (max-width: #{map-get(map-get($am-breakpoints, lg), width) - 1px})";
-$below-xl: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xl), width) - 1px})";
+$below-sm: "only screen and (max-width: #{map-get(map-get($am-grid-breakpoints, sm), breakpoint) - 1px})";
+$below-md: "only screen and (max-width: #{map-get(map-get($am-grid-breakpoints, md), breakpoint) - 1px})";
+$below-lg: "only screen and (max-width: #{map-get(map-get($am-grid-breakpoints, lg), breakpoint) - 1px})";
+$below-xl: "only screen and (max-width: #{map-get(map-get($am-grid-breakpoints, xl), breakpoint) - 1px})";
 
 // Target breakpoints above
-$above-sm: "only screen and (min-width: #{map-get(map-get($am-breakpoints, sm), width)})";
-$above-md: "only screen and (min-width: #{map-get(map-get($am-breakpoints, md), width)})";
-$above-lg: "only screen and (min-width: #{map-get(map-get($am-breakpoints, lg), width)})";
-$above-xl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xl), width)})";
+$above-sm: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, sm), breakpoint)})";
+$above-md: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, md), breakpoint)})";
+$above-lg: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, lg), breakpoint)})";
+$above-xl: "only screen and (min-width: #{map-get(map-get($am-grid-breakpoints, xl), breakpoint)})";
 
 // Target ipad
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
@@ -82,30 +87,30 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 @mixin grid-rules($am-breakpoint-key, $am-breakpoint-map) {
 
   // Column width
-  $am-col-width: (100% / $am-columns);
+  $am-col-width: (100% / $am-grid-columns);
 
   // Grid width & padding
   [am-container] {
-    padding-left: map-get($am-breakpoint-map, "padding");
-    padding-right: map-get($am-breakpoint-map, "padding");
+    padding-left: map-get($am-breakpoint-map, "container-padding");
+    padding-right: map-get($am-breakpoint-map, "container-padding");
 
-    @if (map-get($am-breakpoint-map, "container") == "set") {
-      max-width: map-get($am-breakpoint-map, "width");
+    @if (map-get($am-breakpoint-map, "container-type") == "set") {
+      max-width: map-get($am-breakpoint-map, "breakpoint");
     }
   }
 
   [am-row] {
-    margin-left: (-#{map-get($am-breakpoint-map, "padding")});
-    margin-right: (-#{map-get($am-breakpoint-map, "padding")});
+    margin-left: (-#{map-get($am-breakpoint-map, "column-padding")});
+    margin-right: (-#{map-get($am-breakpoint-map, "column-padding")});
   }
 
   [am-col] {
-    padding-left: map-get($am-breakpoint-map, "padding");
-    padding-right: map-get($am-breakpoint-map, "padding");
+    padding-left: map-get($am-breakpoint-map, "column-padding");
+    padding-right: map-get($am-breakpoint-map, "column-padding");
   }
 
   // Col, push, pull & offset
-  @for $i from 0 through ($am-columns - 1) {
+  @for $i from 0 through ($am-grid-columns - 1) {
     [am-col~="#{$am-breakpoint-key}-#{$i + 1}"] {
       float: left;
       width: ($am-col-width * ($i + 1));
@@ -126,7 +131,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 }
 
 // Apply grid rules
-@each $am-breakpoint-key, $am-breakpoint-map in $am-breakpoints {
+@each $am-breakpoint-key, $am-breakpoint-map in $am-grid-breakpoints {
 
   // Base (mobile first)
   @if ($am-breakpoint-key == xs) {
@@ -135,7 +140,7 @@ $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and 
 
   // Other breakpoints
   @else {
-    @media only screen and (min-width: #{map-get($am-breakpoint-map, "width")}) {
+    @media only screen and (min-width: #{map-get($am-breakpoint-map, "breakpoint")}) {
       @include grid-rules($am-breakpoint-key, $am-breakpoint-map);
     }
   }
