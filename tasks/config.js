@@ -5,12 +5,12 @@ export default {
     'dist'
   ],
   css: {
+    src: 'main.scss',
     dest: 'dist',
     filename: 'styles.min.css',
-    src: 'all.scss',
-    watch: '**/*.scss',
+    watch: '**/*.scss'
   },
   server: {
-    files: ['./**/*.{html,css,png,jpg,svg,gif}']
+    files: ['./**/*.{html,css}']
   }
 };

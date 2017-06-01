@@ -4,7 +4,6 @@
 import autoprefixer from 'gulp-autoprefixer';
 import cleanCSS from 'gulp-clean-css';
 import gulp from 'gulp';
-import importCSS from 'gulp-import-css';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
@@ -18,9 +17,8 @@ gulp.task('css-development', () => {
     .src(config.css.src)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(importCSS())
+    .pipe(sourcemaps.write())
     .pipe(rename(config.css.filename))
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.css.dest));
 });
 
@@ -28,11 +26,10 @@ gulp.task('css-development', () => {
 gulp.task('css-production', () => {
   return gulp
     .src(config.css.src)
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['> 0.5%']
     }))
-    .pipe(importCSS())
     .pipe(cleanCSS())
     .pipe(rename(config.css.filename))
     .pipe(gulp.dest(config.css.dest));
