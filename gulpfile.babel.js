@@ -5,33 +5,43 @@ import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
 // Modules
+import './tasks/browser-sync';
 import './tasks/clean';
 import './tasks/css';
-import './tasks/server';
 import './tasks/watch';
 
 // Bind gulp to run sequence
 runSequence.use(gulp);
 
 // Development build
-gulp.task('development', () => {
+gulp.task('development-build', (callback) => {
   runSequence(
     'clean',
     'css-development',
+    callback
+  );
+});
+
+// Development server
+gulp.task('development-server', (callback) => {
+  runSequence(
+    'development-build',
     'watch',
-    'server'
+    'browser-sync',
+    callback
   );
 });
 
 // Production build
-gulp.task('production', () => {
+gulp.task('production-build', (callback) => {
   runSequence(
     'clean',
-    'css-production'
+    'css-production',
+    callback
   );
 });
 
-// Default
+// Default task
 gulp.task('default', () => {
-  gulp.start('development');
+  gulp.start('development-build');
 });

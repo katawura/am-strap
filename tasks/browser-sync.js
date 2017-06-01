@@ -12,8 +12,10 @@ import config from './config';
 browserSync.create()
 
 // Serve with browser sync
-gulp.task('server', () => {
+gulp.task('browser-sync', () => {
   browserSync.init({
+    open: false,
+    notify: false,
     injectChanges: true,
     files: config.server.files,
     watchOptions: {

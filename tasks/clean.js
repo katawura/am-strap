@@ -7,7 +7,7 @@ import gulp from 'gulp';
 // Modules
 import config from './config';
 
-// Delete compile directories
+// Delete items
 gulp.task('clean', () => {
   return del(config.clean);
 });
