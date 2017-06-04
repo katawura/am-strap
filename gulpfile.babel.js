@@ -14,7 +14,7 @@ import './tasks/watch';
 runSequence.use(gulp);
 
 // Development build
-gulp.task('development-build', (callback) => {
+gulp.task('development-build', callback => {
   runSequence(
     'clean',
     'css-development',
@@ -23,7 +23,7 @@ gulp.task('development-build', (callback) => {
 });
 
 // Development server
-gulp.task('development-server', (callback) => {
+gulp.task('development-server', callback => {
   runSequence(
     'development-build',
     'watch',
@@ -33,7 +33,7 @@ gulp.task('development-server', (callback) => {
 });
 
 // Production build
-gulp.task('production-build', (callback) => {
+gulp.task('production-build', callback => {
   runSequence(
     'clean',
     'css-production',
