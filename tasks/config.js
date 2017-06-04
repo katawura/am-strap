@@ -1,6 +1,9 @@
 'use strict';
 
 export default {
+  browserSync: {
+    files: ['./**/*.{html,css}']
+  },
   clean: [
     'dist'
   ],
@@ -9,8 +12,5 @@ export default {
     dest: 'dist',
     filename: 'styles.min.css',
     watch: '**/*.scss'
-  },
-  server: {
-    files: ['./**/*.{html,css}']
   }
 };

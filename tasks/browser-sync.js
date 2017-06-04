@@ -17,7 +17,7 @@ gulp.task('browser-sync', () => {
     open: false,
     notify: false,
     injectChanges: true,
-    files: config.server.files,
+    files: config.browserSync.files,
     watchOptions: {
       cwd: '.'
     },
