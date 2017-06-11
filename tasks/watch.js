@@ -7,9 +7,9 @@ import watch from 'gulp-watch';
 // Modules
 import config from './config';
 
-// Watch files
+// Trigger tasks on file changes
 gulp.task('watch', () => {
   watch(config.css.watch, () => {
-    gulp.start('css-development');
+    gulp.start('css:development');
   });
 });

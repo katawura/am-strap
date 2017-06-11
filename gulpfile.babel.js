@@ -14,34 +14,34 @@ import './tasks/watch';
 runSequence.use(gulp);
 
 // Development build
-gulp.task('development-build', callback => {
+gulp.task('build:development', callback => {
   runSequence(
     'clean',
-    'css-development',
+    'css:development',
+    callback
+  );
+});
+
+// Production build
+gulp.task('build:production', callback => {
+  runSequence(
+    'clean',
+    'css:production',
     callback
   );
 });
 
 // Development server
-gulp.task('development-server', callback => {
+gulp.task('server:development', callback => {
   runSequence(
-    'development-build',
+    'build:development',
     'watch',
     'browser-sync',
     callback
   );
 });
 
-// Production build
-gulp.task('production-build', callback => {
-  runSequence(
-    'clean',
-    'css-production',
-    callback
-  );
-});
-
 // Default task
 gulp.task('default', () => {
-  gulp.start('development-build');
+  gulp.start('build:development');
 });

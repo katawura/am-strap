@@ -2,6 +2,7 @@
 
 // Packages
 import browserSync from 'browser-sync';
+import fallback from 'connect-history-api-fallback';
 import gulp from 'gulp';
 import log from 'connect-logger';
 
@@ -9,25 +10,38 @@ import log from 'connect-logger';
 import config from './config';
 
 // Create server
-browserSync.create()
+browserSync.create();
 
-// Serve with browser sync
+// Launch a browser sync server
 gulp.task('browser-sync', () => {
+
+  // Middleware array
+  var middleware = [
+    log({
+      format: '%date %status %method %url'
+    })
+  ];
+
+  // Single page application file fallback
+  if (config.browserSync.spa) {
+    middleware.push(fallback({
+      index: '/index.html',
+      htmlAcceptHeaders: ['text/html', 'application/xhtml+xml']
+    }));
+  }
+
+  // Initialise browser sync
   browserSync.init({
     open: false,
     notify: false,
     injectChanges: true,
     files: config.browserSync.files,
     watchOptions: {
-      cwd: '.'
+      cwd: config.browserSync.baseDir
     },
     server: {
-      baseDir: './',
-       middleware: [
-        log({
-          format: '%date %status %method %url'
-        })
-      ]
+      baseDir: config.browserSync.baseDir,
+      middleware: middleware
     }
   });
 });

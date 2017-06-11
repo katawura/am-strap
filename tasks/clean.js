@@ -7,7 +7,7 @@ import gulp from 'gulp';
 // Modules
 import config from './config';
 
-// Delete items
+// Delete array of directories or files
 gulp.task('clean', () => {
   return del(config.clean);
 });

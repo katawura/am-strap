@@ -1,0 +1,33 @@
+// Config map
+$am-strap: (
+  "xs": (
+    "breakpoint": 0px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-max-width": false
+  ),
+  "sm": (
+    "breakpoint": 420px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-max-width": false
+  ),
+  "md": (
+    "breakpoint": 768px,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-max-width": true
+  ),
+  "lg": (
+    "breakpoint": 992px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-max-width": true
+  ),
+  "xl": (
+    "breakpoint": 1200px,
+    "column-padding": 2rem,
+    "container-padding": 2rem,
+    "container-max-width": true
+  )
+) !default;

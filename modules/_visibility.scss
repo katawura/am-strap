@@ -1,0 +1,18 @@
+// Target specific breakpoints
+$target-breakpoint: (
+  "xs": $only-xs,
+  "sm": $only-sm,
+  "md": $only-md,
+  "lg": $only-lg,
+  "xl": $only-xl
+);
+
+// Loop breakpoints & apply hidden/visible state
+@each $breakpoint-key, $breakpoint-query in $target-breakpoint {
+  @media #{$breakpoint-query} {
+    [am-hidden~="#{$breakpoint-key}"],
+    [am-visible]:not([am-visible~="#{$breakpoint-key}"]) {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+// Declare column count & calculate width
+$am-strap-columns: 12 !default;
+$column-width: (100% / $am-strap-columns);
+
+// Apply the grid rules
+@mixin grid-rules($breakpoint-key, $breakpoint-map) {
+  @for $i from 0 through ($am-strap-columns - 1) {
+    [am-col~="#{$breakpoint-key}-#{$i + 1}"] {
+      float: left;
+      width: ($column-width * ($i + 1));
+    }
+
+    [am-push~="#{$breakpoint-key}-#{$i}"] {
+      position: relative;
+      left: ($column-width * $i);
+    }
+
+    [am-pull~="#{$breakpoint-key}-#{$i}"] {
+      position: relative;
+      right: ($column-width * $i);
+    }
+
+    [am-offset~="#{$breakpoint-key}-#{$i}"] {
+      margin-left: ($column-width * $i);
+    }
+  }
+}
+
+// Loop breakpoints & apply grid rules from xs upwards
+@each $breakpoint-key, $breakpoint-map in $am-strap {
+  @if ($breakpoint-key == xs) {
+    @include grid-rules($breakpoint-key, $breakpoint-map);
+  } @else {
+    @media only screen and (min-width: #{map-get($breakpoint-map, "breakpoint")}) {
+      @include grid-rules($breakpoint-key, $breakpoint-map);
+    }
+  }
+}
