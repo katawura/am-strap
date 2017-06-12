@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "am-strap.scss",
   "files": [
+    "am-strap.scss",
     "modules"
   ],
   "dependencies": {
