@@ -1,0 +1,8 @@
+// Map of breakpoint targets
+$ams-target-breakpoint: (
+  "xs": $only-xs,
+  "sm": $only-sm,
+  "md": $only-md,
+  "lg": $only-lg,
+  "xl": $only-xl
+);
