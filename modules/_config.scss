@@ -20,14 +20,14 @@ $am-strap: (
   ),
   "lg": (
     "breakpoint": 992px,
-    "column-padding": 2rem,
-    "container-padding": 2rem,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
     "container-max-width": true
   ),
   "xl": (
     "breakpoint": 1200px,
-    "column-padding": 2rem,
-    "container-padding": 2rem,
+    "column-padding": 1rem,
+    "container-padding": 1rem,
     "container-max-width": true
   )
 ) !default;

@@ -1,68 +1,63 @@
 # AM Strap
 
-A DRY modular styling framework built with SCSS using attribute modules. It is recommended to use [autoprefixer](https://github.com/postcss/autoprefixer) for browser support.
+A DRY modular styling framework built with SCSS using attribute modules. It is recommended to use [autoprefixer](https://github.com/postcss/autoprefixer) for enhanced browser support.
 
 ## Contents
 
 1. [Install](#install)
-2. [Grid](#grid)
+2. [Config map](#config-map)
+3. [HTML usage](#html-usage)
+4. [CSS usage](#css-usage)
 
 <a name="install"></a>
 ## Install
-
-#### NPM
 
 ````sh
 npm install am-strap
 ````
 
-At the start of your stylesheet, import individual files from the [modules](modules/) directory or use the `all` file to import all modules. To customise styles for a module, add it's config map before the import declaration and edit the relevant values.
+Add the [config map](#config-map) and import `am-strap.scss` to your SCSS.
 
-<a name="grid"></a>
-## Grid
-
-The grid system is based on [Bootstrap](http://getbootstrap.com/) but uses attribute module syntax.
-
-#### Config
+<a name="config-map"></a>
+## Config Map
 
 ````scss
-$am-grid-columns: 12;
-
-$am-grid-breakpoints: (
+$am-strap: (
   "xs": (
     "breakpoint": 0px,
     "column-padding": 1rem,
     "container-padding": 1rem,
-    "container-type": fluid
+    "container-max-width": false
   ),
   "sm": (
     "breakpoint": 420px,
     "column-padding": 1rem,
     "container-padding": 1rem,
-    "container-type": fluid
+    "container-max-width": false
   ),
   "md": (
     "breakpoint": 768px,
     "column-padding": 1rem,
     "container-padding": 1rem,
-    "container-type": set
+    "container-max-width": true
   ),
   "lg": (
     "breakpoint": 992px,
-    "column-padding": 2rem,
-    "container-padding": 2rem,
-    "container-type": set
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-max-width": true
   ),
   "xl": (
     "breakpoint": 1200px,
-    "column-padding": 2rem,
-    "container-padding": 2rem,
-    "container-type": set
+    "column-padding": 1rem,
+    "container-padding": 1rem,
+    "container-max-width": true
   )
 );
 ````
 
-#### HTML Usage
+<a name="html-usage"></a>
+## HTML Usage
 
 ````html
 <div am-container>
@@ -88,7 +83,8 @@ $am-grid-breakpoints: (
 <div am-col="xs-12" am-visible="xs sm"></div>
 ````
 
-#### CSS Usage
+<a name="css-usage"></a>
+## CSS Usage
 
 ````scss
 @media #{$only-sm} {

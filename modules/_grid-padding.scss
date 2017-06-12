@@ -1,39 +1,36 @@
-// Mixing to apply padding to grid
-@mixin grid-padding($breakpoint-key) {
+// Contain padding in grid elements
+[am-container],
+[am-row],
+[am-col] {
+  box-sizing: border-box;
+}
 
-  // Get breakpoint map
-  $breakpoint-map: map-get($am-strap, $breakpoint-key);
+// Grid padding nixin
+@mixin grid-padding($ams-breakpoint-key) {
 
-  // Assign required variables
-  $breakpoint:  map-get($breakpoint-map, "breakpoint");
-  $column-padding: map-get($breakpoint-map, "column-padding");
-  $container-padding: map-get($breakpoint-map, "container-padding");
-  $container-max-width: map-get($breakpoint-map, "container-max-width");
+  // Assign breakpoint map to local variable
+  $ams-breakpoint-map: map-get($am-strap, $ams-breakpoint-key);
 
-  // Apply padding & max-width to container
+  // Horizontal padding & max-width on container
   [am-container] {
-    padding-left: $container-padding;
-    padding-right: $container-padding;
-
-    @if ($container-max-width == true) {
-      max-width: $breakpoint;
-    }
+    padding-left: map-get($ams-breakpoint-map, "container-padding");
+    padding-right: map-get($ams-breakpoint-map, "container-padding");
   }
 
-  // Apply negative margin to row
+  // Negative horizontal margin on row
   [am-row] {
-    margin-left: -$column-padding;
-    margin-right: -$column-padding;
+    margin-left: -#{map-get($ams-breakpoint-map, "column-padding")};
+    margin-right: -#{map-get($ams-breakpoint-map, "column-padding")};
   }
 
-  // Apply column padding
+  // Horizontal padding on column
   [am-col] {
-    padding-left: $column-padding;
-    padding-right: $column-padding;
+    padding-left: map-get($ams-breakpoint-map, "column-padding");
+    padding-right: map-get($ams-breakpoint-map, "column-padding");
   }
 
   // Compress column padding
-  [am-row~="compress-#{$breakpoint-key}"] {
+  [am-row~="compress-#{$ams-breakpoint-key}"] {
     margin-left: 0;
     margin-right: 0;
 
@@ -44,23 +41,14 @@
   }
 }
 
-// Target specific breakpoints
-$target-breakpoint: (
-  "xs": $only-xs,
-  "sm": $only-sm,
-  "md": $only-md,
-  "lg": $only-lg,
-  "xl": $only-xl
-);
-
-// Loop breakpoints and add grid padding
-@each $breakpoint-key, $breakpoint-query in $target-breakpoint {
-  @media #{$breakpoint-query} {
-    @include grid-padding($breakpoint-key);
+// Loop breakpoints & apply grid padding
+@each $ams-breakpoint-key, $ams-breakpoint-query in $ams-target-breakpoint {
+  @media #{$ams-breakpoint-query} {
+    @include grid-padding($ams-breakpoint-key);
   }
 }
 
-// Compress column padding on all breakpoints
+// Compress column padding for all breakpoints
 [am-row~="compress"] {
   margin-left: 0;
   margin-right: 0;

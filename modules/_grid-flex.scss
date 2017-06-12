@@ -9,24 +9,22 @@ $ams-column-width: (100% / $am-strap-columns);
   display: block;
 }
 
-// Clear column floats
-[am-row]::after {
-  display: table;
-  content: "";
-  clear: both;
+// Flex row
+[am-row] {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-// Prevent column collapse
 [am-col] {
-  min-height: 1px;
+  width: 100%;
 }
 
 // Grid rules mixin
 @mixin grid-rules($ams-breakpoint-key, $ams-breakpoint-map) {
   @for $ams-i from 0 through ($am-strap-columns - 1) {
     [am-col~="#{$ams-breakpoint-key}-#{$ams-i + 1}"] {
-      float: left;
-      width: ($ams-column-width * ($ams-i + 1));
+      flex: 0 0 ($ams-column-width * ($ams-i + 1));
+      max-width: ($ams-column-width * ($ams-i + 1));
     }
 
     [am-push~="#{$ams-breakpoint-key}-#{$ams-i}"] {
