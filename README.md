@@ -2,7 +2,7 @@
 
 A DRY and modular grid framework built with SCSS using attribute modules and flexbox. 
 
-Why AM Strap? Many class based grids involve repetition and result in long and unreadable chains of classes. Splitting this into attribute modules (AM) produces shorter and more semantic markup with the same visual results.
+Why AM Strap? Many class based grids involve repetition and result in long and unreadable chains of classes. Splitting the values into attribute modules (AM) produces shorter and more semantic markup with the same visual results.
 
 ## Install
 
@@ -14,10 +14,10 @@ Import `am-strap.scss` at the beginning of your stylesheet.
 
 ## Config
 
-To customise the grid, add the config map before importing AM Strap. To use floats instead of flexbox, set `grid-type` to `float`.
+To customise the grid, add the config map before importing AM Strap.
+To use floats instead of flexbox, set `grid-type` to `float`.
 
 ````scss
-// Config map
 $am-strap: (
   "columns": 12,
   "grid-type": "flexbox",
