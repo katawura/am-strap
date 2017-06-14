@@ -15,6 +15,7 @@ Import `am-strap.scss` at the beginning of your stylesheet.
 ## Config
 
 To customise the grid, add the config map before importing AM Strap.
+
 To use floats instead of flexbox, set `grid-type` to `float`.
 
 ````scss
