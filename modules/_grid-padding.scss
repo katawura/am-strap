@@ -1,15 +1,8 @@
-// Contain padding in grid elements
-[am-container],
-[am-row],
-[am-col] {
-  box-sizing: border-box;
-}
-
-// Grid padding nixin
-@mixin grid-padding($ams-breakpoint-key) {
+// Grid padding rules
+@mixin ams-padding($ams-breakpoint-key) {
 
   // Assign breakpoint map to local variable
-  $ams-breakpoint-map: map-get($am-strap, $ams-breakpoint-key);
+  $ams-breakpoint-map: map-get($ams-breakpoints, $ams-breakpoint-key);
 
   // Horizontal padding & max-width on container
   [am-container] {
@@ -44,11 +37,20 @@
 // Loop breakpoints & apply grid padding
 @each $ams-breakpoint-key, $ams-breakpoint-query in $ams-target-breakpoint {
   @media #{$ams-breakpoint-query} {
-    @include grid-padding($ams-breakpoint-key);
+    @include ams-padding($ams-breakpoint-key);
   }
 }
 
-// Compress column padding for all breakpoints
+// Contain padding in grid elements
+[am-container],
+[am-row],
+[am-col] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Compress column padding at all breakpoints
 [am-row~="compress"] {
   margin-left: 0;
   margin-right: 0;

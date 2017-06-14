@@ -9,5 +9,7 @@ import config from './config';
 
 // Delete array of directories or files
 gulp.task('clean', () => {
-  return del(config.clean);
+  return del(config.clean, {
+    force: true
+  });
 });
