@@ -93,7 +93,7 @@ $am-strap: (
 
 ## CSS Usage
 
-**Target specific breakpoint**
+**Target a specific breakpoint**
 
 ````scss
 @media #{$only-sm} {
@@ -101,7 +101,7 @@ $am-strap: (
 }
 ````
 
-**Target above breakpoint**
+**Target above a breakpoint**
 
 ````scss
 @media #{$above-md} {
@@ -109,7 +109,7 @@ $am-strap: (
 }
 ````
 
-**Target below breakpoint**
+**Target below a breakpoint**
 
 ````scss
 @media #{$below-lg} {
