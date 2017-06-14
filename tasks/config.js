@@ -1,7 +1,7 @@
 'use strict';
 
 export default {
-   browserSync: {
+  browserSync: {
     baseDir: './',
     files: ['./**/*.{css,html}']
   },

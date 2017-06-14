@@ -1,28 +1,10 @@
-// Define column count & width
-$am-strap-columns: 12 !default;
-$ams-column-width: (100% / $am-strap-columns);
-
-// Create block elements
-[am-container],
-[am-row],
-[am-col] {
-  display: block;
-}
-
-// Flex row
-[am-row] {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-[am-col] {
-  width: 100%;
-}
-
-// Grid rules mixin
-@mixin grid-rules($ams-breakpoint-key, $ams-breakpoint-map) {
-  @for $ams-i from 0 through ($am-strap-columns - 1) {
+// Flexbox grid rules
+@mixin ams-flexbox($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width) {
+  @for $ams-i from 0 through (map-get($am-strap, "columns") - 1) {
     [am-col~="#{$ams-breakpoint-key}-#{$ams-i + 1}"] {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 ($ams-column-width * ($ams-i + 1));
+      -ms-flex: 0 0 ($ams-column-width * ($ams-i + 1));
       flex: 0 0 ($ams-column-width * ($ams-i + 1));
       max-width: ($ams-column-width * ($ams-i + 1));
     }
@@ -43,26 +25,56 @@ $ams-column-width: (100% / $am-strap-columns);
   }
 }
 
-// Loop breakpoints & apply grid rules
-@each $ams-breakpoint-key, $ams-breakpoint-map in $am-strap {
+// Check if grid type is flex
+@if (map-get($am-strap, "grid-type") == "flexbox") {
 
-  // Limit container width & center horizontally
-  @if (map-get($ams-breakpoint-map, "container-max-width") == true) {
-    @media #{map-get($ams-target-breakpoint, $ams-breakpoint-key)} {
-      [am-container] {
-        max-width: map-get($ams-breakpoint-map, "breakpoint");
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+  // Create block elements
+  [am-container],
+  [am-row],
+  [am-col] {
+    display: block;
   }
 
-  // Mobile first grid rules
-  @if ($ams-breakpoint-key == "xs") {
-    @include grid-rules($ams-breakpoint-key, $ams-breakpoint-map);
-  } @else {
-    @media only screen and (min-width: #{map-get($ams-breakpoint-map, "breakpoint")}) {
-      @include grid-rules($ams-breakpoint-key, $ams-breakpoint-map);
+  // Flex row
+  [am-row] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  [am-col] {
+    width: 100%;
+  }
+
+  // Calculate column width
+  $ams-column-width: (100% / map-get($am-strap, "columns"));
+
+  // Loop breakpoints & apply grid rules
+  @each $ams-breakpoint-key, $ams-breakpoint-map in $ams-breakpoints {
+
+    // Limit container width & center horizontally
+    @if (map-get($ams-breakpoint-map, "container-max-width") == true) {
+      @media #{map-get($ams-target-breakpoint, $ams-breakpoint-key)} {
+        [am-container] {
+          max-width: map-get($ams-breakpoint-map, "breakpoint");
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    // Mobile first grid rules
+    @if ($ams-breakpoint-key == "xs") {
+      @include ams-flexbox($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
+    } @else {
+      @media only screen and (min-width: #{map-get($ams-breakpoint-map, "breakpoint")}) {
+        @include ams-flexbox($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
+      }
     }
   }
 }

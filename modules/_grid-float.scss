@@ -1,29 +1,6 @@
-// Define column count & width
-$am-strap-columns: 12 !default;
-$ams-column-width: (100% / $am-strap-columns);
-
-// Create block elements
-[am-container],
-[am-row],
-[am-col] {
-  display: block;
-}
-
-// Clear column floats
-[am-row]::after {
-  display: table;
-  content: "";
-  clear: both;
-}
-
-// Prevent column collapse
-[am-col] {
-  min-height: 1px;
-}
-
-// Grid rules mixin
-@mixin grid-rules($ams-breakpoint-key, $ams-breakpoint-map) {
-  @for $ams-i from 0 through ($am-strap-columns - 1) {
+// Float grid rules
+@mixin ams-float($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width) {
+  @for $ams-i from 0 through (map-get($am-strap, "columns") - 1) {
     [am-col~="#{$ams-breakpoint-key}-#{$ams-i + 1}"] {
       float: left;
       width: ($ams-column-width * ($ams-i + 1));
@@ -45,26 +22,52 @@ $ams-column-width: (100% / $am-strap-columns);
   }
 }
 
-// Loop breakpoints & apply grid rules
-@each $ams-breakpoint-key, $ams-breakpoint-map in $am-strap {
+// Check if grid type is float
+@if (map-get($am-strap, "grid-type") == "float") {
 
-  // Limit container width & center horizontally
-  @if (map-get($ams-breakpoint-map, "container-max-width") == true) {
-    @media #{map-get($ams-target-breakpoint, $ams-breakpoint-key)} {
-      [am-container] {
-        max-width: map-get($ams-breakpoint-map, "breakpoint");
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+  // Create block elements
+  [am-container],
+  [am-row],
+  [am-col] {
+    display: block;
   }
 
-  // Mobile first grid rules
-  @if ($ams-breakpoint-key == "xs") {
-    @include grid-rules($ams-breakpoint-key, $ams-breakpoint-map);
-  } @else {
-    @media only screen and (min-width: #{map-get($ams-breakpoint-map, "breakpoint")}) {
-      @include grid-rules($ams-breakpoint-key, $ams-breakpoint-map);
+  // Clear column floats
+  [am-row]::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+
+  // Prevent column collapse
+  [am-col] {
+    min-height: 1px;
+  }
+
+  // Calculate column width
+  $ams-column-width: (100% / map-get($am-strap, "columns"));
+
+  // Loop breakpoints & apply grid rules
+  @each $ams-breakpoint-key, $ams-breakpoint-map in $ams-breakpoints {
+
+    // Limit container width & center horizontally
+    @if (map-get($ams-breakpoint-map, "container-max-width") == true) {
+      @media #{map-get($ams-target-breakpoint, $ams-breakpoint-key)} {
+        [am-container] {
+          max-width: map-get($ams-breakpoint-map, "breakpoint");
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    // Mobile first grid rules
+    @if ($ams-breakpoint-key == "xs") {
+      @include ams-float($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
+    } @else {
+      @media only screen and (min-width: #{map-get($ams-breakpoint-map, "breakpoint")}) {
+        @include ams-float($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
+      }
     }
   }
 }
