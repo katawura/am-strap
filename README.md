@@ -1,105 +1,119 @@
 # AM Strap
 
-A DRY modular styling framework built with SCSS using attribute modules. It is recommended to use [autoprefixer](https://github.com/postcss/autoprefixer) for enhanced browser support.
+A DRY and modular grid framework built with SCSS using attribute modules and flexbox. 
 
-## Contents
+Why AM Strap? Many class based grids involve repetition and result in long and unreadable chains of classes. Splitting the values into attribute modules (AM) produces shorter and more semantic markup with the same visual results.
 
-1. [Install](#install)
-2. [Config map](#config-map)
-3. [HTML usage](#html-usage)
-4. [CSS usage](#css-usage)
-
-<a name="install"></a>
 ## Install
 
 ````sh
 npm install am-strap
 ````
 
-Add the [config map](#config-map) and import `am-strap.scss` to your SCSS.
+Import `am-strap.scss` at the beginning of your stylesheet.
 
-<a name="config-map"></a>
-## Config Map
+## Config
+
+To customise the grid, add the config map before importing AM Strap.
+
+To use floats instead of flexbox, set `grid-type` to `float`.
 
 ````scss
 $am-strap: (
-  "xs": (
-    "breakpoint": 0px,
-    "column-padding": 1rem,
-    "container-padding": 1rem,
-    "container-max-width": false
-  ),
-  "sm": (
-    "breakpoint": 420px,
-    "column-padding": 1rem,
-    "container-padding": 1rem,
-    "container-max-width": false
-  ),
-  "md": (
-    "breakpoint": 768px,
-    "column-padding": 1rem,
-    "container-padding": 1rem,
-    "container-max-width": true
-  ),
-  "lg": (
-    "breakpoint": 992px,
-    "column-padding": 1rem,
-    "container-padding": 1rem,
-    "container-max-width": true
-  ),
-  "xl": (
-    "breakpoint": 1200px,
-    "column-padding": 1rem,
-    "container-padding": 1rem,
-    "container-max-width": true
+  "columns": 12,
+  "grid-type": "flexbox",
+  "breakpoints": (
+    "xs": (
+      "breakpoint": 0px,
+      "column-padding": 1rem,
+      "container-padding": 1rem,
+      "container-max-width": false
+    ),
+    "sm": (
+      "breakpoint": 420px,
+      "column-padding": 1rem,
+      "container-padding": 1rem,
+      "container-max-width": false
+    ),
+    "md": (
+      "breakpoint": 768px,
+      "column-padding": 1rem,
+      "container-padding": 1rem,
+      "container-max-width": true
+    ),
+    "lg": (
+      "breakpoint": 992px,
+      "column-padding": 1rem,
+      "container-padding": 1rem,
+      "container-max-width": true
+    ),
+    "xl": (
+      "breakpoint": 1200px,
+      "column-padding": 1rem,
+      "container-padding": 1rem,
+      "container-max-width": true
+    )
   )
 );
 ````
 
-<a name="html-usage"></a>
 ## HTML Usage
+
+**Container with row and columns**
 
 ````html
 <div am-container>
   <div am-row>
-    <div am-col="md-6 xs-12"></div>
-    <div am-col="md-3 xs-6"></div>
-    <div am-col="md-3 xs-6"></div>
+    <div am-col="md-4 xs-6"></div>
+    <div am-col="md-4 xs-3"></div>
+    <div am-col="md-4 xs-3"></div>
   </div>
 </div>
 ````
+
+**Push and pull columns**
 
 ````html
 <div am-col="sm-6" am-push="sm-6"></div>
 <div am-col="sm-6" am-pull="sm-6"></div>
 ````
 
+**Offet columns**
+
 ````html
 <div am-col="md-6" am-offset="md-3"></div>
+<div am-col="lg-3" am-offset="lg-1"></div>
 ````
+
+**Hide and show elements**
 
 ````html
 <div am-col="md-6" am-hidden="xs sm"></div>
-<div am-col="xs-12" am-visible="xs sm"></div>
+<div am-col="xs-9" am-visible="xs sm"></div>
 ````
 
-<a name="css-usage"></a>
 ## CSS Usage
+
+**Target a specific breakpoint**
 
 ````scss
 @media #{$only-sm} {
-  // Styles for sm only
+  // Styles...
 }
 ````
-    
+
+**Target above a breakpoint**
+
 ````scss
 @media #{$above-md} {
-  // Styles for above md
+  // Styles...
 }
 ````
-    
+
+**Target below a breakpoint**
+
 ````scss
 @media #{$below-lg} {
-  // Styles for below lg
+  // Styles...
 }
 ````
