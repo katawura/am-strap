@@ -1,6 +1,9 @@
 // Grid padding rules
 @mixin ams-padding($ams-breakpoint-key) {
 
+  // Extract breakpoints from config map
+  $ams-breakpoints: map-get($am-strap, "breakpoints");
+
   // Assign breakpoint map to local variable
   $ams-breakpoint-map: map-get($ams-breakpoints, $ams-breakpoint-key);
 
