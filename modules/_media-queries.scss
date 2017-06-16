@@ -1,3 +1,6 @@
+// Extract breakpoints from config map
+$ams-breakpoints: map-get($am-strap, "breakpoints");
+
 // Target specific breakpoint
 $only-xs: "only screen and (max-width: #{map-get(map-get($ams-breakpoints, sm), breakpoint) - 1px})";
 $only-sm: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, sm), breakpoint)}) and (max-width: #{map-get(map-get($ams-breakpoints, md), breakpoint) - 1px})";
@@ -21,7 +24,7 @@ $above-xl: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, xl),
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
 $ipad-landscape: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)";
 
-// Grid helper map to target breakpoints
+// Helper map to target breakpoints
 $ams-target-breakpoint: (
   "xs": $only-xs,
   "sm": $only-sm,
