@@ -25,11 +25,10 @@
 // Check if grid type is float
 @if (map-get($am-strap, "grid-type") == "float") {
 
-  // Create block elements
-  [am-container],
-  [am-row],
-  [am-col] {
-    display: block;
+  // Center container
+  [am-container] {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   // Clear column floats
@@ -44,24 +43,25 @@
     min-height: 1px;
   }
 
+  // Extract breakpoints from config map
+  $ams-breakpoints: map-get($am-strap, "breakpoints");
+
   // Calculate column width
   $ams-column-width: (100% / map-get($am-strap, "columns"));
 
-  // Loop breakpoints & apply grid rules
+  // Limit container width & center horizontally
   @each $ams-breakpoint-key, $ams-breakpoint-map in $ams-breakpoints {
-
-    // Limit container width & center horizontally
     @if (map-get($ams-breakpoint-map, "container-max-width") == true) {
       @media #{map-get($ams-target-breakpoint, $ams-breakpoint-key)} {
         [am-container] {
           max-width: map-get($ams-breakpoint-map, "breakpoint");
-          margin-left: auto;
-          margin-right: auto;
         }
       }
     }
+  }
 
     // Mobile first grid rules
+  @each $ams-breakpoint-key, $ams-breakpoint-map in $ams-breakpoints {
     @if ($ams-breakpoint-key == "xs") {
       @include ams-float($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
     } @else {
@@ -69,5 +69,10 @@
         @include ams-float($ams-breakpoint-key, $ams-breakpoint-map, $ams-column-width);
       }
     }
+  }
+
+  // Fluid container width
+  [am-container~="fluid"] {
+    max-width: none;
   }
 }

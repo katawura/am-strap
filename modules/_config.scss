@@ -35,6 +35,3 @@ $am-strap: (
     )
   )
 ) !default;
-
-// Extract breakpoints from config map
-$ams-breakpoints: map-get($am-strap, "breakpoints");
