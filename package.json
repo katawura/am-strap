@@ -1,5 +1,5 @@
 {
-  "version": "5.0.1",
+  "version": "5.1.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY and modular grid framework built with SCSS using attribute modules and flexbox",
@@ -9,7 +9,7 @@
     "am-strap.scss",
     "modules"
   ],
-  "dependencies": {
+  "devDependencies": {
     "babel": "~6.23.0",
     "babel-preset-es2015": "~6.24.0",
     "babel-register": "~6.24.0",
