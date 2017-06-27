@@ -1,5 +1,5 @@
 {
-  "version": "5.1.0",
+  "version": "5.2.0",
   "name": "am-strap",
   "author": "Rich Cooper",
   "description": "A DRY and modular grid framework built with SCSS using attribute modules and flexbox",

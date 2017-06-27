@@ -1,7 +1,9 @@
 // Loop breakpoints & apply hidden/visible state
 @each $ams-breakpoint-key, $ams-breakpoint-query in $ams-target-breakpoint {
   @media #{$ams-breakpoint-query} {
+    [data-am-hidden~="#{$ams-breakpoint-key}"],
     [am-hidden~="#{$ams-breakpoint-key}"],
+    [data-am-visible]:not([am-visible~="#{$ams-breakpoint-key}"]),
     [am-visible]:not([am-visible~="#{$ams-breakpoint-key}"]) {
       display: none !important;
     }

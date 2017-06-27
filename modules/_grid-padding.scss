@@ -8,28 +8,33 @@
   $ams-breakpoint-map: map-get($ams-breakpoints, $ams-breakpoint-key);
 
   // Horizontal padding & max-width on container
+  [data-am-container],
   [am-container] {
     padding-left: map-get($ams-breakpoint-map, "container-padding");
     padding-right: map-get($ams-breakpoint-map, "container-padding");
   }
 
   // Negative horizontal margin on row
+  [data-am-row],
   [am-row] {
     margin-left: -#{map-get($ams-breakpoint-map, "column-padding")};
     margin-right: -#{map-get($ams-breakpoint-map, "column-padding")};
   }
 
   // Horizontal padding on column
+  [data-am-col],
   [am-col] {
     padding-left: map-get($ams-breakpoint-map, "column-padding");
     padding-right: map-get($ams-breakpoint-map, "column-padding");
   }
 
   // Compress column padding
+  [data-am-row~="compress-#{$ams-breakpoint-key}"],
   [am-row~="compress-#{$ams-breakpoint-key}"] {
     margin-left: 0;
     margin-right: 0;
 
+    & > [data-am-col],
     & > [am-col] {
       padding-left: 0;
       padding-right: 0;
@@ -45,8 +50,11 @@
 }
 
 // Contain padding in grid elements
+[data-am-container],
 [am-container],
+[data-am-row],
 [am-row],
+[data-am-col],
 [am-col] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -54,10 +62,12 @@
 }
 
 // Compress column padding at all breakpoints
+[data-am-row~="compress"],
 [am-row~="compress"] {
   margin-left: 0;
   margin-right: 0;
 
+  & > [data-am-col],
   & > [am-col] {
     padding-left: 0;
     padding-right: 0;
