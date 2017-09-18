@@ -1,17 +1,16 @@
 'use strict';
 
 export default {
-  browserSync: {
-    baseDir: './',
-    files: ['./**/*.{css,html}']
-  },
   clean: [
     'dist'
   ],
   css: {
-    src: 'am-strap.scss',
     dest: 'dist',
-    filename: 'styles.min.css',
-    watch: '**/*.scss'
+    filename: 'app.min.css',
+    src: 'all.scss',
+    watch: '**/*.scss',
+  },
+  server: {
+    files: ['./**/*.{html,css,png,jpg,svg,gif}']
   }
 };
