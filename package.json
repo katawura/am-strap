@@ -1,7 +1,7 @@
 {
-  "version": "4.2.0",
-  "name": "am-strap",
-  "author": "Rich Cooper",
+  "version": "4.2.1",
+  "name": "kfc.am-strap",
+  "author": "Laura Richer",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license" : "MIT",
   "private": true,
