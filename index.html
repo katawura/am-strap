@@ -1,285 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
 
-    <!-- Page -->
-    <title>AM Strap</title>
+  <!-- Page -->
+  <title>AM Strap Test</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/dist/styles.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/dist/app.min.css">
 
-    <!-- Styles -->
-    <style>
-      .Block {
-        min-height: 2rem;
-        margin-bottom: 0.5rem;
-      }
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-      .Block--red {
-        background-color: #d29f9f;
-      }
+    [am-block] {
+      height: 2rem;
+      margin-bottom: 1rem;
+    }
 
-      .Block--blue {
-        background-color: #9eb3d2;
-      }
-    </style>
-  </head>
-  <body>
+    [am-block~="red"] {
+      background-color: #c57070;
+    }
 
-    <!-- Grid -->
-    <div am-container>
-      <h1>Grid</h1>
-      <div am-row>
-        <div am-col="xs-1">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-11">
-          <div class="Block Block--blue"></div>
-        </div>
+    [am-block~="blue"] {
+      background-color: #7092c5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grid test -->
+  <div am-container>
+    <h1>Grid</h1>
+    <div am-row>
+      <div am-col="lg-1 sm-2 xs-3">
+        <div am-block="red"></div>
       </div>
-      <div am-row>
-        <div am-col="xs-2">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-10">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-3">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-9">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-4">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-8">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-5">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-7">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-6">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-6">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-7">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-5">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-8">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-4">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-9">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-3">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-10">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-2">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-11">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-1">
-          <div class="Block Block--blue"></div>
-        </div>
+      <div am-col="lg-11 sm-10 xs-9">
+        <div am-block="blue"></div>
       </div>
     </div>
-
-    <!-- Push/pull -->
-    <div am-container>
-      <h1>Push/pull</h1>
-      <div am-row>
-        <div am-col="xs-1" am-push="xs-11">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-11" am-pull="xs-1">
-          <div class="Block Block--blue"></div>
-        </div>
+    <div am-row>
+      <div am-col="lg-2 sm-3 xs-4">
+        <div am-block="red"></div>
       </div>
-      <div am-row>
-        <div am-col="xs-2" am-push="xs-10">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-10" am-pull="xs-2">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-3" am-push="xs-9">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-9" am-pull="xs-3">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-4" am-push="xs-8">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-8" am-pull="xs-4">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-5" am-push="xs-7">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-7" am-pull="xs-5">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-6" am-push="xs-6">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-6" am-pull="xs-6">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-7" am-push="xs-5">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-5" am-pull="xs-7">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-8" am-push="xs-4">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-4" am-pull="xs-8">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-9" am-push="xs-3">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-3" am-pull="xs-9">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-10" am-push="xs-2">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-2" am-pull="xs-10">
-          <div class="Block Block--blue"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-11" am-push="xs-1">
-          <div class="Block Block--red"></div>
-        </div>
-        <div am-col="xs-1" am-pull="xs-11">
-          <div class="Block Block--blue"></div>
-        </div>
+      <div am-col="lg-10 sm-9 xs-8">
+        <div am-block="blue"></div>
       </div>
     </div>
-
-    <!-- Offset -->
-    <div am-container>
-      <h1>Offset</h1>
-      <div am-row>
-        <div am-col="xs-12" am-offset="xs-0">
-          <div class="Block Block--red"></div>
-        </div>
+    <div am-row>
+      <div am-col="lg-3 sm-4 xs-5">
+        <div am-block="red"></div>
       </div>
-      <div am-row>
-        <div am-col="xs-11" am-offset="xs-1">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-10" am-offset="xs-2">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-9" am-offset="xs-3">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-8" am-offset="xs-4">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-7" am-offset="xs-5">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-6" am-offset="xs-6">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-5" am-offset="xs-7">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-4" am-offset="xs-8">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-3" am-offset="xs-9">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-2" am-offset="xs-10">
-          <div class="Block Block--red"></div>
-        </div>
-      </div>
-      <div am-row>
-        <div am-col="xs-1" am-offset="xs-11">
-          <div class="Block Block--red"></div>
-        </div>
+      <div am-col="lg-9 sm-8 xs-7">
+        <div am-block="blue"></div>
       </div>
     </div>
-  </body>
+    <div am-row>
+      <div am-col="lg-4 sm-5 xs-6">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-8 sm-7 xs-6">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+    <div am-row>
+      <div am-col="lg-5 sm-6 xs-7">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-7 sm-6 xs-5">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+    <div am-row>
+      <div am-col="lg-6 sm-7 xs-8">
+        <div am-block="red"></div>
+      </div>
+      <div am-col="lg-6 sm-5 xs-4">
+        <div am-block="blue"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form test -->
+  <div am-container>
+    <h1>Form</h1>
+    <form name="contact" novalidate autocomplete="off">
+      <input type="text" placeholder="Your name" am-form="input" required>
+      <input type="email" placeholder="Email address" am-form="input" required>
+      <textarea name="message" placeholder="Message" am-form="textarea"></textarea>
+      <div am-form="select">
+        <select>
+          <option selected="true" disabled="disabled">--Select--</option>
+          <option value="Option 1">Option 1</option>
+         <option value="Option 2">Option 2</option>
+        </select>
+      </div>
+      <div am-form="checkbox">
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1"></label>
+        <label for="checkbox1">Accept our terms and conditions</label>
+      </div>
+      <button type="submit" am-btn="fill tick">Submit</button>
+      <a href="" am-btn="ghost arrow">Reset</a>
+    </form>
+  </div>
+
+</body>
 </html>
