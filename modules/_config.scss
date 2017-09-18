@@ -4,34 +4,34 @@ $am-strap: (
   "grid-type": "flexbox",
   "breakpoints": (
     "xs": (
-      "breakpoint": 0px,
-      "column-padding": 1rem,
-      "container-padding": 1rem,
-      "container-max-width": false
+      "container": fluid,
+      "padding": 1rem,
+      "width": 0px
     ),
     "sm": (
-      "breakpoint": 420px,
-      "column-padding": 1rem,
-      "container-padding": 1rem,
-      "container-max-width": false
+      "container": fluid,
+      "padding": 1rem,
+      "width": 420px
     ),
     "md": (
-      "breakpoint": 768px,
-      "column-padding": 1rem,
-      "container-padding": 1rem,
-      "container-max-width": true
+      "container": set,
+      "padding": 1.5rem,
+      "width": 768px
     ),
     "lg": (
-      "breakpoint": 992px,
-      "column-padding": 1rem,
-      "container-padding": 1rem,
-      "container-max-width": true
+      "container": set,
+      "padding": 1.5rem,
+      "width": 992px
     ),
     "xl": (
-      "breakpoint": 1200px,
-      "column-padding": 1rem,
-      "container-padding": 1rem,
-      "container-max-width": true
+      "container": set,
+      "padding": 1.5rem,
+      "width": 1280px,
+    ),
+    "xxl": (
+      "container": set,
+      "padding": 1.5rem,
+      "width": 1440px
     )
   )
 ) !default;

@@ -9,16 +9,19 @@ $only-lg: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, lg), 
 $only-xl: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, xl), breakpoint)})";
 
 // Target below breakpoint
+$below-xs: "only screen and (max-width: #{map-get(map-get($am-breakpoints, xs), width) - 1px})";
 $below-sm: "only screen and (max-width: #{map-get(map-get($ams-breakpoints, sm), breakpoint) - 1px})";
 $below-md: "only screen and (max-width: #{map-get(map-get($ams-breakpoints, md), breakpoint) - 1px})";
 $below-lg: "only screen and (max-width: #{map-get(map-get($ams-breakpoints, lg), breakpoint) - 1px})";
 $below-xl: "only screen and (max-width: #{map-get(map-get($ams-breakpoints, xl), breakpoint) - 1px})";
 
 // Target above breakpoint
+$above-xs: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xs), width)})";
 $above-sm: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, sm), breakpoint)})";
 $above-md: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, md), breakpoint)})";
 $above-lg: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, lg), breakpoint)})";
 $above-xl: "only screen and (min-width: #{map-get(map-get($ams-breakpoints, xl), breakpoint)})";
+$above-xxl: "only screen and (min-width: #{map-get(map-get($am-breakpoints, xxl), width)})";
 
 // Target ipad
 $ipad-portrait: "all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)";
