@@ -1,7 +1,7 @@
 {
   "version": "4.2.1",
-  "name": "kfc.am-strap",
-  "author": "Laura Richer",
+  "name": "Intoware.am-strap",
+  "author": "Kelvin Atawura",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license": "MIT",
   "private": false,
