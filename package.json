@@ -4,7 +4,7 @@
   "author": "Laura Richer",
   "description": "A DRY modular styling framework built with SCSS using attribute modules",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "files": [
     "all.scss",
     "modules"
